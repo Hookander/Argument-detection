@@ -1,0 +1,664 @@
+﻿N;L;PAROLES;Dimension Dialogique;Dimension Epistémique
+1;L3;heu alors vous aviez mis quoi vous comme objectifs du quartier;Q;0
+2;L4;faciliter la vie collaborative;P1;0
+3;L3;ouais;0;0
+4;L4;réduire le prix d’achat d’un logement;P2;0
+5;L3;ouais;0;0
+0006a;L4;c’est directement relationné hum aider la planète, avec la réduction des polluants;P3;0
+7;L3;hum hum;0;0
+8;L4;réduire la consommation d’énergie non renouvelable;P4;0
+9;L3;ok;0;0
+10;L4;et après je n’avais pas le temps pour continuer;0;0
+11;L3;nan mais c’est déjà pas mal et toi t’avais mis quoi;I;0
+12;L2;heu quartier autosuffisant;P5;0
+13;L3;ouais;0;0
+14;L2;on tout est;0;0
+15;L3;ouais ouais tout est de ouais ouais carrément;0;0
+16;L2;on n’a pas besoin de tout est produit localement on n’a pas besoin de heu, on minimise la production de déchets ;Préc;0
+17;L3;ouais;0;0
+18;L2;heu et heu quartier où il fait bon vivre;P6;0
+19;L3;ouais ok;0;0
+20;L2;ouais c’est ça;0;0
+21;L3;d’accord heu moi j’avais mis c’était moins détaillé j’avais juste mis heu que les habitants soient heureux et épanouis;P7;0
+22;L2;d’accord;0;0
+23;L3;mais du coup je trouve que enfin je sais pas toi t’en penses quoi le côté autosuffisant je trouve que ça réunit bien les problématiques;[+];0
+;;;-12;
+24;L2;ouais;0;0
+25;L3;et après heu;0;0
+26;L4;oui la la question c’est qui sont les gens je pense c’est pas tout le monde qui fait ça qui a les choses qui comment je vais dire ça tous les quartiers collaboratifs aujourd’hui font la même chose le but c’est ils utilisent de l’énergie renouvelables;Arg+;FAI
+;;;(P5);(efficacité)
+27;L3;ouais c’est d’être heu plus moins consommateur;[+];0
+;;;-26;
+28;L2;ouais;[+];0
+;;;-27;
+29;L3;donc du coup je peux prendre ton stylo pour écrire;0;0
+30;L4;oui;0;0
+31;L2;tu penses heu oui le fait d’être autosuffisant on va consommer juste ce qui est produit localement;P8;0
+32;L3;ouais et du coup ça réduit forcément;[+];0
+;;;-31;
+33;L2;ouais;0;0
+34;L3;du coup ça te va autosuffisant ?;Q;0
+35;L4;oui;0;0
+36;L3;ok;0;0
+37;L4;on peut créer des listes je pensais;0;0
+38;L3;ouais ouais carrément;0;0
+39;L2;moi aussi j’ai pensé au fait que le coût d’exploitation et de maintenance du quartier il soit raisonnable, c’est dans l’idée autosuffisant on n’aura pas besoin;Préc;0
+40;L3;mais après heu ouais ;[+];0
+;;;-39;
+41;L2;ouais faut qu’il y ait une banque;P9;0
+42;L3;nan mais je trouve ça cool autosuffisant dans le sens où ça t’oblige à faire plein de projets de façon à faire des trucs localement ;Arg+;VA
+;;;(P5);(engagement)
+43;L2;voilà;[+];0
+;;;-42;
+44;L3;et ça oblige les habitants à se bouger pour faire des trucs tu vois;Arg+;VA
+;;;(P5);(engagement)
+45;L2;voilà;[+];0
+;;;-44;
+46;L4;à ton avis quelle catégorie de gens qui cherchent habiter dans un quartier collaboratif;Q;0
+47;L3;moi je pense c’est d’être aussi pas tout seul à faire les trucs en commun tu vois;Arg+;VA
+;;;(P5);(engagement)
+48;L4;Seulement je pense qu’il peut être une personne qui, je pense à je suis seul et je voudrais beaucoup habiter avec qui dans une ambiance collaborative, c’est une idée mais en même temps je pense qui sont les gens qui aiment beaucoup les énergies renouvelables ? ;Q;0
+49;L3;oui;0;0
+50;L2;ouais et je pense qu’il y a beaucoup de personnes dans ce cas et heu beaucoup de citoyens qui veulent se sentir responsables;Arg+;VA
+;;;(P5);(engagement)
+51;L3;ouais;[+];0
+;;;-50;
+52;L2;heu vis-à-vis de l’environnement vis-à-vis de l’économie et donc;Arg+;VA
+;;;(P5);(engagement)
+53;L4;je pense que ça serait bien de mettre ça aussi;[+];0
+;;;-52;
+60;L3;les coûts ?;Q;0
+61;L2;les déchets des produits;Préc;0
+62;L3;ouais et du coup le;0;0
+63;L4;ah oui ça c’est intéressant;[+];0
+;;;-62;
+64;L3;genre recycler au maximum;P10;0
+65;L2;voilà;[+];0
+;;;-64;
+72;L4;c’est pas seulement minimiser mais recycler ;Préc;0
+73;L3;ouais;[+];0
+;;;-72;
+74;L2;voilà justement en recyclant on minimise heu on va soit éviter de d’avoir des emballages inutiles soit recycler pour ne pas jeter donc voilà;Arg+;FAI
+;;;(P10);(efficacité)
+75;L4;oui;[+];0
+;;;-74;
+76;L2;c’est recycler aussi;Préc;0
+77;L3;donc je mets recycler au maximum;0;0
+78;L2;ouais recycler et minimiser la production de déchets parce que par exemple pour la minimiser pour qu’on n’ait même pas besoin de recycler des fois au lieu d’avoir un emballage heu y’a des emballages qui servent à rien on va pas les on va pas utiliser l’emballage puis le recycler parce que le recyclage ça va avoir un coût on va heu d’entrée ne pas avoir d’emballage;Arg+;FAI
+;;;(P10);(efficacité, économique)
+79;L3;non mais carrément;[+];0
+;;;-78;
+80;L2;ouais donc heu;0;0
+81;L3;heu autosuffisance je mets juste entre parenthèses du coup énergie alimentation etc. ?;Q;0
+82;L2;voilà;0;0
+83;L3;je précise ok;0;0
+84;L4;oui ça c’est intéressant;0;0
+85;L3;Energie, alimentation ((écrit));0;0
+86;L2;même service on va avoir heu, on va pas faire appel à un mec  pour bricoler des trucs de bricolage;Préc;0
+87;L3;ouais ouais;[+];0
+;;;-86;
+89;L2;ouais;0;0
+90;L3;et du coup est-ce que moi je peux mettre heu je fais peut-être un peu dictatrice mais sur l’épanouissement enfin qu’il n’y ait pas d’exclusion que ce soit un quartier qui rende vraiment toute sa population et qu’il y ait pas: enfin tu vois que tous les gens soient là aussi pour être épanouis et heureux;P7;0
+91;L2;ouais je pense;[+];0
+;;;-90;
+92;L3;heu au-delà des aspects matériels de recyclage, on fait moins de mal à la planète etc. le côté épanouissement personnel;Préc;0
+93;L2;oui où il fait bon vivre;[+];0
+;;;-92;
+94;L3;voilà c’est ça ouais ;0;0
+95;L2;ouais;0;0
+96;L3;ça te va ?;Q;0
+97;L4;oui c’est bien enfin c’est justement ce que j’avais écrit ici;[+];0
+;;;-92;
+145;L3;Heu alimentation eau et électricité vous avez mis quoi ?;Q;0
+146;L2;c’est l’eau et l’électricité là;0;0
+147;L3;ouais ;0;0
+148;L2;ouais d’accord;0;0
+149;L4;ça dépend de la région à mon avis mais on peut faire l’utilisation des panneaux solaires;P11;0
+150;L3;ouais moi aussi j’ai mis ça;[+];0
+;;;-149;
+151;L4;et énergie du vent;P12;0
+152;L3;ouais;[+];0
+;;;-151;
+153;L4;heu énergie créée à partir d’une force mécanique ça vous dit j’ai j’ai déjà vu ça c’est très intéressant ;P13;0
+154;L3;ah oui bah vas y;[+];0
+;;;-153;
+155;L4;et les piétons les piétons ils marchent;Préc;0
+156;L3;et ça créé de l’énergie;Préc;0
+157;L4;ouais ils créent de l’énergie et on garde cette énergie avec une batterie ou quelque chose comme ça;Préc;0
+158;L3;c’est exactement ce que j’ai mis;[+];0
+;;;-157;
+159;L4;ça c’est très intéressant;0;0
+160;L3;cool ;0;0
+161;L4;alors oui heu;0;0
+0162a;L3;moi j’avais mis éolienne aussi ;[+];0
+;;;-151;
+0162b;L3;les solaires;[+];0
+;;;-149;
+163;L4;ah l’éolienne c’est ça le mot que je cherchais;0;0
+164;L3;et ouais éoliennes j’avais mis mais des jolies éoliennes parce que j’ai vu qu’ils sont en train de développer des éoliennes en forme d’arbres et en fait le vent il fait enfin ils font des fausses feuilles et le vent bouge les feuilles et du coup c’est ça crée de l’énergie;Arg+;FAI
+;;;(P12);(esthétique)
+165;L4;ah c’est pour créer une ambiance ou quelque chose comme ça ?;Q;0
+166;L3;bah c’est du coup c’est joli et en plus ça crée de l’énergie parce que les éoliennes c’est moche;Arg+;FAI
+;;;(P12);(esthétique)
+173;L4;comment comment est-ce qu’on va faire si nous sommes dans une région où il n’y a pas de soleil il n’y a pas de vent;Arg-;FAI
+;;;(P12);(climatique)
+174;L3;comment on fait bah peut-être qu’il y aura de l’eau;Arg+;FAI
+;;;(P12);(climatique)
+175;L2;ouais heu;0;0
+176;L4;de quoi ?;Q;0
+177;L3;de l’eau;0;0
+178;L2;de l’eau et on peut;0;0
+179;L4;ah l’énergie hydr ?;Q;0
+180;L3;hydraulique ouais;Préc;0
+181;L2;hydraulique voilà ;Préc;0
+184;L2;oui après voilà on peut utiliser l’énergie hydraulique pour heu;Arg+;FAI
+;;;(P12);(climatique)
+185;L3;alors je mets électricité;[+];0
+;;;184;
+186;L2;donc heu c’est le même principe que y’a aussi le même principe que les éoliennes on va utiliser les courants ;Arg+;FAI
+;;;(P12);(climatique)
+187;L3;marins;Préc;0
+0192a;L2;on va utiliser c’est un peu le même principe que les éoliennes les hélices elles vont être dans l’eau ;Arg+;FAI
+;;;(P12);(climatique)
+0192b;L2;j’ai pensé moi à l’utilisation des alors dans le même principe que les pour les salles de sport ;P13;0
+193;L3;utiliser la force générée par les;Préc;0
+194;L2;voilà;0;0
+195;L3;ouais;0;0
+196;L2;et les vélos;Préc;0
+197;L3;ouais;0;0
+198;L2;le principe c’est si on se déplace en vélo ;Préc;0
+199;L3;et de garder heu;0;0
+200;L2;ouais on peut recharger son portable;Préc;0
+201;L3;ouaisj’ai ça aussi ouais c’est ce que j’avais mis c’est cool on avait mis les mêmes choses ;[+];0
+;;;-200;
+215;L4;et on peut utiliser l’énergie de l’hydrogène par exemple;P14;0
+216;L3;de l’hydrogène ?;Q;0
+217;L4;c’est;0;0
+218;L2;comment tu fais ça ?;Q;0
+219;L4;c’est un processus où on crée des isotopes d’hydrogène et avec ça il y a une libération d’énergie;Préc;0
+220;L2;oui mais ça c’est du nucléaire du coup;Arg-;FAI
+;;;(P14);(écologique)
+221;L4;ce n’est pas tout à fait nucléaire mais c’est le même principe je crois;Arg+;FAI
+;;;(P14);(écologique)
+222;L2;est-ce que c’est réalisable dans le cadre d’un quartier ?;Q;0
+223;L4;c’est ça que je demande ((utilise son ordinateur)) je pense que oui parce que j’ai déjà vu y’a des voitures qui utilisent ça;Arg+;FAI
+;;;(P14);(Faisabilité)
+224;L3;du coup j’ai mis force mécanique salle de sport déplacements en vélo;0;0
+225;L2;oui heu même les déplacements à pied ça sert à ça c’est le même principe;Préc;0
+226;L3;ouais ok ;[+];0
+;;;-225;
+227;L2;ça va être le même principe;Préc;0
+228;L3;après on peut pas heu tirer tu sais du genre du fait d’avoir des déchets il n’y a pas un moyen d’en tirer de l’énergie;P15;0
+229;L2;heu;0;0
+230;L3;près ça je ne connais pas trop;0;0
+231;L2;oui heu parce que;0;0
+232;L3;parce que ça dégage de la chaleur;Préc;0
+233;L2;voilà ça dégage de la chaleur on va réutiliser ça;Arg+;FAI
+;;;(P15);(efficacité)
+234;L3;je le mets;0;0
+235;L2;ouais on pourrait utiliser aussi réutilisation de la chaleur, je pense j’y réfléchis encore parce que peut-être dans le cadre d’un quartier ce n’est pas important mais si tu as des serveurs vu que tout va être connecté donc tu vas avoir des serveurs les serveurs informatiques et ça produit de la chaleur;P16;0
+236;L3;ah ouais ;[+];0
+;;;-235;
+246;L4;On peut garder l’eau de pluie réutilisation ;P17;0
+0246b;L4;utiliser des équipements qui créent de l’eau à partir des particules qu’on trouve dans l’air;P18;0
+247;L3;ouais;0;0
+248;L4;et fournir par une entreprise responsable;P19;0
+249;L3;ok;0;0
+0250a;L2;alors moi j’ai mis aussi réutilisation des eaux de pluie ;[+];0
+;;;-246;
+0250b;L2;alors heu système d’épuration de l’eau voire un système;P20;0
+251;L3;ouais en circuit fermé qui recycle oui c’est ce que j’ai mis aussi;[+];0
+;;;-251;
+252;L2;pour le jardin les plantes on utilise heu;0;0
+253;L3;eau de pluie ou heu;0;0
+254;L2;heu des systèmes d’arrosage intelligents où tu vas avoir juste ce dont la plante a besoin;P21;0
+263;L4;c’est le quartier collaboratif qui va faire le recyclage de l’eau c’est ça ?;Q;0
+264;P3;bah faudrait essayer;0;0
+265;L2;ça va être un niveau de ouais;0;0
+266;L4;parce que je pense c’est une chose heu quand ils vont faire le traitement de l’eau tous seuls c’est on propose mais je pense que ce n’est pas faisable ça dépend de la taille du quartier;Arg-;FAI
+;;;(P20);(taille)
+267;L3;ouais bah après du coup;0;0
+268;L2;ouais c’est vrai oui c’est vrai oui;[+];0
+;;;-266;
+269;L3;mais comme là on est dans le truc idéal et on ne réfléchit pas à la faisabilité mais juste à des idées;Arg+;FAI
+;;;(P20);(faisabilité)
+281;L3;toi tu disais récolter l’eau dans les particules d’air c’est ça;Q;0
+282;L4;oui on;0;0
+283;L2;c’est pas faisable;Arg-;FAI
+;;;(P18);(faisabilité)
+0284a;L4;c’est faisable ;Arg+;FAI
+;;;(P18);(faisabilité)
+0284b;L4;la question c’est tu ne peux pas utiliser ça tout le temps parce que tu vas réduire l’humidité de l’air;Arg-;FAI
+;;;(P18);(faisabilité)
+285;L3;ah oui du coup:;0;0
+286;L4;après tu vas avoir un désert;Arg-;VA
+;;;(P18);(écologique)
+287;L2;et heu;0;0
+288;L3;et toi t’étais ah oui utilisation de systèmes intelligents c’est ça ?;?;0
+289;L2;d’arrosage intelligents oui;Préc;0
+290;L4;poser des microprocesseurs c’est ça poser des petits systèmes embarqués pour contrôler les choses ?;?;0
+291;L2;c’est pas on n’a pas besoin de système embarqué c’est un système vu que les plantes heu elles sont dans un même environnement elles ont un même besoin tu as juste un capteur qui va détecter dans le niveau il va détecter le niveau d’humidité la température et aussi au niveau du sol les minéraux et tout et heu voilà c’est pas vraiment… déjà il y en a pour des usages domestiques il y a déjà des systèmes heu des objets connectés pour un pot de fleurs pour que tu saches si elles sont bien;Arg+;FAI
+;;;(P21);(utilité)
+292;L3;pour savoir à quel moment il faut que t’arroses ta plante et de combien;Arg+;FAI
+;;;(P21);(utilité)
+293;L2;voilà ouais voilà;[+];0
+;;;-292;
+294;L3;est-ce que vous aviez d’autres trucs pour l’eau ?;Q;0
+295;L4;seulement des que c’est fourni par une entreprise responsable;P19;0
+296;L3;ok je mets ça dans quoi du coup ? ah pour récolter l’eau de l’air ?;Q;0
+297;L4;ah oui aussi ça tu as déjà posé ça ?;Q;0
+298;L3;non justement je ne l’ai pas mis je vais le mettre là;Préc;0
+299;L4;et dans les pires cas où il n’y a pas de possibilité de trouver de manière renouvelable de l’eau on va acheter;P23;0
+300;L2;pardon;Q;0
+301;L4;s’il n’y a pas possibilité de prendre de l’eau de manière renouvelable on va acheter de l’eau ;Préc;0
+302;L2;ah ouais donc on peut utiliser le… voilà donc… heu j’ai juste une remarque concernant la technique de là où on récupère l’eau de l’air;Q;0
+307;L2;faut qu’on se dépêche mais bon juste pour dire pour l’idée peut-être que est-ce que c’est qu’on peut produire une grande quantité ou pour le coût;Q;0
+308;L4;oui je pense j’ai déjà vu de petites machines qui ont produit pour une famille de 5 personnes ;Arg+;FAI
+;;;(P18);(efficacité)
+309;L2;d’accord;0;0
+310;L4;alors si chaque personne il a une machine comme ça;Arg+;FAI
+;;;(P18);(efficacité)
+311;L3;ouais;0;0
+312;L2;d’accord;0;0
+313;L3;bah du coup de manière raisonnée pour pas que ça assèche trop l’air;Arg-;VA
+;;;(P18);(écologique)
+314;L4;oui la question c’est l’humidité de l’air dans ambiance où l’humidité est de 100% c’est pas mal mais si tu comptes c’est 32% c’est impossible de faire;Arg+;FAI
+;;;(P18);(efficacité)
+315;L3;ok alors ressources partageables;0;0
+316;L4;ça c’est;0;0
+317;L3;moi je trouve que tout est partageable;P24;0
+0318a;L4;oui j’ai écrit ici toutes les ressources énergétiques ;P25;0
+0318b;L4;tous les moyens de transport ;P26;0
+0318c;L4;mais on peut avoir des éléments privés;P27;0
+319;L3;ouais j’ai mis aussi les outils ouais;P28;0
+320;L4;et avec une quantité limitée pour chaque personne heu en créant un réseau d’outils basiques à mon avis c’est créer un bâtiment;P29;0
+321;L3;ouais avec plein d’outils oui;[+];0
+;;;-320;
+322;L4;oui et tu peux prêter et tu peux emprunter des choses et en même temps c’est je ne sais pas si on fait une personne responsable pour acheter les choses pour remplir le stock ou si c’est les personnes eux-mêmes;P30;0
+323;L3;qui achètent ouais bah je sais pas après ça c’est du détail;0;0
+330;L2;heu oui transport heu et on pourrait avoir par exemple des vélos disponibles;Préc;0
+331;L3;ouais ouais;[+];0
+;;;-330;
+332;L4;comme les vélib;Préc;0
+333;L3;alimentation aussi ?;Q;0
+334;L2;hum;0;0
+335;L3;alimentation;Q;0
+336;L2;heu;0;0
+337;L3;je ne sais pas moi je pensais à des potagers et du coup tout le monde travaille dedans et du coup tout le monde se sert aussi quoi;P31;0
+338;L4;c’est compliqué l’alimentation je sais pas ce qui;[-];0
+;;;-337;
+339;L3;ok mais si vous avez des réserves y a pas de problèmes;Arg+;FAI
+;;;(P31);(organisation)
+340;L2;l’alimentation ça va être genre les légumes à partager des ressources heu est-ce qu’on va partager genre des légumes ?;Q;0
+341;L3;bah ouais c’était plus là-dedans tu vois mais heu;Préc;0
+342;L2;oui c’est possible là mais est-ce que là on parle heu oui parce que là quand on parle de ressources partageables c’est pas forcément gratuit donc heu;Q;0
+343;L3;ouais ça peut enfin c’est pour ça que ça peut être un peu tout quoi;Préc;0
+344;L2;donc voilà moi j’avais noté les outils de bricolage de jardinage;P28;0
+345;L3;ouais ça on a mis;[+];0
+;;;-344;
+346;L2;heu du jardinage les matériels de sport heu matériel comme un tapis heu genre un tapis ;P32;0
+347;L3;ouais;[+];0
+;;;-346;
+348;L2;ouais c’est des machines voilà on peut;Préc;0
+349;L3;après moi je pensais heu les dans le genre immatériel les savoirs qui peuvent être partagés avec des ateliers;P33;0
+350;L4;oui j’ai pensé la même chose des;[+];0
+;;;-349;
+351;L2;voilà des;0;0
+352;L3;des mélanges de savoirs;Préc;0
+353;L4;des workshops c’est ça ?;Q;0
+354;L3;ouais ;0;0
+355;L2;ouais les vidéos comme c’est comme les vidéos là;Préc;0
+356;L3;comme les tutoriels ouais;Préc;0
+357;L2;ouais les tutoriels de comment faire;Préc;0
+362;L2;donc heu ouais tutoriels cours particuliers;Préc;0
+363;L3;ouais voilà après moi je pensais, mais j’étais vraiment dans le genre partage partage du coup tous les trucs qui sont produits dans le quartier qui peuvent être vendus ailleurs, enfin tout ce qui génère des gains que cet argent en fait il soit partagé pour le projet en fait;P34;0
+364;L2;voilà moi j’avais mis ça dans système monétaire ;[+];0
+;;;-363;
+369;L3;ouais du coup ressources non partageables ?;Q;0
+370;L4;j’ai écrit les meubles de chacun;P35;0
+375;L3;moi j’ai mis tout ce que c’était enfin tout ce que les gens ne voulaient pas partager;P36;0
+376;L2;ouais donc voilà j’ai mis aussi alors les sanitaires les trucs comme ça;P37;0
+377;L3;tu peux partager ! tu peux avoir tu peux partager ta douche tu partages ta douche chez toi;Arg-;VA
+;;;(P37);(partage)
+378;L2;oui mais avec beaucoup de personnes c’est peut-être heu;Arg+;VA
+;;;(P37);(partage)
+379;L4;c’est bizarre;Arg+;VA
+;;;(P37);(partage)
+380;L2;c’est limite oui;Arg+;VA
+;;;(P37);(partage)
+381;L3;ouais je sais pas ;0;0
+382;L2;pas avec tout le monde;Arg+;VA
+;;;(P37);(partage)
+383;L3;ok alors je mets sanitaires;[+];0
+;;;-376;
+384;L2;les vêtements j’ai mis ça aussi;P38;0
+385;L4;ouais;0;0
+386;L3;bah tu peux emprunter une chemise à ton pote tu vois;Arg-;VA
+;;;(P38);(partage)
+387;L2;euh ouais je voyais ça  plus dans par exemple dans un truc de ski tu peux emprunter un truc de ski mais une chemise peut-être ça sera non ;Arg+;VA
+;;;(P38);(partage)
+388;L3;peut-être pas un caleçon tu vois mais si admettons ou un costume tu vois si tu as un rendez-vous important et que tu n’as pas de costume;Arg-;VA
+;;;(P38);(partage)
+389;L2;ouais ouais c’est vrai;[+];0
+;;;-388;
+390;L4;oui c’est ça c’est ça;[+];0
+;;;-388;
+391;L3;après on peut mettre moi j’avais mis genre les souvenirs de famille ou les objets de famille parce que bon ça ne se partage pas tu vois;P39;0
+392;L4;oui j’ai voulu mettre ça aussi;[+];0
+;;;-391;
+393;L2;moi j’avais noté il faut que le partage ne crée pas un… il crée pas un impact économique négatif dans il faut que par exemple heu si on partage heu;P40;0
+394;L4;ah oui pour pas éviter d’acheter des choses;0;0
+395;L2;oui sinon voilà il faut que le partage je ne sais pas si tu me suis;Préc;0
+396;L4;il faut avoir des ;0;0
+397;L3;ouais mais après pas forcément;0;0
+398;L2;pas forcément par exemple heu si y’a si on partage un truc d’artiste ou d’un écrivain ou si on a qu’un seul livre au niveau du quartier ça va pas;Préc;0
+399;L3;il y aura une bibliothèque;P41;0
+400;L2;voilà ça va pas être heu voilà c’était un peu ça l’idée;[+];0
+;;;-399;
+401;L3;ouais je vois ce que tu veux dire bah tu veux qu’on mette ça du coup en gros heu il faut un partage en gros moi c’est ce que j’avais un peu mis dans l’idée c’est que genre enfin tout est partageable tant que chacun a ce qu’il veut enfin tu vois ce que je veux dire ? tant que chacun a ce dont il a besoin;P24;0
+402;L2;voilà;[+];0
+;;;-401;
+420;L3;alors lieux collaboratifs;Q;0
+421;L2;alors j’ai pensé bon on aura une bibliothèque ;P42;0
+422;L4;j’ai dans ma tête quelque chose;0;0
+423;L3;ok;0;0
+424;L2;alors on aura une bibliothèque ;0;0
+425;L3;ouais;[+];0
+;;;-421;
+426;L2;c’est clair on aura un jardin potager;P43;0
+427;L3;ouais ça j’ai mis aussi un jardin;[+];0
+;;;-426;
+428;L2;un jardin dans un jardin genre dans un parc  ;Préc;0
+429;L3;ouais parc ouais;[+];0
+;;;-428;
+430;L2;ouais heu;0;0
+431;L3;alors une bibliothèque aussi ?;Q;0
+432;L2;ouais on aura;0;0
+433;L3;heu vidéothèque je peux mettre cinéma;P44;0
+434;L2;ouais j’ai mis aussi heu alors heu: espace d’art on aura un espace d’art genre ;P45;0
+435;L3;ouais;[+];0
+;;;-434;
+436;L2;y’aura heu des expositions par exemple;Préc;0
+437;L3;galerie d’art ((écrit);0;0
+438;L2;on aura un espace créativité genre;P46;0
+439;L3;ouais ouais ouais un espace genre un espace où tu peux faire des ateliers ouais;Préc;0
+440;L2;atelier voilà ;Préc;0
+441;L4;espace pour faire du bricolage;Préc;0
+442;L2;voilà;Préc;0
+443;L3;ouais atelier bricolage dessin: ;Préc;0
+444;L2;atelier voilà tu as tout tu peux mettre heu:;Préc;0
+445;L3;moi je pensais heu une salle de sport aussi;P47;0
+446;L2;voilà salle de sport;[+];0
+;;;-445;
+447;L4;un gymnase nan ?;Préc;0
+448;L3;ouais;Préc;0
+449;L2;terrain de jeux;Préc;0
+0450a;L3;gymnase terrain ((écrit)) heu: . ;Préc;0
+0450b;L3;et je pensais j’avais pensé aussi à une laverie;P48;0
+451;L4;c’est quoi une laverie;Q;0
+452;L3;là pour laver son linge en fait ;Préc;0
+453;L3;oui;[+];0
+;;;-452;
+454;L2;heu et j’avais mis quoi: une salle informatique;P49;0
+455;L3;heu oui;0;0
+456;L2;ça va avec atelier mais heu;0;0
+457;L4;oui ça;0;0
+458;L2;ça peut être avec pour avoir heu;0;0
+459;L3;bah pour ceux qui n’ont pas d’ordinateur;Préc;0
+460;L2;salle de jeux ;P50;0
+461;L3;ouais;[+];0
+;;;-460;
+462;L2;ou bien salle de jeux aussi une salle de jeux heu soit jeux vidéo ou bien jeux de société;Préc;0
+463;L3;ouais;[+];0
+;;;-462;
+464;L4;on fait un grand espace avec des consoles;Préc;0
+465;L2;voilà ou bien ou des jeux par exemple de: . jeux de société aussi;Préc;0
+466;L3;heu moi j’avais pensé à un observatoire aussi pour regarder les étoiles;P51;0
+467;L2;ouais ça c’est bien;[+];0
+;;;-466;
+468;L4;ouais oui c’est un peu excentrique c’est ça;[+];0
+;;;-466;
+0469a;L3;excentrique ouais observatoire ((écrit)) ;0;0
+0469b;L3;et j’avais pensé à un café un peu tu sais je sais pas si vous connaissez il y a un café qui a ouvert à Paris où c’est un anti-café ;P52;0
+0469c;L3;parce qu’en fait tu payes genre 4 euros l’heure enfin ouais c’est par heure et tu te sers autant que tu veux de ce qu’il y a et du coup tu restes pour travailler quand tu as besoin de travailler tu vois un espace heu;Arg+;FAI
+;;;(P52);(utilité)
+470;L2;ouais un espace;[+];O55
+481;L3;ok je pensais à un musée alors un musée un peu collaboratif où chacun met les objets qui sont importants pour lui je me disais que ça pouvait être marrant;P53;0
+482;L2;heu ouais;[+];0
+;;;-482;
+483;L3;alors les habitations;Q;0
+484;L2;les habitations alors ;0;0
+485;L3;bah en fait je pensais à une maison avec une grande cour;P54;0
+486;L2;oui;0;0
+487;L3;et genre tout le rez-de-chaussée c’est les espaces communs ;P55;0
+488;L3;et au-dessus c’est les logements individuels;P56;0
+0489a;L3;et tout autour il y a un parc ou des jardins et y’a du compost;P57;0
+0489b;L3;ah c’est cool et ouais avec genre un poulailler ;P58;0
+0489c;L3;des garages à vélo ;P59;0
+0489d;L3;des éoliennes;P12;0
+0489e;L3;heu des réservoirs d’eau de pluie un compost;P60;0
+490;L2;oui moi j’avais pensé heu des maisons éclairées y’aura beaucoup de lumière;P61;0
+491;L3;ouais enfin tu veux dire avec des fenêtres ?;Q;0
+492;L2;ouais de grandes fenêtres et genre et on aura une vue heu disons on aura toujours une vue sur genre on aura une vue avec un;P62;0
+493;L3;Dégagée ?;Q;0
+494;L2;dégagée voilà on n’aura pas un bâtiment en face ;Préc;0
+495;L3;ouais ok;[+];0
+;;;(;
+496;L2;j’ai pensé à un  alors un système où il y aura un jardin à chaque étage;P63;0
+497;L3;ouais;0;0
+498;L2;genre jardin potager ou peut être;Préc;0
+499;L3;carrément dans la maison ?;Q;0
+500;L2;voilà y’aura genre;0;0
+501;L3;avec une serre en fait une sorte de serre;Préc;0
+502;L2;nan nan y’aura tu sais au niveau ça va être au niveau du balcon ou bien y’aura un gros un grand balcon genre terrasse;Préc;0
+503;L3;ok ça te va ?;Q;0
+504;L3;après du coup heu voilà qu’est-ce qu’il y a d’autre à mettre panneaux solaires sur le toit ?;P64;0
+505;L2;heu oui ;0;0
+506;L4;oui;0;0
+507;L2;panneaux solaires heu;0;0
+508;L3;ceci dit le toit il peut aussi servir si c’est un toit plat il peut servir aussi à mettre un jardin ou faire un espace;P65;0
+531;L2;voilà un jardin voilà moi j’ai pensé à ouais j’aurai pensé genre l’environnement autour du;Préc;0
+532;L3;ouais bah autour du jardin du coup;[+];0
+;;;-531;
+537;L2;genre tu auras des espaces verts à côté du bâtiment heu autour de la maison;Préc;0
+538;L3;on peut mettre un poulailler;Préc;0
+539;L2;une ferme ouais mais justement il va y avoir vu que ça va être on vise voilà on va viser un quartier autosuffisant donc il y a ce genre de choses une ferme un poulailler et tout et ça pourra être tout ça va être au centre par exemple ou bien et on va ça va les genre les maisons elles vont entourer cet espace vert;Préc;0
+540;L3;d’accord ;[+];0
+;;;-539;
+541;L2;ou bien;0;0
+542;L3;ok du coup j’ai mi que c’était autour j’ai mis un réservoir d’eau de pluie ici;Préc;0
+543;L2;oui heu moi je vois ça genre heu j’avais pensé je ne sais pas si c’est vraiment faisable genre on aura genre on aura un lac;P66;0
+544;L3;ouais;0;0
+545;L2;on aura;0;0
+546;L4;de quoi;0;0
+547;L3;un lac un étang une marre tu sais un espace d’eau;Préc;0
+548;L2;lake;0;0
+549;L4;ah un lac étang;0;0
+550;L3;oui étang ok;0;0
+551;L2;voilà;0;0
+552;L3;avec un peu d’eau quoi;Préc;0
+553;L2;voilà ça va être:;0;0
+554;L3;lac ou rivière;Préc;0
+555;L2;voilà à la limite ça va être un truc artificiel mais ça va heu: ça va créer un: on va créer heu: y’aura un petit écosystème où il y aura des animaux genre;Préc;0
+556;L3;ouais;[+];0
+;;;-555;
+564;L2;ouais les systèmes d’échange;Q;0
+565;L3;vas-y t’avais;0;0
+566;L4;je ne sais pas comment on dit ça des bectchs;P67;0
+567;L3;ah des badges;0;0
+568;L4;je ne sais pas si c’est le même mot que en anglais;0;0
+569;L3;ouais c’est badge ouais;0;0
+570;L4;c’est donner des badges à des personnes qui font de petits défis par exemple économiser une certaine quantité ils pourront;Préc;0
+571;L2;moi j’ai pensé heu à on va avoir une monnaie locale;P68;0
+572;L3;ouais;[+];0
+;;;-571;
+573;L4;il y en a déjà une;Arg-;FAI
+;;;(P68);(utilité)
+574;L3;ouais les deux ne sont pas incompatibles;Arg+;FAI
+;;;(P68);(utilité)
+0575a;L2;et moi ouais justement elles ne sont pas incompatibles justement elles vont pas être incompatibles ;Arg+;FAI
+;;;(P68);(utilité)
+0575b;L2;je termine ça va être une monnaie électronique ;Préc;0
+0575c;L2;donc ça va nous éviter d’imprimer à la manière du bitcoin;Arg+;FAI
+;;;(P68);(praticité)
+0575d;L2;et ça va permettre justement d’échanger voilà ça va être on va échanger entre genre le fermier va échanger avec le menuisier voilà;Arg+;FAI
+;;;(P68);(utilité)
+576;L3;oui et et;[+];0
+;;;(0575d);
+577;L2;voilà et on aura par exemple ça va être pour c’est compatible avec ton idée genre on va avoir on va on pourra genre si on économise si on fait moins de déchets ou bien si voilà on produit plus d’électricité pour le village on gagnera de l’argent;Arg+;FAI
+;;;(P68);(économique)
+578;L3;ouais ça j’ai mis du coup le système de badges pour la réussite de défis comme réduire de tant sa consommation d’énergie etc. ;[+];0
+;;;-577;
+579;L4;oui mais c’est pas seulement ça en fait mon idée de créer un badge c’est pour trouver une personne qui peut gagner plus de pouvoir pour faire des décisions tu comprends;P69;0
+580;L3;Ah mais tu veux toi tu veux qu’il y ait un chef en fait ?;Q;0
+581;L4;non ce n’est pas un chef c’est une personne qui va faire plus de choses pour la communauté tu comprends;Préc;0
+582;L2;ah;0;0
+583;L4;c’est plus comme une personne qui;0;0
+584;L3;c’est pour la remercier de ce qu’elle fait ?;Q;0
+585;L4;oui exactement ;Préc;0
+586;L3;d’accord;0;0
+587;L2;heu heu on peut discuter de ça deux secondes;Q;0
+588;L4;ce n’est pas un pouvoir des choses ce n’est pas créer pas une hiérarchie de pouvoirs tu comprends ;Arg+;VA
+;;;(P69);(relations sociales)
+589;L3;hum d’accord;0;0
+590;L4;c’est seulement la méritocratie;Préc;0
+591;L3;ouais c’est c’est une rétribution;Préc;0
+592;L4;oui c’est la méritocratie;[+];0
+;;;-591;
+593;L3;ouais;0;0
+594;L2;on pourrait on pourrait mettre heu c’est un c’est moi je vois ça de deux façons soit que la monnaie locale bon on va utiliser une monnaie locale électronique pour échanger juste les biens entre . entre les habitants et on pourra monétiser heu système de badge ça va pas c’est c’est ça va pas avoir il ne va pas avoir plus de décisions;P70;0
+598;L3;nan nan il ne voulait pas dire plus de décisions il voulait dire;Préc;0
+599;L2;juste un classement heu;Préc;0
+600;L4;c’est un classement mais;Préc;0
+601;L2;genre meilleur villageois du mois c’est ça ?;Q;0
+602;L3;oui c’est ça c’était dans ce sens-là;Préc;0
+603;L2;d’accord;[+];0
+;;;-603;
+627;L2;alors j’ai imaginé bon les idées que j’ai en tête ça va être heu des événements ;0;0
+628;L3;bah vas-y dis ce que tu as marqué;0;0
+629;L2;des événements climatiques ;P71;0
+630;L3;ouais;0;0
+631;L2;on va avoir heu soit on ne va pas avoir d’eau soit on ne va pas avoir d’énergie solaire donc y’aura une baisse d’énergie heu;Préc;0
+632;L3;ok donc manque de soleil ((écrit));0;0
+633;L2;d’une ressource soleil voilà ou vent ;Préc;0
+634;L3;alors comment réagir;Préc;0
+635;L2;ouais comment réagir heu genre j’ai pensé aussi par exemple on a par exemple un menuisier ou dans le village ou des responsables ou bien heu voilà il est resp- ou bien un plombier ou bien un truc il est pas il est malade ou pas disponible et tout heu donc les villageois doivent s’organiser;P72;0
+636;L3;je mets manque de personnes compétentes ;Préc;0
+637;L2;voilà;[+];0
+;;;-636;
+638;L3;pour effectuer certaines tâches;Préc;0
+639;L2;ouais;[+];0
+;;;-538;
+640;L4;oui on fait c’est intéressant si on a un événement où il y a des personnes qui trichent tout le temps;P73;0
+641;L3;personnes qui trichent avec le système c’est ça ((écrit));Préc;0
+642;L4;oui c’est je ne sais pas comment dire ça mais c’est les personnes qui veulent essayer de gagner tout le temps;Préc;0
+0643a;L3;ok après heu: moi c’était plus festif ce que j’avais mis . j’avais mis que l’organisation parce que c’était politique ou autre j’avais mis bah organiser un carnaval qui mobilise un peu tous les gens du quartier ;P74;0
+0643b;L3;pour faire un truc ensemble ou tu vois ou un festival ou un truc;Arg+;VA
+;;;(P74);(relations sociales)
+0643c;L3;j’avais mis un festival aussi de je ne sais pas quoi mais qui fait qu’il y a plein d’autres écoquartiers qui viennent enfin c’est un échange voilà ;P75;0
+0643d;L3;et j’avais mis qu’il allait y avoir l’adoption genre d’une constitution du quartier tu vois une sorte de charte de règles de vie et du coup ça donnerait lieu chaque année à des débats pour l’améliorer;P76;0
+644;L2;d’accord;0;0
+645;L3;voilà;0;0
+646;L2;il faudrait que tu notes les;0;0
+647;L3;je mets ?;0;0
+648;L2;ouais festivals les congrès heu oui pour;Préc;0
+0649a;L3;((écrit)) délégations étrangères je mets événements diplomatiques;Préc;0
+0649b;L3;heu adoption d’une constitution chaque année révision et débats de celle-ci ?;Q;0
+654;L2;ah ouais je pense que c’est peut-être un peu fort la constitution juste heu;Arg-;VA
+;;;(P76);(acceptabilité)
+655;L3;constitution ou heu alors charte de vie ?;Q;0
+656;L2;voilà et heu moi ce que je veux c’est plus des échanges heu les échanges entre les quartiers ;Préc;0
+657;L3;ouais;0;0
+658;L2;ceux qui ont les meilleures idées les meilleurs donc ça va être une sorte de compétition entre ceux qui ont produit le moins;Préc;0
+659;L3;ouais là échange des idées ((écrit));[+];0
+;;;-658;
+660;L2;voilà échange des idées genre ceux qui ont le plus innové en matière de;Préc;0
+661;L3;Concours ?;Q;0
+662;L2;ouais concours donc à chaque fois donc on aura des points à chaque fois les;Préc;0
+663;L4;je pense qu’on peut considérer un événement chaotique;P77;0
+664;L3;un évènement quoi;0;0
+665;L4;chaotique;0;0
+666;L3;ouais;0;0
+667;L2;incendie heu;Préc;0
+668;L4;il manque de l’eau;Préc;0
+669;L3;ça ça on a mis;Préc;0
+670;L4;il y a une révolution il y a de la guerre par exemple;Préc;0
+671;L3;ce n’est pas très gai votre truc ;0;0
+672;L2;ouais c’est;0;0
+673;L3;je peux mettre incendie hein ?;Préc;0
+674;L4;Quoi ?;0;0
+675;L3;incendie quoi il y a un grand feu;Préc;0
+676;L2;ouais incendie;0;0
+677;L4;non incendie c’est un cas particulier non j’ai dit des choses qui n’est pas des choses incertaines tout ce qui va de la guerre ou il y a des pénuries de plein de choses;Préc;0
+678;L3;ouais j’ai mis ça d’ailleurs pénurie ça serait un meilleur mot;Préc;0
+679;L4;un incendie c’est un autre truc il est intéressant de poser ! ça aussi;Préc;0
+680;L3;ouais bah du coup tu vois là j’ai mis du coup événements dramatiques;Préc;0
+681;L2;ouais incendie inondations genre les trucs les;Préc;0
+682;L4;xx;0;0
+683;L3;bah on peut mettre séisme hein;Préc;0
+691;L3;ouais du coup numérique ;0;0
+692;L2;numérique ouais;0;0
+693;L3;toi tu avais une bonne idée de réseau c’est ça ?;0;0
+694;L4;oui c’est un réseau de besoins en fait tu peux dire j’ai besoin de ça et la personne comme ça vont l’aider;P78;0
+695;L3;ouais un réseau d’échange en fait;Préc;0
+699;L2;on va ce qu’on va faire c’est ça va être voilà c’est ça pour avoir tout le temps de la disponibilité d’outils;Préc;0
+700;L3;ouais;[+];0
+;;;-694;
+701;L2;des outils des ressources et on va avoir des afficheurs intelligents heu un affichage à la maison on aura par exemple là la perceuse ((mime)) genre tu as la perceuse heu si elle est en vert heu si c’est vert c’est qu’elle est disponible et sinon elle n’est pas disponible;Préc;0
+702;L3;je mets affichage intelligent sur chaque objet ;Préc;0
+703;L2;sur chaque objet et=;Préc;0
+704;L3;partagé;Préc;0
+705;L2;voilà partagé donc je vais dire;Préc;0
+706;L3;à partager ;Préc;0
+707;L2;voilà par exemple si je prends la perceuse toi tu regardes chez toi;Préc;0
+708;L3;et je vois que;Préc;0
+709;L2;tu vois déjà que;Préc;0
+710;L3;que quelqu’un l’a utilisée ok;Préc;0
+711;L2;voilà soit sur ton Smartphone soit tu;Préc;0
+712;L4;c’est comme l’application qui est qui est montré sur la vidéo;Préc;0
+0713a;L3;ouais c’est un peu ça ouais bah du coup réseau d’échange l’affichage intelligent ;Préc;0
+0713b;L3;et je pensais à des panneaux dans les quartiers pour ça pour un peu dire ce qui se passe dans la ville tu vois genre s’il y a un si y’a un truc qui est organisé au cinéma s’il y a un truc ou quoi;P79;0
+714;L2;ah oui voilà;[+];0
+;;;(0713b);
+715;L4;ah oui il y a quelque chose exactement comme ça ici à l’école;[+];0
+;;;(0713b);
+716;L3;ouais bah du coup je trouve que c’est: enfin c’est cool de savoir que: panneaux dans le quartier ((écrit)) pour informer des événements par exemple si quelqu’un fait un atelier qu’il puisse mette sur le panneau enfin j’organise ça;Préc;0
+717;L2;voilà l’objectif des panneaux au lieu d’avoir heu;0;0
+718;L3;des tracts;0;0
+719;L2;au lieu d’avoir des son Smartphone et tout c’est ça va on va expliquer ça ça va être pour éviter de toujours traîner avec son Smartphone;Préc;0
+720;L3;ouais sans avoir besoin de téléphone ((écrit)) ;[+];0
+;;;-719;
+721;L2;voilà;0;0
+722;L3;hop alors consensus;0;0
+726;L3;moi j’ai mis heu mais parce que c’est connu dans les milieux un peu alternatifs où tu sais quand quelqu’un parle et que tu es d’accord ou pas d’accord tu ne le l’interromps pas mais tu fais un signe avec les mains pour dire si tu es d’accord ou pas d’accord et voilà heu après heu;P80;0
+727;L4;ce qu’il ont posé sur la vidéo certains des: à mon avis tu n’es pas des citoyens ou pas d’accord quand tu fais des objections c’est tu dois te justifier et si personne pour tomber ton objection ça veut dire que l’idée est x;P81;0
+0728a;L3;ouais et du coup tu fais comment ?;Q;0
+0728b;L3;moi je pensais aussi à côté justement s’il y a une objection et que personne n’arrive à se mettre d’accord tu fais comme dans tu sais comme dans les tribunaux quand il y a le jury qui se réunit ils ont pas le droit de sortir tant qu’ils n’ont pas pris une décision comme ça tu vois au moins tu es obligé de choisir enfin de;P82;0
+ 0729a;L2;ouais moi ouais moi je pensais voilà là qu’il devrait y avoir un ensemble de règles une sorte de charte ;P83;0
+ 0729b;L2;que toutes les décisions prises doivent pas heu entraver la vie privée ou heu le confort des autres habitants ;P84;0
+ 0729c;L2;heu que chaque décision doit être argumentée justifiée pour que;P85;0
+730;L3;alors attends je mets charte ;[+];0
+;;;(0729a);
+731;L2;pour protéger;0;0
+732;L4;que tout soit justifié;0;0
+733;L3;charte de prise de décision ((écrit));0;0
+734;L4;et si personne a réussi à faire tomber l’objection je pense qu’on doit recommencer et la personne qui a le droit de recommencer c’est la personne qui a fait l’objection;P86;0
+735;L3;obligation de justifier ses objections ((écrit));[+];0
+;;;(0729c);
+736;L4;oui j’ai j’ai;0;0
+737;L2;même toutes décisions même des décisions genre si on vient proposer quelque chose heu un changement heu;Préc;0
+753;L4;j’ai une idée en tête c’est faire des maternités collectives ;P87;0
+754;L3;c’est quoi ?;Q;0
+755;L4;faire des maternités collectives;Préc;0
+756;L3;ah oui c’est une bonne idée;[+];0
+;;;-755;
+757;L4;tu peux noter;0;0
+760;L3;voilà tiens dans ressources partageables d’ailleurs on peut mettre infrastructures de santé non les hôpitaux;P88;0
+761;L2;non ça c’est déjà partageable;Arg-;FAI
+;;;(P88);(utilité)
+762;L3;c’est vrai c’est déjà partageable;[+];0
+;;;-761;
+763;L4;je ne sais pas si tu fais confiance à des gens du quartier tu peux demander pour s’ils peuvent garder tes enfants si tu as quelque chose d’important à faire;P89;0
+764;L3;bah après c’est déjà plus ou moins enfin tu vois les crèches de quartier et tout c’est quand même avec les gens du quartier quoi;Arg-;FAI
+;;;(P88);(utilité)
+765;L4;laisse tomber;0;0
