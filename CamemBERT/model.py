@@ -15,7 +15,10 @@ from tqdm.notebook import tqdm
 
 from tokenizer import *
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 camembert = AutoModelForSequenceClassification.from_pretrained('camembert-base')
+camembert = camembert.to(device)
 
 
 def take_first_embedding(embeddings, attention_mask=None):
@@ -37,18 +40,6 @@ def tokenize_batch(samples, tokenizer):
     tokens = tokenizer(text, padding="longest", return_tensors="pt")
 
     return {"input_ids": tokens.input_ids, "attention_mask": tokens.attention_mask, "labels": labels, "str_labels": str_labels, "sentences": text}
-
-batch_sentences = [
-    "Vous savez où est la <mask> la plus proche?",
-    "La Seine est un <mask>.",
-    "Je cherche urgemment un endroit où retirer de l'<mask>.",
-]
-tokenizer_output = tokenizer(
-    batch_sentences, 
-    padding = "max_length",
-    truncation = True,
-    return_tensors = "pt"
-)
 
 dataset = load_dataset("miam", "loria")
 train_dataset, val_dataset, test_dataset = dataset.values()
