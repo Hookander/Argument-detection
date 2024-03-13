@@ -26,8 +26,8 @@ def get_data(path = './docs/csv/csvsum.csv', clear_labels = True):
     clear_dict = {"0" : 0,"Préc" : 1, "Arg+":2, "Arg-" : 3, "[+]" : 4, "[-]" : 5, "Q" : 7, "Pn" : 8}
     
     df = pd.read_csv(path)
-    sentences = df['PAROLES'].to_numpy()
-    labels = df['Dimension Dialogique'].to_numpy()
+    sentences = df['PAROLES'].to_list()
+    labels = df['Dimension Dialogique'].to_list()
     if clear_labels:
         for i,l in enumerate(labels):
             l = l.strip()
@@ -35,12 +35,10 @@ def get_data(path = './docs/csv/csvsum.csv', clear_labels = True):
                 print(i,l)
             if l in clear_dict:
                 labels[i] = clear_dict[l]
-            elif l[0] == 'P' and l[1:].isdigit():
+            elif l[0] == 'P' and l[1:].isdigit(): # Pn
                 labels[i] = 8 # ?int(l[1:])
             else:
-                ValueError(f"Label {l} not recognized at line {i}")
+                print(f"Label {l} not recognized at line {i}")
             
-    print(labels[:10])
-    return sentences, labels
 
-get_data()
+    return sentences, labels
