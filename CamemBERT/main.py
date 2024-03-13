@@ -77,6 +77,7 @@ print(all_representations.shape)
 
 tsne = TSNE()
 all_representations_2d = tsne.fit_transform(all_representations)
-
+print(all_representations_2d.shape)
 scatter_plot = px.scatter(x=all_representations_2d[:, 0], y=all_representations_2d[:, 1], color=str_labels)
 scatter_plot.show(config={'staticPlot': True})
+
