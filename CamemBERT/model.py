@@ -140,9 +140,9 @@ camembert_trainer = pl.Trainer(
 )
 
 
-sentences, cleaned_labels = get_data()
-tokenized_sentences = tokenize_sentences(sentences)
+##sentences, cleaned_labels = get_data()
+#tokenized_sentences = tokenize_sentences(sentences)
 
-train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=[0.7, 0.15], batch_size=16)
-camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
+#train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=[0.7, 0.15], batch_size=16)
+#camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
 
