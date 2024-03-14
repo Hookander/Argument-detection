@@ -12,13 +12,19 @@ def tokenize_sentences(sentences, tokenizer = tokenizer):
     return tokens
 
 def get_labels_from_ratio(labels, ratio = [0.7, 0.15]):
-    
+    """
+    Args:
+        labels (np list): the labels
+        ratio (list, optional): The repartition between the train/validation/test. Defaults to [0.7, 0.15]. 
+                    The rest is for the test set.
+    """
     size = len(labels)
     
     train_size = int(ratio[0] * size)
     val_size = int(ratio[1] * size)
     
     return labels[:train_size], labels[train_size:train_size+val_size], labels[train_size+val_size:]
+
 
 def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.7, 0.15]):
     """_summary_
@@ -59,6 +65,5 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.7, 0.15]):
     test_dl = DataLoader(test_ds, batch_size = batch_size, shuffle = True)
     
     return train_dl, val_dl, test_dl
-
 
 

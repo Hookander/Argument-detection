@@ -42,3 +42,4 @@ def get_data(path = './docs/csv/csvsum.csv', clear_labels = True):
             
 
     return sentences, labels
+
