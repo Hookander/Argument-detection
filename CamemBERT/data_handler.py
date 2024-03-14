@@ -60,8 +60,8 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.7, 0.15]):
     test_ds = Dataset.from_dict(test_dict)
     test_ds = test_ds.with_format("torch")
     
-    train_dl = DataLoader(train_ds, batch_size = batch_size, shuffle = True, num_workers=4)
-    val_dl = DataLoader(val_ds, batch_size = batch_size, shuffle = True, num_workers=4)
+    train_dl = DataLoader(train_ds, batch_size = batch_size, shuffle = True)
+    val_dl = DataLoader(val_ds, batch_size = batch_size, shuffle = True)
     test_dl = DataLoader(test_ds, batch_size = batch_size, shuffle = True)
     
     return train_dl, val_dl, test_dl

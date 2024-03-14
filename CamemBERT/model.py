@@ -75,15 +75,15 @@ class LightningModel(pl.LightningModule):
             # depuis le Hub de HuggingFace sur lequel sont stockés de nombreux modèles
             self.model = AutoModelForSequenceClassification.from_pretrained(
                 model_name, num_labels=num_labels
-            )
+            ).to(device)
         self.lr = lr
         self.weight_decay = weight_decay
         self.num_labels = self.model.num_labels
 
     def forward(self, batch):
         return self.model(
-            input_ids=batch["input_ids"],
-            attention_mask=batch["attention_mask"]
+            input_ids=batch["input_ids"].to(device),
+            attention_mask=batch["attention_mask"].to(device)
         )
 
     def training_step(self, batch):
