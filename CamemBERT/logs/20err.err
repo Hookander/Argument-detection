@@ -1,0 +1,32 @@
+Some weights of CamembertForSequenceClassification were not initialized from the model checkpoint at camembert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/./CamemBERT/model.py", line 43, in <module>
+    model_output = camembert(
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/transformers/models/camembert/modeling_camembert.py", line 1063, in forward
+    outputs = self.roberta(
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/transformers/models/camembert/modeling_camembert.py", line 881, in forward
+    embedding_output = self.embeddings(
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/transformers/models/camembert/modeling_camembert.py", line 139, in forward
+    inputs_embeds = self.word_embeddings(input_ids)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 163, in forward
+    return F.embedding(
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/nn/functional.py", line 2237, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument index in method wrapper_CUDA__index_select)
