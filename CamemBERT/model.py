@@ -125,6 +125,10 @@ class LightningModel(pl.LightningModule):
         return torch.optim.AdamW(
             self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay
         )
+    
+    def test(self, trainer, test_dataloader):
+        trainer.test(dataloaders = test_dataloader)
+
 
 num_labels = 9
 lightning_model = LightningModel("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
@@ -139,6 +143,8 @@ camembert_trainer = pl.Trainer(
     ]
 )
 
+#lightning_model = LightningModel.load_from_checkpoint(checkpoint_path = './CamemBERT/models/trained_saved/epoch=5-step=228.ckpt')
+#show_tsne(lightning_model)
 
 ##sentences, cleaned_labels = get_data()
 #tokenized_sentences = tokenize_sentences(sentences)

@@ -20,7 +20,7 @@ def concat_all_csv(path = './docs/csv/csvsum.csv'):
     sum_csv.to_csv(path)
 
 
-def get_data(path = './docs/csv/csvsum.csv', clear_labels = True):
+def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = True):
     
     # Not ideal for now in regards to Pn but might be improved later
     clear_dict = {"0" : 0,"Préc" : 1, "Arg+":2, "Arg-" : 3, "[+]" : 4, "[-]" : 5, "Q" : 7, "Pn" : 8}
@@ -42,4 +42,49 @@ def get_data(path = './docs/csv/csvsum.csv', clear_labels = True):
             
 
     return sentences, labels
+
+def get_data_with_simp_labels(path = './docs/csv/csvsum.csv'):
+    """
+        Only cares about if a sentence if an argument or not,
+        and whether it's about facts or sentiments
+        Matching :
+            Nothing : 0
+            Arg + facts : 1
+            Arg + value : 2
+    """
+    
+    df = pd.read_csv(path)
+    sentences = df['PAROLES'].to_list()
+    labels = df['Dimension Dialogique'].to_list()
+    arg_types = df['Dimension Epistémique'].to_list()
+
+    ret = [0 for _ in labels]
+
+    for i,l in enumerate(labels):
+            lab = l.strip()
+            typ = arg_types[i].strip()
+            match (lab, typ):
+                case ('Arg+', 'FAI') :
+                    ret[i] = 1
+                case ('Arg-', 'FAI'):
+                    ret[i] = 1
+                case ('Arg+', 'VA'):
+                    ret[i] = 2
+                case ('Arg-', 'VA'):
+                    ret[i] = 2
+                case _:
+                    ret[i] = 0
+    return sentences, ret
+
+
+
+
+
+
+
+
+
+
+
+
 
