@@ -1,0 +1,5 @@
+model_name: camembert-base
+num_labels: 3
+lr: 3.0e-05
+weight_decay: 0.0
+from_scratch: false
