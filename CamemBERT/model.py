@@ -149,6 +149,7 @@ tokenized_sentences = tokenize_sentences(sentences)
 train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=[0.7, 0.15], batch_size=16)
 camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
 
+
 #lightning_model = LightningModel.load_from_checkpoint(checkpoint_path = './CamemBERT/models/trained_saved/epoch=5-step=228.ckpt')
 #show_tsne(lightning_model)
 
