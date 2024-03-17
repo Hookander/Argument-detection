@@ -131,14 +131,14 @@ class LightningModel(pl.LightningModule):
 
 
 num_labels = 3
-lightning_model = LightningModel("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
+lightning_model = LightningModel("camembert-base", num_labels, lr=5e-6, weight_decay=0.)
 
 model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
 
 camembert_trainer = pl.Trainer(
-    max_epochs=1,
+    max_epochs=50,
     callbacks=[
-        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=4, mode="max"),
+        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=10, mode="max"),
         model_checkpoint,
     ]
 )
