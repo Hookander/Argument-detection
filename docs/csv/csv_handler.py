@@ -1,5 +1,6 @@
 import pandas as pd
 import torch
+import numpy as np
 
 def concat_all_csv(path = './docs/csv/csvsum.csv'):
     eq1 = pd.read_csv('./docs/csv/Eq1.csv', on_bad_lines='skip', sep=';')
@@ -43,7 +44,7 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
 
     return sentences, labels
 
-def get_data_with_simp_labels(path = './docs/csv/csvsum.csv'):
+def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
     """
         Only cares about if a sentence if an argument or not,
         and whether it's about facts or sentiments
@@ -74,6 +75,10 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv'):
                     ret[i] = 2
                 case _:
                     ret[i] = 0
+    if shuffle:
+        perm = np.random.permutation(len(sentences))
+        sentences = [sentences[i] for i in perm]
+        ret = [ret[i] for i in perm]
     return sentences, ret
 
 

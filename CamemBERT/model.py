@@ -131,7 +131,7 @@ class LightningModel(pl.LightningModule):
 
 
 num_labels = 3
-lightning_model = LightningModel("camembert-base", num_labels, lr=5e-6, weight_decay=0.)
+lightning_model = LightningModel("camembert/camembert-large", num_labels, lr=3e-6, weight_decay=0.)
 
 model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
 
@@ -143,10 +143,10 @@ camembert_trainer = pl.Trainer(
     ]
 )
 
-sentences, cleaned_labels = get_data_with_simp_labels()
+sentences, cleaned_labels = get_data_with_simp_labels(shuffle = True)
 tokenized_sentences = tokenize_sentences(sentences)
 
-train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=[0.7, 0.15], batch_size=16)
+train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=[0.8, 0.15], batch_size=16)
 camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
 
 

@@ -19,3 +19,12 @@ lightning_logs/version_8/checkpoints/epoch=5-step=456.ckpt
 lightning_logs/version_9/hparams.yaml
 lightning_logs/version_9/metrics.csv
 lightning_logs/version_9/checkpoints/epoch=5-step=456.ckpt
+lightning_logs/version_10/hparams.yaml
+lightning_logs/version_10/metrics.csv
+lightning_logs/version_10/checkpoints/epoch=6-step=609.ckpt
+lightning_logs/version_11/hparams.yaml
+lightning_logs/version_11/metrics.csv
+lightning_logs/version_11/checkpoints/epoch=2-step=261.ckpt
+lightning_logs/version_12/hparams.yaml
+lightning_logs/version_12/metrics.csv
+lightning_logs/version_12/checkpoints/epoch=0-step=87.ckpt
