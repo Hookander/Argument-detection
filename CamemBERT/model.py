@@ -57,7 +57,6 @@ def show_tsne(model, clean_props = True, ratio = [0.7, 0.15]):
     scatter_plot = px.scatter(x=all_representations_2d[:, 0], y=all_representations_2d[:, 1], color=val_labels)
     scatter_plot.show(config={'staticPlot': True})
 
-#show_tsne(camembert, ratio = [0.1, 0.1])
 
 class LightningModel(pl.LightningModule):
     def __init__(self, model_name, num_labels, lr, weight_decay, from_scratch=False):
@@ -143,7 +142,7 @@ camembert_trainer = pl.Trainer(
     ]
 )
 
-sentences, cleaned_labels = get_data_with_simp_labels(shuffle = True)
+sentences, cleaned_labels = get_data_with_simp_labels(shuffle = False)
 tokenized_sentences = tokenize_sentences(sentences)
 
 train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=[0.8, 0.15], batch_size=16)
