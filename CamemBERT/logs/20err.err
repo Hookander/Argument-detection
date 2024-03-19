@@ -1,21 +1,27 @@
-Some weights of CamembertForSequenceClassification were not initialized from the model checkpoint at camembert/camembert-large and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+Some weights of CamembertForSequenceClassification were not initialized from the model checkpoint at camembert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
 GPU available: True (cuda), used: True
 TPU available: False, using: 0 TPU cores
 IPU available: False, using: 0 IPUs
 HPU available: False, using: 0 HPUs
-/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/logger_connector/logger_connector.py:75: Starting from v1.9.0, `tensorboardX` has been removed as a dependency of the `pytorch_lightning` package, due to potential conflicts with other packages in the ML ecosystem. For this reason, `logger=True` will use `CSVLogger` as the default logger, unless the `tensorboard` or `tensorboardX` packages are found. Please `pip install lightning[extra]` or one of them to enable TensorBoard support by default
 You are using a CUDA device ('NVIDIA A100-SXM4-80GB MIG 2g.20gb') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
-
-  | Name  | Type                               | Params
--------------------------------------------------------------
-0 | model | CamembertForSequenceClassification | 336 M 
--------------------------------------------------------------
-336 M     Trainable params
-0         Non-trainable params
-336 M     Total params
-1,346.658 Total estimated model params size (MB)
-SLURM auto-requeueing enabled. Setting signal handlers.
-/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
-/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+Traceback (most recent call last):
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/./CamemBERT/model.py", line 177, in <module>
+    lightning_model.train_model(batch_size=16, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15])
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/./CamemBERT/model.py", line 167, in train_model
+    camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 544, in fit
+    call._call_and_handle_interrupt(
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 580, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 949, in _run
+    call._call_setup_hook(self)  # allow user to set up LightningModule in accelerator environment
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 86, in _call_setup_hook
+    if hasattr(logger, "experiment"):
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/lightning_fabric/loggers/logger.py", line 118, in experiment
+    return fn(self)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/loggers/wandb.py", line 401, in experiment
+    self._experiment = wandb.init(**self._wandb_init)
+TypeError: init() got an unexpected keyword argument 'save'

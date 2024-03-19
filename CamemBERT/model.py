@@ -8,10 +8,9 @@ from transformers import AutoModelForSequenceClassification, CamembertForMaskedL
 from datasets import load_dataset
 from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.manifold import TSNE
-#import matplotlib.pyplot as plt
-#import seaborn as sns
 import plotly.express as px
-#from tqdm.notebook import tqdm
+from pytorch_lightning.loggers import WandbLogger
+
 import sys
 
 from data_handler import *
@@ -75,6 +74,7 @@ class LightningModel(pl.LightningModule):
             self.model = AutoModelForSequenceClassification.from_pretrained(
                 model_name, num_labels=num_labels
             ).to(device)
+        
         self.lr = lr
         self.weight_decay = weight_decay
         self.num_labels = self.model.num_labels
@@ -125,32 +125,53 @@ class LightningModel(pl.LightningModule):
             self.model.parameters(), lr=self.lr, weight_decay=self.weight_decay
         )
     
-    def test(self, trainer, test_dataloader):
-        trainer.test(dataloaders = test_dataloader)
+    def test_step(self, test_batch):
+        labels = test_batch["labels"]
+        out = self.forward(test_batch)
 
+        preds = torch.max(out.logits, -1).indices
+ 
+        acc = (test_batch["labels"] == preds).float().mean()
+
+        self.log("test/acc", acc)
+
+        f1 = f1_score(test_batch["labels"].cpu().tolist(), preds.cpu().tolist(), average="macro")
+        self.log("test/f1", f1)
+
+    
+    def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.7, 0.15], wandb = True):
+
+
+        model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
+        if wandb:
+            camembert_trainer = pl.Trainer(
+                max_epochs=max_epochs,
+                callbacks=[
+                    pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                    model_checkpoint,
+                ],
+                logger = WandbLogger(project="camembert")
+            )
+        else:
+            camembert_trainer = pl.Trainer(
+                max_epochs=max_epochs,
+                callbacks=[
+                    pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                    model_checkpoint,
+                ]
+            )
+        sentences, cleaned_labels = get_data_with_simp_labels(shuffle = False)
+        tokenized_sentences = tokenize_sentences(sentences)
+
+        train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=ratio, batch_size=batch_size)
+        camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
+
+        if test:
+            ret = camembert_trainer.test(model = lightning_model, dataloaders=test_dl)
+            print(ret)
+            return ret
+            
 
 num_labels = 3
-lightning_model = LightningModel("camembert/camembert-large", num_labels, lr=3e-6, weight_decay=0.)
-
-model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
-
-camembert_trainer = pl.Trainer(
-    max_epochs=50,
-    callbacks=[
-        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=10, mode="max"),
-        model_checkpoint,
-    ]
-)
-
-sentences, cleaned_labels = get_data_with_simp_labels(shuffle = False)
-tokenized_sentences = tokenize_sentences(sentences)
-
-train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=[0.8, 0.15], batch_size=16)
-camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
-
-
-#lightning_model = LightningModel.load_from_checkpoint(checkpoint_path = './CamemBERT/models/trained_saved/epoch=5-step=228.ckpt')
-#show_tsne(lightning_model)
-
-
-
+lightning_model = LightningModel("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
+lightning_model.train_model(batch_size=16, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15])
