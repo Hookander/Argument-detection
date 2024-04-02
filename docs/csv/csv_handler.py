@@ -2,7 +2,13 @@ import pandas as pd
 import torch
 import numpy as np
 
+
 def concat_all_csv(path = './docs/csv/csvsum.csv'):
+    """
+        The problem is that, for each line that contains an argument (fact or value), 
+        the domain of that argument (ecological, economic, etc.) is given in the next line, 
+        so we must concatenate the two lines in addition of concatenating all the csv.
+    """
     eq1 = pd.read_csv('./docs/csv/Eq1.csv', on_bad_lines='skip', sep=';')
     eq2 = pd.read_csv('./docs/csv/Eq2.csv', on_bad_lines='skip', sep=';')
     eq3 = pd.read_csv('./docs/csv/Eq3.csv', on_bad_lines='skip', sep=';')
@@ -11,15 +17,19 @@ def concat_all_csv(path = './docs/csv/csvsum.csv'):
     eq_tab = [eq1, eq2, eq3, eq4]
 
     # We clean the data and create a new dataframe
-    columns = ['L', 'PAROLES', 'Dimension Dialogique', 'Dimension Epistémique']
+    columns = ['L', 'PAROLES', 'Dimension Dialogique', 'Dimension Epistémique', 'Domaine']
     sum_csv = pd.DataFrame(columns=columns)
     for eq in eq_tab:
         for index, row in eq.iterrows():
             if all(pd.notna(row[column]) for column in ['L', 'PAROLES', 'Dimension Dialogique', 'Dimension Epistémique']):
+                if row['Dimension Dialogique'].strip()[:-1] == 'Arg':
+                    domain = eq.loc[index + 1]['Dimension Epistémique']
+                    row['Domaine'] = domain
                 sum_csv = sum_csv._append(row, ignore_index=True)
 
     sum_csv.to_csv(path)
 
+concat_all_csv(path = './docs/csv/csvsum2.csv')
 
 def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = True):
     
