@@ -35,7 +35,6 @@ def concat_all_csv(path = './docs/csv/csvsum.csv'):
 
     sum_csv.to_csv(path)
 
-concat_all_csv(path = './docs/csv/csvsum3.csv')
 
 def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = True):
     
