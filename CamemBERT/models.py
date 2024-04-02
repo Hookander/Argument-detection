@@ -132,8 +132,9 @@ class ArgDetector(pl.LightningModule):
             ret = camembert_trainer.test(model = lightning_model, dataloaders=test_dl)
             print(ret)
             return ret
-            
 
-num_labels = 3
-lightning_model = ArgDetector("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
-lightning_model.train_model(batch_size=16, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15])
+
+
+#num_labels = 3
+#lightning_model = ArgDetector("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
+#lightning_model.train_model(batch_size=16, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15])
