@@ -46,6 +46,7 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
     df = pd.read_csv(path)
     sentences = df['PAROLES'].to_list()
     labels = df['Dimension Dialogique'].to_list()
+    domains = df['Domaine'].to_list()
     if clear_labels:
         for i,l in enumerate(labels):
             l = l.strip()
@@ -59,7 +60,7 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
                 print(f"Label {l} not recognized at line {i}")
             
 
-    return sentences, labels
+    return sentences, labels, domains
 
 def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
     """
@@ -89,7 +90,6 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
     arg_types = df['Dimension Epistémique'].to_list()
     domains = df['Domaine'].to_list()
 
-    print(list(set(domains)))
     ret = [0 for _ in labels]
     dom = [0 for _ in domains]
     for i,l in enumerate(labels):
@@ -141,7 +141,7 @@ def plot_data_distribution(typ, remove_nothing = True):
     plt.hist(data, bins=range(0, 22), alpha=0.7, rwidth=0.85)
     plt.show()
 
-plot_data_distribution('dom')
+#plot_data_distribution('dom')
 #get_data_with_simp_labels()[2]
 
 
