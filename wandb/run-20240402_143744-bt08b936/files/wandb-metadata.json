@@ -1,0 +1,45 @@
+{
+    "os": "macOS-13.5.1-x86_64-i386-64bit",
+    "python": "3.11.5",
+    "heartbeatAt": "2024-04-02T12:37:45.719732",
+    "startedAt": "2024-04-02T12:37:44.669560",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/balthazarmartin/Documents/Dev/Argument detection/Repo/Argument-detection/CamemBERT/models.py",
+    "codePathLocal": "CamemBERT/models.py",
+    "codePath": "CamemBERT/models.py",
+    "git": {
+        "remote": "https://github.com/Hookander/Argument-detection.git",
+        "commit": "eaa5d08ac5df4b22f05c44a8148425c9727f14dd"
+    },
+    "email": "balthazar.martin123@gmail.com",
+    "root": "/Users/balthazarmartin/Documents/Dev/Argument detection/Repo/Argument-detection",
+    "host": "MacBook-Pro-de-Balthazar-5.local",
+    "username": "balthazarmartin",
+    "executable": "/usr/local/bin/python3",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1400,
+        "min": 1400,
+        "max": 1400
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1400,
+            "min": 1400,
+            "max": 1400
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 233.46913528442383,
+            "used": 8.537708282470703
+        }
+    },
+    "memory": {
+        "total": 8.0
+    }
+}

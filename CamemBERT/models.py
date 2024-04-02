@@ -19,7 +19,8 @@ from csv_handler import *
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-class ArgDetector(pl.LightningModule):
+
+class Model(pl.LightningModule):
     def __init__(self, model_name, num_labels, lr, weight_decay, from_scratch=False):
         super().__init__()
         self.save_hyperparameters()
@@ -122,19 +123,20 @@ class ArgDetector(pl.LightningModule):
                     model_checkpoint,
                 ]
             )
-        sentences, cleaned_labels = get_data_with_simp_labels(shuffle = False)
+        sentences, cleaned_labels, domains = get_data_with_simp_labels(shuffle = False)
         tokenized_sentences = tokenize_sentences(sentences)
 
         train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=ratio, batch_size=batch_size)
-        camembert_trainer.fit(lightning_model, train_dataloaders=train_dl, val_dataloaders=val_dl)
+        print('ok')
+        camembert_trainer.fit(self, train_dataloaders=train_dl, val_dataloaders=val_dl)
 
         if test:
-            ret = camembert_trainer.test(model = lightning_model, dataloaders=test_dl)
+            ret = camembert_trainer.test(model = self, dataloaders=test_dl)
             print(ret)
             return ret
 
 
 
 #num_labels = 3
-#lightning_model = ArgDetector("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
-#lightning_model.train_model(batch_size=16, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15])
+#lightning_model = Model("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
+#lightning_model.train_model(batch_size=16, patience=10, max_epochs=1, test=True, wandb = True, ratio=[0.7, 0.15])
