@@ -19,45 +19,7 @@ from csv_handler import *
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-def take_first_embedding(embeddings, attention_mask=None):
-    return embeddings[:, 0]
-
-def average_embeddings(embeddings, attention_mask):
-    return torch.sum(embeddings * attention_mask.unsqueeze(-1), dim=1) / torch.sum(attention_mask, dim=1).unsqueeze(-1)
-
-def show_tsne(model, clean_props = True, ratio = [0.7, 0.15]):
-    sentences, cleaned_labels = get_data()
-
-    tokenized_sentences = tokenize_sentences(sentences)
-
-    train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=ratio, batch_size=16)
-
-    all_representations = torch.tensor([], device=device)
-    with torch.no_grad():
-        for tokenized_batch in val_dl:
-            model_output = model(
-                input_ids = tokenized_batch["input_ids"],
-                attention_mask = tokenized_batch["attention_mask"],
-                output_hidden_states=True
-            )
-            batch_representations = average_embeddings(model_output["hidden_states"][-1], tokenized_batch["attention_mask"])
-            all_representations = torch.cat((all_representations, batch_representations), 0)
-
-    labels = get_data(clear_labels=False)[1]
-    val_labels = get_labels_from_ratio(labels, ratio)[1]
-    if clean_props:
-        for i in range(len(val_labels)):
-            val_labels[i] = val_labels[i].strip()
-            if val_labels[i][0] == 'P' and val_labels[i][1:].isdigit(): # Pn
-                val_labels[i] = 'Pn'
-    tsne = TSNE()
-    all_representations_2d = tsne.fit_transform(all_representations)
-    print(all_representations_2d.shape)
-    scatter_plot = px.scatter(x=all_representations_2d[:, 0], y=all_representations_2d[:, 1], color=val_labels)
-    scatter_plot.show(config={'staticPlot': True})
-
-
-class LightningModel(pl.LightningModule):
+class ArgDetector(pl.LightningModule):
     def __init__(self, model_name, num_labels, lr, weight_decay, from_scratch=False):
         super().__init__()
         self.save_hyperparameters()
@@ -173,5 +135,5 @@ class LightningModel(pl.LightningModule):
             
 
 num_labels = 3
-lightning_model = LightningModel("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
+lightning_model = ArgDetector("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
 lightning_model.train_model(batch_size=16, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15])
