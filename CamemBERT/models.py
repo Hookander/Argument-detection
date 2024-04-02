@@ -21,7 +21,10 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 class Model(pl.LightningModule):
-    def __init__(self, model_name, num_labels, lr, weight_decay, from_scratch=False):
+    def __init__(self, model_name, num_labels, lr, weight_decay, typ, from_scratch=False):
+        """
+            typ = 'arg' or 'dom' for the different types of classifiction
+        """
         super().__init__()
         self.save_hyperparameters()
         if from_scratch:
@@ -40,7 +43,8 @@ class Model(pl.LightningModule):
         
         self.lr = lr
         self.weight_decay = weight_decay
-        self.num_labels = self.model.num_labels
+        self.num_labels = num_labels
+        self.typ = typ
 
     def forward(self, batch):
         return self.model(
@@ -102,7 +106,7 @@ class Model(pl.LightningModule):
         self.log("test/f1", f1)
 
     
-    def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.7, 0.15], wandb = True):
+    def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True):
 
 
         model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
@@ -123,9 +127,15 @@ class Model(pl.LightningModule):
                     model_checkpoint,
                 ]
             )
-        sentences, cleaned_labels, domains = get_data_with_simp_labels(shuffle = False)
+        sentences, args_labels, domains = get_data_with_simp_labels(shuffle = False)
         tokenized_sentences = tokenize_sentences(sentences)
-
+        if self.typ == 'arg':
+            cleaned_labels = args_labels
+        elif self.typ == 'dom':
+            cleaned_labels = domains
+        else:
+            print("Invalid type")
+            return
         train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=ratio, batch_size=batch_size)
         print('ok')
         camembert_trainer.fit(self, train_dataloaders=train_dl, val_dataloaders=val_dl)
