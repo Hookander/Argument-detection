@@ -150,3 +150,4 @@ class Model(pl.LightningModule):
 #num_labels = 3
 #lightning_model = Model("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
 #lightning_model.train_model(batch_size=16, patience=10, max_epochs=1, test=True, wandb = True, ratio=[0.7, 0.15])
+
