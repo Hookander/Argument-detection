@@ -4,6 +4,12 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
+domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
+                    'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 10,
+                    'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 14, 'écologique': 11,
+                    'praticité': 1, 'économique': 17, 'agréabilité': 18, 'taille': 19, 'relations sociales': 20}
+
+arg_dico = {'Nothing/nan' : 0, 'Arg_fact': 1, 'Arg_value': 2}
 
 def concat_all_csv(path = './docs/csv/csvsum.csv'):
     """
@@ -80,10 +86,7 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
     """
 
     # Take into account synonyms
-    domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
-                    'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 10,
-                    'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 14, 'écologique': 11,
-                    'praticité': 1, 'économique': 17, 'agréabilité': 18, 'taille': 19, 'relations sociales': 20}
+    
     df = pd.read_csv(path)
     sentences = df['PAROLES'].to_list()
     labels = df['Dimension Dialogique'].to_list()

@@ -6,6 +6,9 @@ from datasets import Dataset
 
 tokenizer = AutoTokenizer.from_pretrained('camembert-base')
 
+def detokenize_sentences(sentences, tokenizer = tokenizer):
+    return [tokenizer.decode(sent) for sent in sentences]
+
 def tokenize_sentences(sentences, tokenizer = tokenizer):
     tokens = tokenizer(sentences, padding="longest", return_tensors="np")
     
