@@ -179,8 +179,8 @@ class Model(pl.LightningModule):
 
 
 num_labels = 21
-lightning_model = Model("camembert-base", num_labels, lr=3e-4, weight_decay=0., typ = 'dom')
-lightning_model.train_model(batch_size=16, patience=10, max_epochs=30, test=True, wandb = True, ratio=[0.7, 0.15], save = False)
+lightning_model = Model("camembert-base", num_labels, lr=1e-4, weight_decay=0., typ = 'arg')
+lightning_model.train_model(batch_size=32, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15], save = False)
 
 
 
