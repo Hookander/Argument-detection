@@ -125,7 +125,7 @@ class Model(pl.LightningModule):
                         pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
                         model_checkpoint,
                     ],
-                    logger = WandbLogger(project="camembert_"+self.typ, log_model=False)
+                    logger = WandbLogger(project="camembert_"+self.typ, checkpoint_callbacks=False)
                 )
             else:
                 trainer = pl.Trainer(
@@ -142,7 +142,7 @@ class Model(pl.LightningModule):
                     callbacks=[
                         pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
                     ],
-                    logger = WandbLogger(project="camembert_"+self.typ, log_model=False)
+                    logger = WandbLogger(project="camembert_"+self.typ, checkpoint_callbacks=False)
                 )
             else:
                 trainer = pl.Trainer(
