@@ -67,6 +67,15 @@ class Model(pl.LightningModule):
 
         return loss
 
+    def get_dico(self, typ):
+        if typ == 'arg':
+            return arg_dico
+        elif typ == 'dom':
+            return domain_dico
+        else:
+            print("get_dico : Invalid type")
+            return
+
     def validation_step(self, batch, batch_index):
         labels = batch["labels"]
         out = self.forward(batch)
@@ -142,7 +151,7 @@ class Model(pl.LightningModule):
                         pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
                     ]
                 )
-        
+        return camembert_trainer
     
     def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False):
 
@@ -163,13 +172,13 @@ class Model(pl.LightningModule):
 
         if test:
             ret = camembert_trainer.test(model = self, dataloaders=test_dl)
-
             print(ret)
+            see_results(self, test_dl, self.get_dico(self.typ))
             return ret
 
 
 
 num_labels = 21
-lightning_model = Model("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
+lightning_model = Model("camembert-base", num_labels, lr=3e-5, weight_decay=0., typ = 'dom')
 lightning_model.train_model(batch_size=16, patience=10, max_epochs=1, test=True, wandb = True, ratio=[0.7, 0.15], save = False)
 

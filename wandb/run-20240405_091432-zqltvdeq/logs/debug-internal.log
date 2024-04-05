@@ -1,0 +1,346 @@
+2024-04-05 09:14:32,972 INFO    StreamThr :3733416 [internal.py:wandb_internal():86] W&B internal server running at pid: 3733416, started at: 2024-04-05 09:14:32.971575
+2024-04-05 09:14:32,974 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status
+2024-04-05 09:14:32,974 INFO    WriterThread:3733416 [datastore.py:open_for_write():87] open: ./wandb/run-20240405_091432-zqltvdeq/run-zqltvdeq.wandb
+2024-04-05 09:14:32,975 DEBUG   SenderThread:3733416 [sender.py:send():378] send: header
+2024-04-05 09:14:32,976 DEBUG   SenderThread:3733416 [sender.py:send():378] send: run
+2024-04-05 09:14:32,977 INFO    SenderThread:3733416 [sender.py:_maybe_setup_resume():759] checking resume status for None/camembert/zqltvdeq
+2024-04-05 09:14:33,493 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: check_version
+2024-04-05 09:14:33,493 INFO    SenderThread:3733416 [dir_watcher.py:__init__():211] watching files in: ./wandb/run-20240405_091432-zqltvdeq/files
+2024-04-05 09:14:33,493 INFO    SenderThread:3733416 [sender.py:_start_run_threads():1099] run started: zqltvdeq with start time 1712301272.971422
+2024-04-05 09:14:33,493 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: check_version
+2024-04-05 09:14:33,561 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: run_start
+2024-04-05 09:14:33,567 DEBUG   HandlerThread:3733416 [system_info.py:__init__():26] System info init
+2024-04-05 09:14:33,567 DEBUG   HandlerThread:3733416 [system_info.py:__init__():41] System info init done
+2024-04-05 09:14:33,567 INFO    HandlerThread:3733416 [system_monitor.py:start():194] Starting system monitor
+2024-04-05 09:14:33,567 INFO    SystemMonitor:3733416 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-04-05 09:14:33,567 INFO    HandlerThread:3733416 [system_monitor.py:probe():214] Collecting system info
+2024-04-05 09:14:33,567 INFO    SystemMonitor:3733416 [interfaces.py:start():190] Started cpu monitoring
+2024-04-05 09:14:33,568 INFO    SystemMonitor:3733416 [interfaces.py:start():190] Started disk monitoring
+2024-04-05 09:14:33,568 INFO    SystemMonitor:3733416 [interfaces.py:start():190] Started gpu monitoring
+2024-04-05 09:14:33,569 INFO    SystemMonitor:3733416 [interfaces.py:start():190] Started memory monitoring
+2024-04-05 09:14:33,569 INFO    SystemMonitor:3733416 [interfaces.py:start():190] Started network monitoring
+2024-04-05 09:14:33,598 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:33,599 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:33,613 DEBUG   HandlerThread:3733416 [system_info.py:probe():150] Probing system
+2024-04-05 09:14:33,613 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:33,615 DEBUG   HandlerThread:3733416 [system_info.py:_probe_git():135] Probing git
+2024-04-05 09:14:33,619 DEBUG   HandlerThread:3733416 [system_info.py:_probe_git():143] Probing git done
+2024-04-05 09:14:33,619 DEBUG   HandlerThread:3733416 [system_info.py:probe():198] Probing system done
+2024-04-05 09:14:33,619 DEBUG   HandlerThread:3733416 [system_monitor.py:probe():223] {'os': 'Linux-5.4.0-153-generic-x86_64-with-glibc2.31', 'python': '3.10.13', 'heartbeatAt': '2024-04-05T07:14:33.613439', 'startedAt': '2024-04-05T07:14:32.968327', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/raid/home/automatants/martin_bal/PoleProj/Argument-detection/./CamemBERT/models.py', 'codePathLocal': 'CamemBERT/models.py', 'codePath': 'CamemBERT/models.py', 'git': {'remote': 'https://github.com/Hookander/Argument-detection.git', 'commit': '521a9ed581e48af1f924d785e0c51ddefcd88505'}, 'email': 'balthazar.martin123@gmail.com', 'root': '/raid/home/automatants/martin_bal/PoleProj/Argument-detection', 'host': 'dgxa100', 'username': 'martin_bal', 'executable': '/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/bin/python', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 2230.023554687499, 'min': 1500.0, 'max': 2250.0}, 'cpu_freq_per_core': [{'current': 1821.782, 'min': 1500.0, 'max': 2250.0}, {'current': 1664.716, 'min': 1500.0, 'max': 2250.0}, {'current': 1668.322, 'min': 1500.0, 'max': 2250.0}, {'current': 3303.072, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.03, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.947, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.16, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.328, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.412, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.217, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.943, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.987, 'min': 1500.0, 'max': 2250.0}, {'current': 3342.762, 'min': 1500.0, 'max': 2250.0}, {'current': 3305.636, 'min': 1500.0, 'max': 2250.0}, {'current': 1666.649, 'min': 1500.0, 'max': 2250.0}, {'current': 1666.689, 'min': 1500.0, 'max': 2250.0}, {'current': 3341.624, 'min': 1500.0, 'max': 2250.0}, {'current': 3235.015, 'min': 1500.0, 'max': 2250.0}, {'current': 2995.733, 'min': 1500.0, 'max': 2250.0}, {'current': 3279.854, 'min': 1500.0, 'max': 2250.0}, {'current': 3315.731, 'min': 1500.0, 'max': 2250.0}, {'current': 3331.482, 'min': 1500.0, 'max': 2250.0}, {'current': 2962.976, 'min': 1500.0, 'max': 2250.0}, {'current': 3308.011, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.301, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.713, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.966, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.78, 'min': 1500.0, 'max': 2250.0}, {'current': 1791.085, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.225, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.588, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.482, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.206, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.611, 'min': 1500.0, 'max': 2250.0}, {'current': 2210.646, 'min': 1500.0, 'max': 2250.0}, {'current': 1797.499, 'min': 1500.0, 'max': 2250.0}, {'current': 1712.109, 'min': 1500.0, 'max': 2250.0}, {'current': 1767.964, 'min': 1500.0, 'max': 2250.0}, {'current': 1752.051, 'min': 1500.0, 'max': 2250.0}, {'current': 1741.073, 'min': 1500.0, 'max': 2250.0}, {'current': 1865.417, 'min': 1500.0, 'max': 2250.0}, {'current': 1996.426, 'min': 1500.0, 'max': 2250.0}, {'current': 2159.424, 'min': 1500.0, 'max': 2250.0}, {'current': 1757.73, 'min': 1500.0, 'max': 2250.0}, {'current': 2242.326, 'min': 1500.0, 'max': 2250.0}, {'current': 1881.666, 'min': 1500.0, 'max': 2250.0}, {'current': 1785.786, 'min': 1500.0, 'max': 2250.0}, {'current': 2009.315, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.566, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.338, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.413, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.274, 'min': 1500.0, 'max': 2250.0}, {'current': 1662.476, 'min': 1500.0, 'max': 2250.0}, {'current': 3335.032, 'min': 1500.0, 'max': 2250.0}, {'current': 1662.954, 'min': 1500.0, 'max': 2250.0}, {'current': 1663.989, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.051, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.439, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.841, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.707, 'min': 1500.0, 'max': 2250.0}, {'current': 2281.931, 'min': 1500.0, 'max': 2250.0}, {'current': 1719.988, 'min': 1500.0, 'max': 2250.0}, {'current': 1726.314, 'min': 1500.0, 'max': 2250.0}, {'current': 1721.819, 'min': 1500.0, 'max': 2250.0}, {'current': 2230.772, 'min': 1500.0, 'max': 2250.0}, {'current': 2158.362, 'min': 1500.0, 'max': 2250.0}, {'current': 2202.052, 'min': 1500.0, 'max': 2250.0}, {'current': 3333.983, 'min': 1500.0, 'max': 2250.0}, {'current': 2295.756, 'min': 1500.0, 'max': 2250.0}, {'current': 2279.026, 'min': 1500.0, 'max': 2250.0}, {'current': 2276.268, 'min': 1500.0, 'max': 2250.0}, {'current': 2286.1, 'min': 1500.0, 'max': 2250.0}, {'current': 1737.599, 'min': 1500.0, 'max': 2250.0}, {'current': 2289.776, 'min': 1500.0, 'max': 2250.0}, {'current': 2268.455, 'min': 1500.0, 'max': 2250.0}, {'current': 2274.943, 'min': 1500.0, 'max': 2250.0}, {'current': 3326.464, 'min': 1500.0, 'max': 2250.0}, {'current': 3328.605, 'min': 1500.0, 'max': 2250.0}, {'current': 1667.086, 'min': 1500.0, 'max': 2250.0}, {'current': 1662.004, 'min': 1500.0, 'max': 2250.0}, {'current': 3301.351, 'min': 1500.0, 'max': 2250.0}, {'current': 3327.957, 'min': 1500.0, 'max': 2250.0}, {'current': 3170.613, 'min': 1500.0, 'max': 2250.0}, {'current': 3303.638, 'min': 1500.0, 'max': 2250.0}, {'current': 3322.72, 'min': 1500.0, 'max': 2250.0}, {'current': 3342.812, 'min': 1500.0, 'max': 2250.0}, {'current': 1859.858, 'min': 1500.0, 'max': 2250.0}, {'current': 3336.231, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.574, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.578, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.463, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.448, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.999, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.328, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.28, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.989, 'min': 1500.0, 'max': 2250.0}, {'current': 1732.7, 'min': 1500.0, 'max': 2250.0}, {'current': 1738.025, 'min': 1500.0, 'max': 2250.0}, {'current': 2274.861, 'min': 1500.0, 'max': 2250.0}, {'current': 1777.66, 'min': 1500.0, 'max': 2250.0}, {'current': 1681.92, 'min': 1500.0, 'max': 2250.0}, {'current': 1735.877, 'min': 1500.0, 'max': 2250.0}, {'current': 1970.979, 'min': 1500.0, 'max': 2250.0}, {'current': 1622.283, 'min': 1500.0, 'max': 2250.0}, {'current': 1574.053, 'min': 1500.0, 'max': 2250.0}, {'current': 1836.938, 'min': 1500.0, 'max': 2250.0}, {'current': 3051.106, 'min': 1500.0, 'max': 2250.0}, {'current': 1766.703, 'min': 1500.0, 'max': 2250.0}, {'current': 2736.403, 'min': 1500.0, 'max': 2250.0}, {'current': 1742.41, 'min': 1500.0, 'max': 2250.0}, {'current': 3124.473, 'min': 1500.0, 'max': 2250.0}, {'current': 1670.503, 'min': 1500.0, 'max': 2250.0}, {'current': 2235.103, 'min': 1500.0, 'max': 2250.0}, {'current': 2211.089, 'min': 1500.0, 'max': 2250.0}, {'current': 2166.995, 'min': 1500.0, 'max': 2250.0}, {'current': 2375.878, 'min': 1500.0, 'max': 2250.0}, {'current': 1640.121, 'min': 1500.0, 'max': 2250.0}, {'current': 3306.788, 'min': 1500.0, 'max': 2250.0}, {'current': 1667.411, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.825, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.613, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.681, 'min': 1500.0, 'max': 2250.0}, {'current': 1703.708, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.233, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.068, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.92, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.579, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.792, 'min': 1500.0, 'max': 2250.0}], 'disk': {'/': {'total': 1757.8785285949707, 'used': 380.6857261657715}}, 'gpu': 'NVIDIA A100-SXM4-80GB', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA A100-SXM4-80GB', 'memory_total': 85899345920}, {'name': 'NVIDIA DGX Display', 'memory_total': 4294967296}], 'memory': {'total': 503.7273750305176}}
+2024-04-05 09:14:33,620 INFO    HandlerThread:3733416 [system_monitor.py:probe():224] Finished collecting system info
+2024-04-05 09:14:33,620 INFO    HandlerThread:3733416 [system_monitor.py:probe():227] Publishing system info
+2024-04-05 09:14:33,621 INFO    HandlerThread:3733416 [system_monitor.py:probe():229] Finished publishing system info
+2024-04-05 09:14:33,622 DEBUG   SenderThread:3733416 [sender.py:send():378] send: files
+2024-04-05 09:14:33,622 INFO    SenderThread:3733416 [sender.py:_save_file():1365] saving file wandb-metadata.json with policy now
+2024-04-05 09:14:33,625 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:33,690 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: python_packages
+2024-04-05 09:14:33,691 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: python_packages
+2024-04-05 09:14:33,692 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-05 09:14:33,692 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-05 09:14:33,692 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: stop_status
+2024-04-05 09:14:33,946 DEBUG   SenderThread:3733416 [sender.py:send():378] send: telemetry
+2024-04-05 09:14:33,947 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:14:33,947 DEBUG   SenderThread:3733416 [sender.py:send():378] send: telemetry
+2024-04-05 09:14:33,947 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:14:33,947 WARNING SenderThread:3733416 [sender.py:send_metric():1316] Seen metric with glob (shouldn't happen)
+2024-04-05 09:14:33,947 DEBUG   SenderThread:3733416 [sender.py:send():378] send: config
+2024-04-05 09:14:34,114 INFO    wandb-upload_0:3733416 [upload_job.py:push():131] Uploaded file /tmp/tmpxaxcq3sewandb/i0nhu57j-wandb-metadata.json
+2024-04-05 09:14:34,487 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240405_091432-zqltvdeq/files/wandb-metadata.json
+2024-04-05 09:14:34,487 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:34,487 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240405_091432-zqltvdeq/files/requirements.txt
+2024-04-05 09:14:35,626 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:35,626 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:35,635 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:35,645 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:36,487 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:37,646 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:37,647 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:37,656 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:37,666 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:38,242 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:14:38,487 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:39,667 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:39,667 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:39,676 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:39,686 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:40,488 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:41,687 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:41,687 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:41,697 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:41,710 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:42,488 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:43,340 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:14:43,710 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:43,711 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:43,722 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:43,733 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:44,488 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:45,733 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:45,735 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:45,746 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:45,759 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:46,489 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:47,760 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:47,761 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:47,772 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:47,782 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:48,437 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:14:48,489 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:48,691 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-05 09:14:48,691 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: stop_status
+2024-04-05 09:14:48,693 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-05 09:14:49,784 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:49,784 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:49,793 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:49,804 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:50,490 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:51,805 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:51,806 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:51,815 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:51,825 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:52,490 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:53,535 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:14:53,826 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:53,826 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:53,837 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:53,850 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:54,491 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:55,851 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:55,851 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:55,867 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:55,882 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:56,491 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:57,712 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-05 09:14:57,713 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:14:57,713 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:14:57,713 DEBUG   SenderThread:3733416 [sender.py:send():378] send: history
+2024-04-05 09:14:57,713 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: summary_record
+2024-04-05 09:14:57,714 INFO    SenderThread:3733416 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-04-05 09:14:57,882 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:57,884 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:57,894 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:57,904 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:58,492 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:14:58,492 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_created():271] file/dir created: ./wandb/run-20240405_091432-zqltvdeq/files/wandb-summary.json
+2024-04-05 09:14:58,635 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:14:59,905 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:59,905 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:59,916 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:14:59,926 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:00,493 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:01,927 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:01,927 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:01,937 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:01,947 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:02,493 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:03,691 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-05 09:15:03,692 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-05 09:15:03,692 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: stop_status
+2024-04-05 09:15:03,824 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:15:04,235 ERROR   gpu       :3733416 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-04-05 09:15:04,236 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:04,236 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:04,245 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:04,255 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:04,494 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:04,494 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/config.yaml
+2024-04-05 09:15:06,256 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:06,257 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:06,267 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:06,277 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:06,494 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:08,278 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:08,279 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:08,289 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:08,304 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:08,495 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:09,613 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:15:10,316 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:10,317 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:10,327 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:10,336 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:10,495 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:12,146 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-05 09:15:12,147 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:15:12,147 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:15:12,147 DEBUG   SenderThread:3733416 [sender.py:send():378] send: history
+2024-04-05 09:15:12,147 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: summary_record
+2024-04-05 09:15:12,147 INFO    SenderThread:3733416 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-04-05 09:15:12,337 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:12,338 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:12,358 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:12,382 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:12,496 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:12,496 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/wandb-summary.json
+2024-04-05 09:15:14,383 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:14,383 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:14,393 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:14,403 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:14,497 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:14,717 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:15:14,804 DEBUG   SenderThread:3733416 [sender.py:send():378] send: config
+2024-04-05 09:15:16,404 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:16,404 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:16,413 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:16,423 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:16,497 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:17,333 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: partial_history
+2024-04-05 09:15:17,335 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:15:17,335 DEBUG   SenderThread:3733416 [sender.py:send():378] send: metric
+2024-04-05 09:15:17,335 DEBUG   SenderThread:3733416 [sender.py:send():378] send: history
+2024-04-05 09:15:17,335 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: summary_record
+2024-04-05 09:15:17,335 INFO    SenderThread:3733416 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-04-05 09:15:17,498 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/wandb-summary.json
+2024-04-05 09:15:18,424 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:18,425 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:18,434 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:18,444 ERROR   gpu       :3733416 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-04-05 09:15:18,498 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:18,691 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: stop_status
+2024-04-05 09:15:18,692 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-05 09:15:18,692 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: stop_status
+2024-04-05 09:15:19,911 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:15:20,011 DEBUG   SenderThread:3733416 [sender.py:send():378] send: exit
+2024-04-05 09:15:20,011 INFO    SenderThread:3733416 [sender.py:send_exit():585] handling exit code: 0
+2024-04-05 09:15:20,011 INFO    SenderThread:3733416 [sender.py:send_exit():587] handling runtime: 46
+2024-04-05 09:15:20,012 INFO    SenderThread:3733416 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-04-05 09:15:20,012 INFO    SenderThread:3733416 [sender.py:send_exit():593] send defer
+2024-04-05 09:15:20,013 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,013 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 0
+2024-04-05 09:15:20,013 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,013 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-04-05 09:15:20,013 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 1
+2024-04-05 09:15:20,013 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,013 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 1
+2024-04-05 09:15:20,013 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,013 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-04-05 09:15:20,013 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 2
+2024-04-05 09:15:20,013 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,013 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 2
+2024-04-05 09:15:20,013 INFO    HandlerThread:3733416 [system_monitor.py:finish():203] Stopping system monitor
+2024-04-05 09:15:20,013 DEBUG   SystemMonitor:3733416 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-04-05 09:15:20,014 DEBUG   SystemMonitor:3733416 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-04-05 09:15:20,014 INFO    HandlerThread:3733416 [interfaces.py:finish():202] Joined cpu monitor
+2024-04-05 09:15:20,014 DEBUG   SystemMonitor:3733416 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-04-05 09:15:20,014 INFO    HandlerThread:3733416 [interfaces.py:finish():202] Joined disk monitor
+2024-04-05 09:15:20,261 ERROR   gpu       :3733416 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2024-04-05 09:15:20,261 INFO    HandlerThread:3733416 [interfaces.py:finish():202] Joined gpu monitor
+2024-04-05 09:15:20,262 INFO    HandlerThread:3733416 [interfaces.py:finish():202] Joined memory monitor
+2024-04-05 09:15:20,262 INFO    HandlerThread:3733416 [interfaces.py:finish():202] Joined network monitor
+2024-04-05 09:15:20,262 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,262 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-04-05 09:15:20,262 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 3
+2024-04-05 09:15:20,262 DEBUG   SenderThread:3733416 [sender.py:send():378] send: stats
+2024-04-05 09:15:20,262 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,264 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 3
+2024-04-05 09:15:20,264 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,264 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-04-05 09:15:20,264 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 4
+2024-04-05 09:15:20,264 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,264 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 4
+2024-04-05 09:15:20,265 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,265 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-04-05 09:15:20,265 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 5
+2024-04-05 09:15:20,265 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,265 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 5
+2024-04-05 09:15:20,265 DEBUG   SenderThread:3733416 [sender.py:send():378] send: summary
+2024-04-05 09:15:20,265 INFO    SenderThread:3733416 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-04-05 09:15:20,265 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,265 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-04-05 09:15:20,265 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 6
+2024-04-05 09:15:20,266 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,266 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 6
+2024-04-05 09:15:20,266 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,266 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-04-05 09:15:20,269 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: status_report
+2024-04-05 09:15:20,417 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 7
+2024-04-05 09:15:20,417 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:20,418 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 7
+2024-04-05 09:15:20,418 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:20,418 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-04-05 09:15:20,499 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/config.yaml
+2024-04-05 09:15:20,499 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/wandb-summary.json
+2024-04-05 09:15:21,012 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-05 09:15:22,059 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 8
+2024-04-05 09:15:22,059 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: poll_exit
+2024-04-05 09:15:22,060 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:22,060 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 8
+2024-04-05 09:15:22,060 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:22,060 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-04-05 09:15:22,060 INFO    SenderThread:3733416 [job_builder.py:build():298] Attempting to build job artifact
+2024-04-05 09:15:22,060 INFO    SenderThread:3733416 [job_builder.py:_get_source_type():428] is repo sourced job
+2024-04-05 09:15:22,073 INFO    SenderThread:3733416 [job_builder.py:build():404] adding wandb-job metadata file
+2024-04-05 09:15:22,075 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 9
+2024-04-05 09:15:22,075 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:22,075 DEBUG   SenderThread:3733416 [sender.py:send():378] send: artifact
+2024-04-05 09:15:22,075 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 9
+2024-04-05 09:15:22,499 INFO    Thread-12 :3733416 [dir_watcher.py:_on_file_modified():288] file/dir modified: ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:22,709 INFO    SenderThread:3733416 [sender.py:send_artifact():1443] sent artifact job-https___github.com_Hookander_Argument-detection.git_CamemBERT_models.py - {'id': 'QXJ0aWZhY3Q6NzgzNjU3NDE2', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE1NTMxMTg3Mg==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NzgzNjU3NDE2', 'versionIndex': 1}}}
+2024-04-05 09:15:22,710 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:22,710 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-04-05 09:15:22,710 INFO    SenderThread:3733416 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-04-05 09:15:23,012 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-05 09:15:23,500 INFO    SenderThread:3733416 [dir_watcher.py:finish():388] scan: ./wandb/run-20240405_091432-zqltvdeq/files
+2024-04-05 09:15:23,501 INFO    SenderThread:3733416 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240405_091432-zqltvdeq/files/wandb-metadata.json wandb-metadata.json
+2024-04-05 09:15:23,501 INFO    SenderThread:3733416 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240405_091432-zqltvdeq/files/wandb-summary.json wandb-summary.json
+2024-04-05 09:15:23,501 INFO    SenderThread:3733416 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240405_091432-zqltvdeq/files/output.log output.log
+2024-04-05 09:15:23,503 INFO    SenderThread:3733416 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240405_091432-zqltvdeq/files/requirements.txt requirements.txt
+2024-04-05 09:15:23,503 INFO    SenderThread:3733416 [dir_watcher.py:finish():402] scan save: ./wandb/run-20240405_091432-zqltvdeq/files/config.yaml config.yaml
+2024-04-05 09:15:23,503 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 10
+2024-04-05 09:15:23,504 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: poll_exit
+2024-04-05 09:15:23,504 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:23,505 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 10
+2024-04-05 09:15:23,508 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:23,508 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-04-05 09:15:23,508 INFO    SenderThread:3733416 [file_pusher.py:finish():172] shutting down file pusher
+2024-04-05 09:15:23,830 INFO    wandb-upload_2:3733416 [upload_job.py:push():131] Uploaded file ./wandb/run-20240405_091432-zqltvdeq/files/requirements.txt
+2024-04-05 09:15:23,844 INFO    wandb-upload_0:3733416 [upload_job.py:push():131] Uploaded file ./wandb/run-20240405_091432-zqltvdeq/files/wandb-summary.json
+2024-04-05 09:15:23,879 INFO    wandb-upload_3:3733416 [upload_job.py:push():131] Uploaded file ./wandb/run-20240405_091432-zqltvdeq/files/config.yaml
+2024-04-05 09:15:23,890 INFO    wandb-upload_1:3733416 [upload_job.py:push():131] Uploaded file ./wandb/run-20240405_091432-zqltvdeq/files/output.log
+2024-04-05 09:15:24,014 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-05 09:15:24,014 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: poll_exit
+2024-04-05 09:15:24,090 INFO    Thread-11 (_thread_body):3733416 [sender.py:transition_state():613] send defer: 11
+2024-04-05 09:15:24,091 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:24,091 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 11
+2024-04-05 09:15:24,091 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:24,091 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-04-05 09:15:24,091 INFO    SenderThread:3733416 [file_pusher.py:join():178] waiting for file pusher
+2024-04-05 09:15:24,092 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 12
+2024-04-05 09:15:24,092 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:24,092 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 12
+2024-04-05 09:15:24,092 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:24,092 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-04-05 09:15:24,092 INFO    SenderThread:3733416 [file_stream.py:finish():595] file stream finish called
+2024-04-05 09:15:24,216 INFO    SenderThread:3733416 [file_stream.py:finish():599] file stream finish is done
+2024-04-05 09:15:24,216 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 13
+2024-04-05 09:15:24,216 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:24,216 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 13
+2024-04-05 09:15:24,216 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:24,216 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-04-05 09:15:24,216 INFO    SenderThread:3733416 [sender.py:transition_state():613] send defer: 14
+2024-04-05 09:15:24,217 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: defer
+2024-04-05 09:15:24,217 DEBUG   SenderThread:3733416 [sender.py:send():378] send: final
+2024-04-05 09:15:24,217 INFO    HandlerThread:3733416 [handler.py:handle_request_defer():172] handle defer: 14
+2024-04-05 09:15:24,217 DEBUG   SenderThread:3733416 [sender.py:send():378] send: footer
+2024-04-05 09:15:24,217 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: defer
+2024-04-05 09:15:24,217 INFO    SenderThread:3733416 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-04-05 09:15:24,217 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-05 09:15:24,218 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: poll_exit
+2024-04-05 09:15:24,218 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: poll_exit
+2024-04-05 09:15:24,218 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: server_info
+2024-04-05 09:15:24,218 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: poll_exit
+2024-04-05 09:15:24,218 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: server_info
+2024-04-05 09:15:24,218 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: get_summary
+2024-04-05 09:15:24,220 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: sampled_history
+2024-04-05 09:15:24,220 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: internal_messages
+2024-04-05 09:15:24,220 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: job_info
+2024-04-05 09:15:24,335 DEBUG   SenderThread:3733416 [sender.py:send_request():405] send_request: job_info
+2024-04-05 09:15:24,335 INFO    MainThread:3733416 [wandb_run.py:_footer_history_summary_info():3851] rendering history
+2024-04-05 09:15:24,335 INFO    MainThread:3733416 [wandb_run.py:_footer_history_summary_info():3883] rendering summary
+2024-04-05 09:15:24,335 INFO    MainThread:3733416 [wandb_run.py:_footer_sync_info():3810] logging synced files
+2024-04-05 09:15:24,336 DEBUG   HandlerThread:3733416 [handler.py:handle_request():146] handle_request: shutdown
+2024-04-05 09:15:24,336 INFO    HandlerThread:3733416 [handler.py:finish():869] shutting down handler
+2024-04-05 09:15:25,221 INFO    WriterThread:3733416 [datastore.py:close():296] close: ./wandb/run-20240405_091432-zqltvdeq/run-zqltvdeq.wandb
+2024-04-05 09:15:25,335 INFO    SenderThread:3733416 [sender.py:finish():1521] shutting down sender
+2024-04-05 09:15:25,335 INFO    SenderThread:3733416 [file_pusher.py:finish():172] shutting down file pusher
+2024-04-05 09:15:25,335 INFO    SenderThread:3733416 [file_pusher.py:join():178] waiting for file pusher
