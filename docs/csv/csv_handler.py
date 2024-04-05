@@ -147,23 +147,30 @@ def plot_data_distribution(typ, remove_nothing = True):
 #plot_data_distribution('dom')
 #get_data_with_simp_labels()[2]
 
-def get_arg_only_csv(output_path = './docs/csv/arg_only_csv.csv'):
+def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):
     """
         Get the csv with only the arguments to do the data augmentation
     """
     sentences, labels, domains = get_data_with_simp_labels()
+    inv_arg_dico = {v: k for k, v in arg_dico.items()}
+    inv_domain_dico = {v: k for k, v in domain_dico.items()}
     arg_sentences = []
     arg_labels = []
     arg_domains = []
     for i,l in enumerate(labels):
         if l != 0: # Not nothing -> an argument
             arg_sentences.append(sentences[i])
-            arg_labels.append(labels[i])
-            arg_domains.append(domains[i])
+            arg_labels.append(inv_arg_dico[l])
+            arg_domains.append(inv_domain_dico[domains[i]])
     arg_df = pd.DataFrame({'PAROLES': arg_sentences, 'Dimension Dialogique': arg_labels, 'Domaine': arg_domains})
     arg_df.to_csv(output_path)
+    with open('./docs/arg_only.txt', 'w') as f:
+        for s in arg_sentences:
+            f.write(s + '\n')
+        f.close()
 
-#get_arg_only_csv()
+
+create_arg_only_file()
 
 
 
