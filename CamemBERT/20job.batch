@@ -21,4 +21,4 @@
 source /raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/bin/activate
 cd /raid/home/automatants/martin_bal/PoleProj/Argument-detection/
 ## Perform run
-python './CamemBERT/model.py'
+python './CamemBERT/models.py'

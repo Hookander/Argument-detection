@@ -13,6 +13,7 @@ from pytorch_lightning.loggers import WandbLogger
 
 import sys
 
+from results import *
 from data_handler import *
 sys.path.append('./docs/csv') # not clean but ok for now
 from csv_handler import *
@@ -66,6 +67,15 @@ class Model(pl.LightningModule):
 
         return loss
 
+    def get_dico(self, typ):
+        if typ == 'arg':
+            return arg_dico
+        elif typ == 'dom':
+            return domain_dico
+        else:
+            print("get_dico : Invalid type")
+            return
+
     def validation_step(self, batch, batch_index):
         labels = batch["labels"]
         out = self.forward(batch)
@@ -105,28 +115,48 @@ class Model(pl.LightningModule):
         f1 = f1_score(test_batch["labels"].cpu().tolist(), preds.cpu().tolist(), average="macro")
         self.log("test/f1", f1)
 
-    
-    def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True):
-
-
-        model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
-        if wandb:
-            camembert_trainer = pl.Trainer(
-                max_epochs=max_epochs,
-                callbacks=[
-                    pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
-                    model_checkpoint,
-                ],
-                logger = WandbLogger(project="camembert")
-            )
+    def get_trainer(self, save, max_epochs, patience, wandb = True):
+        if save:
+            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
+            if wandb:
+                trainer = pl.Trainer(
+                    max_epochs=max_epochs,
+                    callbacks=[
+                        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                        model_checkpoint,
+                    ],
+                    logger = WandbLogger(project="camembert_"+self.typ, log_model=False)
+                )
+            else:
+                trainer = pl.Trainer(
+                    max_epochs=max_epochs,
+                    callbacks=[
+                        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                        model_checkpoint,
+                    ]
+                )
         else:
-            camembert_trainer = pl.Trainer(
-                max_epochs=max_epochs,
-                callbacks=[
-                    pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
-                    model_checkpoint,
-                ]
-            )
+            if wandb:
+                trainer = pl.Trainer(
+                    max_epochs=max_epochs,
+                    callbacks=[
+                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
+                    ],
+                    logger = WandbLogger(project="camembert_"+self.typ, log_model=False)
+                )
+            else:
+                trainer = pl.Trainer(
+                    max_epochs=max_epochs,
+                    callbacks=[
+                        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                    ]
+                )
+        return trainer
+    
+    def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False):
+
+
+        camembert_trainer = self.get_trainer(save, max_epochs, patience, wandb)
         sentences, args_labels, domains = get_data_with_simp_labels(shuffle = False)
         tokenized_sentences = tokenize_sentences(sentences)
         if self.typ == 'arg':
@@ -143,11 +173,14 @@ class Model(pl.LightningModule):
         if test:
             ret = camembert_trainer.test(model = self, dataloaders=test_dl)
             print(ret)
+            see_results(self, test_dl, self.get_dico(self.typ))
             return ret
 
 
 
-#num_labels = 3
-#lightning_model = Model("camembert-base", num_labels, lr=3e-5, weight_decay=0.)
-#lightning_model.train_model(batch_size=16, patience=10, max_epochs=1, test=True, wandb = True, ratio=[0.7, 0.15])
+num_labels = 21
+lightning_model = Model("camembert-base", num_labels, lr=1e-4, weight_decay=0., typ = 'arg')
+lightning_model.train_model(batch_size=32, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15], save = False)
+
+
 
