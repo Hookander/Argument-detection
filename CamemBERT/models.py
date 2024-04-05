@@ -119,16 +119,16 @@ class Model(pl.LightningModule):
         if save:
             model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
             if wandb:
-                camembert_trainer = pl.Trainer(
+                trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
                         pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
                         model_checkpoint,
                     ],
-                    logger = WandbLogger(project="camembert")
+                    logger = WandbLogger(project="camembert_"+self.typ, log_model=False)
                 )
             else:
-                camembert_trainer = pl.Trainer(
+                trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
                         pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
@@ -137,21 +137,21 @@ class Model(pl.LightningModule):
                 )
         else:
             if wandb:
-                camembert_trainer = pl.Trainer(
+                trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
                     ],
-                    logger = WandbLogger(project="camembert")
+                    logger = WandbLogger(project="camembert_"+self.typ, log_model=False)
                 )
             else:
-                camembert_trainer = pl.Trainer(
+                trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
                         pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
                     ]
                 )
-        return camembert_trainer
+        return trainer
     
     def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False):
 
@@ -179,6 +179,8 @@ class Model(pl.LightningModule):
 
 
 num_labels = 21
-lightning_model = Model("camembert-base", num_labels, lr=3e-5, weight_decay=0., typ = 'dom')
-lightning_model.train_model(batch_size=16, patience=10, max_epochs=1, test=True, wandb = True, ratio=[0.7, 0.15], save = False)
+lightning_model = Model("camembert-base", num_labels, lr=3e-4, weight_decay=0., typ = 'dom')
+lightning_model.train_model(batch_size=16, patience=10, max_epochs=30, test=True, wandb = True, ratio=[0.7, 0.15], save = False)
+
+
 
