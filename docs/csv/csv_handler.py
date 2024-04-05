@@ -141,10 +141,24 @@ def plot_data_distribution(typ, remove_nothing = True):
     plt.hist(data, bins=range(0, 22), alpha=0.7, rwidth=0.85)
     plt.show()
 
-#plot_data_distribution('dom')
-#get_data_with_simp_labels()[2]
 
+def get_arg_only_csv(output_path = './docs/csv/arg_only_csv.csv'):
+    """
+        Get the csv with only the arguments to do the data augmentation
+    """
+    sentences, labels, domains = get_data_with_simp_labels()
+    arg_sentences = []
+    arg_labels = []
+    arg_domains = []
+    for i,l in enumerate(labels):
+        if l != 0: # Not nothing -> an argument
+            arg_sentences.append(sentences[i])
+            arg_labels.append(labels[i])
+            arg_domains.append(domains[i])
+    arg_df = pd.DataFrame({'PAROLES': arg_sentences, 'Dimension Dialogique': arg_labels, 'Domaine': arg_domains})
+    arg_df.to_csv(output_path)
 
+get_arg_only_csv()
 
 
 
