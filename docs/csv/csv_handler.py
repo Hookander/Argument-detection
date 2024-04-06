@@ -120,7 +120,11 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
             
             
     if shuffle:
-        perm = np.random.permutation(len(sentences))
+        seed = 42
+
+        # We shuffle the data with a seed to keep the same order across all trainings
+        perm = np.random.default_rng(seed = seed).permutation(len(sentences))
+        
         sentences = [sentences[i] for i in perm]
         ret = [ret[i] for i in perm]
         dom = [dom[i] for i in perm]

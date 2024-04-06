@@ -41,7 +41,7 @@ class Model(pl.LightningModule):
             self.model = AutoModelForSequenceClassification.from_pretrained(
                 model_name, num_labels=num_labels
             ).to(device)
-        
+        self.model_name = model_name
         self.lr = lr
         self.weight_decay = weight_decay
         self.num_labels = num_labels
@@ -117,38 +117,42 @@ class Model(pl.LightningModule):
 
     def get_trainer(self, save, max_epochs, patience, wandb = True):
         if save:
-            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/acc", mode="max")
+            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/f1", mode="max")
             if wandb:
+                wb_logger = WandbLogger(project="camembert_"+self.typ)
+                wb_logger.experiment.config['model_name'] = self.model_name
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
                         model_checkpoint,
                     ],
-                    logger = WandbLogger(project="camembert_"+self.typ, checkpoint_callbacks=False)
+                    logger = wb_logger
                 )
             else:
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
                         model_checkpoint,
                     ]
                 )
         else:
             if wandb:
+                wb_logger = WandbLogger(project="camembert_"+self.typ)
+                wb_logger.experiment.config['model_name'] = self.model_name
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
                         pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
                     ],
-                    logger = WandbLogger(project="camembert_"+self.typ, checkpoint_callbacks=False)
+                    logger = wb_logger
                 )
             else:
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/acc", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
                     ]
                 )
         return trainer
@@ -178,9 +182,10 @@ class Model(pl.LightningModule):
 
 
 
-num_labels = 21
-lightning_model = Model("camembert-base", num_labels, lr=1e-4, weight_decay=0., typ = 'arg')
-lightning_model.train_model(batch_size=32, patience=10, max_epochs=50, test=True, wandb = True, ratio=[0.7, 0.15], save = False)
+num_labels = 3
+model_name = "camembert-base" # or "camembert-base"
+lightning_model = Model(model_name, num_labels, lr=1e-4, weight_decay=0., typ = 'arg')
+lightning_model.train_model(batch_size=32, patience=0, max_epochs=1, test=False, wandb = True, ratio=[0.8, 0.2], save = False)
 
 
 

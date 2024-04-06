@@ -2,6 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 from datasets import Dataset
+import numpy as np
 
 
 tokenizer = AutoTokenizer.from_pretrained('camembert-base')
@@ -30,10 +31,9 @@ def get_labels_from_ratio(labels, ratio = [0.7, 0.15]):
     
     return labels[:train_size], labels[train_size:train_size+val_size], labels[train_size+val_size:]
 
-def get_equal_distributions(sentences, labels, ratio = [0.8, 0.1]):
+def get_equal_distribution(sentences, labels, ratio = [0.8, 0.1]):
     """
     sentence : dictionary with the tokenized sentences and the attention masks
-    labels : list of labels
     """
     split_labels_indices = {label : [] for label in set(labels)}
     for i, label in enumerate(labels):
@@ -45,18 +45,19 @@ def get_equal_distributions(sentences, labels, ratio = [0.8, 0.1]):
     train_size = int(ratio[0] * len(sentences['input_ids']))
     val_size = int(ratio[1] * len(sentences['input_ids']))
 
-    train_indices = {label : split_labels_indices[label][:train_size] for label in split_labels_indices}
-    val_indices = {label : split_labels_indices[label][train_size:train_size+val_size] for label in split_labels_indices}
-    test_indices = {label : split_labels_indices[label][train_size+val_size:] for label in split_labels_indices}
+    train_indices = np.concatenate([split_labels_indices[label][:train_size] for label in split_labels_indices]).astype(int)
+    val_indices = np.concatenate([split_labels_indices[label][train_size:train_size+val_size] for label in split_labels_indices]).astype(int)
+    test_indices = np.concatenate([split_labels_indices[label][train_size+val_size:] for label in split_labels_indices]).astype(int)
 
-    train_dict = {key: [sentences[key][i] for i in train_indices[key]] for key in sentences}
-    train_dict['labels'] = [labels[i] for i in range(len(labels)) if i in train_indices[labels[i]]]
 
-    val_dict = {key: [sentences[key][i] for i in val_indices[key]] for key in sentences}
-    val_dict['labels'] = [labels[i] for i in range(len(labels)) if i in val_indices[labels[i]]]
+    train_dict = {key: [sentences[key][i] for i in train_indices] for key in sentences}
+    train_dict['labels'] = [labels[i] for i in range(len(labels)) if i in train_indices]
 
-    test_dict = {key: [sentences[key][i] for i in test_indices[key]] for key in sentences}
-    test_dict['labels'] = [labels[i] for i in range(len(labels)) if i in test_indices[labels[i]]]
+    val_dict = {key: [sentences[key][i] for i in val_indices] for key in sentences}
+    val_dict['labels'] = [labels[i] for i in range(len(labels)) if i in val_indices]
+
+    test_dict = {key: [sentences[key][i] for i in test_indices] for key in sentences}
+    test_dict['labels'] = [labels[i] for i in range(len(labels)) if i in test_indices]
 
     return train_dict, val_dict, test_dict
 
@@ -76,9 +77,19 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
     
     train_size = int(ratio[0] * size)
     val_size = int(ratio[1] * size)
+    '''
+    train_dict = {key: sentences[key][:train_size] for key in sentences}
+    train_dict['labels'] = labels[:train_size]
     
-    train_dict, val_dict, test_dict = get_equal_distributions(sentences, labels, ratio)
+    val_dict = {key: sentences[key][train_size:train_size+val_size] for key in sentences}
+    val_dict['labels'] = labels[train_size:train_size+val_size]
     
+    test_dict = {key: sentences[key][train_size+val_size:] for key in sentences}
+    test_dict['labels'] = labels[train_size+val_size:]
+    '''
+
+    train_dict, val_dict, test_dict = get_equal_distribution(sentences, labels, ratio)
+
     train_ds = Dataset.from_dict(train_dict)
     train_ds = train_ds.with_format("torch")
     
