@@ -181,8 +181,15 @@ def create_arg_augmented_csv(in_txt_file, arg_only_path = './docs/csv/arg_only_c
     """
     with open(in_txt_file, 'r') as f:
         lines = f.readlines()
-        print(lines[:10])
+        lines = [line[7:-3] for line in lines]
         f.close()
+    arg_df = pd.read_csv(arg_only_path)
+    df_augmented = pd.DataFrame(columns=['PAROLES', 'Dimension Dialogique', 'Domaine'])
+    for i, line in enumerate(lines):
+        arg_type = arg_df.loc[i]['Dimension Dialogique']
+        domain = arg_df.loc[i]['Domaine']
+        df_augmented = df_augmented._append({'PAROLES': line, 'Dimension Dialogique': arg_type, 'Domaine': domain}, ignore_index=True)
+    df_augmented.to_csv(output_path)
 create_arg_augmented_csv('./docs/csv/arg_augmented.txt')
 #create_arg_only_file()
 
