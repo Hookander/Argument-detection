@@ -169,12 +169,22 @@ def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):
     arg_df = pd.DataFrame({'PAROLES': arg_sentences, 'Dimension Dialogique': arg_labels, 'Domaine': arg_domains})
     arg_df.to_csv(output_path)
     with open('./docs/arg_only.txt', 'w') as f:
-        for s in arg_sentences:
-            f.write(s + '\n')
+        for i, s in enumerate(arg_sentences):
+            f.write(str(i)+'-' + s + '\n')
         f.close()
 
-
-create_arg_only_file()
+def create_arg_augmented_csv(in_txt_file, arg_only_path = './docs/csv/arg_only_csv.csv', output_path = './docs/csv/arg_aug.csv'):
+    """
+        The csv contains just the arguments modified, in the same order as in the 
+        arg_only_csv file.
+        So we need to get the labels from there
+    """
+    with open(in_txt_file, 'r') as f:
+        lines = f.readlines()
+        print(lines[:10])
+        f.close()
+create_arg_augmented_csv('./docs/csv/arg_augmented.txt')
+#create_arg_only_file()
 
 
 

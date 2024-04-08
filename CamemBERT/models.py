@@ -60,7 +60,7 @@ class Model(pl.LightningModule):
         # -------- MASKED --------
         loss_fn = torch.nn.CrossEntropyLoss()
         loss = loss_fn(logits.view(-1, self.num_labels), batch["labels"].view(-1))
-
+        #? LOSS variable en fct des erreurs pour contrebalancer les classes
         # ------ END MASKED ------
 
         self.log("train/loss", loss)
@@ -182,10 +182,10 @@ class Model(pl.LightningModule):
 
 
 
-num_labels = 3
-model_name = "camembert-base" # or "camembert-base"
-lightning_model = Model(model_name, num_labels, lr=1e-4, weight_decay=0., typ = 'arg')
-lightning_model.train_model(batch_size=32, patience=0, max_epochs=1, test=False, wandb = True, ratio=[0.8, 0.2], save = False)
+#num_labels = 3
+#model_name = "camembert-base" # "camembert-base" or "camembert/camembert-large"
+#lightning_model = Model(model_name, num_labels, lr=5e-4, weight_decay=0, typ = 'arg')
+#lightning_model.train_model(batch_size=32, patience=30, max_epochs=150, test=False, wandb = True, ratio=[0.8, 0.2], save = False)
 
 
 

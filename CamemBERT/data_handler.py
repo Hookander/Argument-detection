@@ -41,13 +41,16 @@ def get_equal_distribution(sentences, labels, ratio = [0.8, 0.1]):
     
     # for each label, we split the indices into the train/validation/test set to obtain the
     # same distribution in each dataset
+    train_indices, val_indices, test_indices = [], [], []
 
-    train_size = int(ratio[0] * len(sentences['input_ids']))
-    val_size = int(ratio[1] * len(sentences['input_ids']))
-
-    train_indices = np.concatenate([split_labels_indices[label][:train_size] for label in split_labels_indices]).astype(int)
-    val_indices = np.concatenate([split_labels_indices[label][train_size:train_size+val_size] for label in split_labels_indices]).astype(int)
-    test_indices = np.concatenate([split_labels_indices[label][train_size+val_size:] for label in split_labels_indices]).astype(int)
+    for label in split_labels_indices:
+        size = len(split_labels_indices[label])
+        train_size = int(ratio[0] * size)
+        val_size = int(ratio[1] * size)
+        
+        train_indices += split_labels_indices[label][:train_size]
+        val_indices += split_labels_indices[label][train_size:train_size+val_size]
+        test_indices += split_labels_indices[label][train_size+val_size:]
 
 
     train_dict = {key: [sentences[key][i] for i in train_indices] for key in sentences}
@@ -58,7 +61,7 @@ def get_equal_distribution(sentences, labels, ratio = [0.8, 0.1]):
 
     test_dict = {key: [sentences[key][i] for i in test_indices] for key in sentences}
     test_dict['labels'] = [labels[i] for i in range(len(labels)) if i in test_indices]
-
+    print(val_dict['labels'])
     return train_dict, val_dict, test_dict
 
 
@@ -77,7 +80,7 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
     
     train_size = int(ratio[0] * size)
     val_size = int(ratio[1] * size)
-    '''
+    
     train_dict = {key: sentences[key][:train_size] for key in sentences}
     train_dict['labels'] = labels[:train_size]
     
@@ -86,10 +89,10 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
     
     test_dict = {key: sentences[key][train_size+val_size:] for key in sentences}
     test_dict['labels'] = labels[train_size+val_size:]
-    '''
+    
 
     train_dict, val_dict, test_dict = get_equal_distribution(sentences, labels, ratio)
-
+    
     train_ds = Dataset.from_dict(train_dict)
     train_ds = train_ds.with_format("torch")
     
