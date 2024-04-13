@@ -67,6 +67,9 @@ class Model(pl.LightningModule, ABC):
 
     @abstractmethod
     def get_dico(self, typ):
+        """
+        Returns the dictionnary matching the labels with their indices
+        """
         pass
 
     def validation_step(self, batch, batch_index):
