@@ -4,7 +4,7 @@ import torch
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
 import pytorch_lightning as pl
-from transformers import AutoModelForSequenceClassification, CamembertForMaskedLM, AutoTokenizer, AutoConfig
+from transformers import AutoModelForSequenceClassification, FlaubertModel, AutoTokenizer, AutoConfig
 from datasets import load_dataset
 from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.manifold import TSNE
@@ -161,7 +161,7 @@ class Model(pl.LightningModule):
 
 
         camembert_trainer = self.get_trainer(save, max_epochs, patience, wandb)
-        sentences, args_labels, domains = get_data_with_simp_labels(shuffle = False)
+        """sentences, args_labels, domains = get_data_with_simp_labels(shuffle = True)
         tokenized_sentences = tokenize_sentences(sentences)
         if self.typ == 'arg':
             cleaned_labels = args_labels
@@ -169,8 +169,8 @@ class Model(pl.LightningModule):
             cleaned_labels = domains
         else:
             print("Invalid type")
-            return
-        train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=ratio, batch_size=batch_size)
+            return"""
+        train_dl, val_dl, test_dl = get_dataloaders(self.typ, False, ratio=ratio, batch_size=batch_size)
         print('ok')
         camembert_trainer.fit(self, train_dataloaders=train_dl, val_dataloaders=val_dl)
 
@@ -182,10 +182,10 @@ class Model(pl.LightningModule):
 
 
 
-#num_labels = 3
-#model_name = "camembert-base" # "camembert-base" or "camembert/camembert-large"
-#lightning_model = Model(model_name, num_labels, lr=5e-4, weight_decay=0, typ = 'arg')
-#lightning_model.train_model(batch_size=32, patience=30, max_epochs=150, test=False, wandb = True, ratio=[0.8, 0.2], save = False)
+num_labels = 3
+model_name = "camembert-base" # "camembert-base" or "camembert/camembert-large"
+lightning_model = Model(model_name, num_labels, lr=5e-5, weight_decay=0, typ = 'arg')
+lightning_model.train_model(batch_size=32, patience=3, max_epochs=5, test=True, wandb = True, ratio=[0.8, 0.2], save = False)
 
 
 

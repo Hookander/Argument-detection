@@ -3,6 +3,9 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 from datasets import Dataset
 import numpy as np
+import sys
+sys.path.append('./docs/csv') # not clean but ok for now
+from csv_handler import *
 
 
 tokenizer = AutoTokenizer.from_pretrained('camembert-base')
@@ -65,7 +68,7 @@ def get_equal_distribution(sentences, labels, ratio = [0.8, 0.1]):
     return train_dict, val_dict, test_dict
 
 
-def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
+def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1]):
     """_summary_
 
     Args:
@@ -76,6 +79,24 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
                     The rest is for the test set.
 
     """
+    sentences, arg_types, domains = get_data_with_simp_labels(shuffle = True)
+    if use_data_aug:
+        sentences_aug, arg_types_aug, domains_aug = get_data_aug()
+
+        sentences = sentences + sentences_aug
+        arg_types = arg_types + arg_types_aug
+        domains = domains + domains_aug
+    
+    print(len(sentences))
+    sentences = tokenize_sentences(sentences)
+    if typ == 'arg':
+        labels = arg_types
+    elif typ == 'dom':
+        labels = domains
+    else:
+        print("Invalid type")
+        return
+
     size = len(sentences['input_ids'])
     
     train_size = int(ratio[0] * size)
@@ -91,7 +112,7 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
     test_dict['labels'] = labels[train_size+val_size:]
     
 
-    train_dict, val_dict, test_dict = get_equal_distribution(sentences, labels, ratio)
+    #train_dict, val_dict, test_dict = get_equal_distribution(sentences, labels, ratio)
     
     train_ds = Dataset.from_dict(train_dict)
     train_ds = train_ds.with_format("torch")
