@@ -1,19 +1,19 @@
 Some weights of CamembertForSequenceClassification were not initialized from the model checkpoint at camembert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+wandb: Currently logged in as: balthazar-martin123. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.4
+wandb: Run data is saved locally in ./wandb/run-20240412_153937-rofelpqz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run electric-snowball-56
+wandb: ⭐️ View project at https://wandb.ai/balthazar-martin123/camembert_arg
+wandb: 🚀 View run at https://wandb.ai/balthazar-martin123/camembert_arg/runs/rofelpqz
 GPU available: True (cuda), used: True
 TPU available: False, using: 0 TPU cores
 IPU available: False, using: 0 IPUs
 HPU available: False, using: 0 HPUs
 You are using a CUDA device ('NVIDIA A100-SXM4-80GB MIG 2g.20gb') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
-wandb: Currently logged in as: balthazar-martin123. Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.16.6 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.16.4
-wandb: Run data is saved locally in ./wandb/run-20240405_100347-7ao50vwj
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run hirogen-phaser-1
-wandb: ⭐️ View project at https://wandb.ai/balthazar-martin123/camembert_arg
-wandb: 🚀 View run at https://wandb.ai/balthazar-martin123/camembert_arg/runs/7ao50vwj
 LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
 
   | Name  | Type                               | Params
@@ -23,34 +23,55 @@ LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
 110 M     Trainable params
 0         Non-trainable params
 110 M     Total params
-442.552   Total estimated model params size (MB)
+442.497   Total estimated model params size (MB)
 SLURM auto-requeueing enabled. Setting signal handlers.
 /raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
 /raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
-/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py:298: The number of training batches (38) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py:298: The number of training batches (44) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+`Trainer.fit` stopped: `max_epochs=5` reached.
 LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
 SLURM auto-requeueing enabled. Setting signal handlers.
 /raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
-wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.015 MB uploadedwandb: | 0.018 MB of 0.025 MB uploadedwandb: / 0.018 MB of 0.026 MB uploadedwandb: - 0.026 MB of 0.026 MB uploadedwandb: 
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/utilities/data.py:104: Total length of `DataLoader` across ranks is zero. Please make sure this was your intention.
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.015 MB uploadedwandb: | 0.015 MB of 0.015 MB uploadedwandb: / 0.018 MB of 0.023 MB uploaded (0.002 MB deduped)wandb: - 0.023 MB of 0.023 MB uploaded (0.002 MB deduped)wandb: 
 wandb: Run history:
-wandb:               epoch ▁▁▁▂▂▂▂▃▃▃▄▄▄▄▅▅▅▆▆▆▆▇▇▇███
-wandb:            test/acc ▁
-wandb:             test/f1 ▁
-wandb:          train/loss ██▄▂▃▂▆▂▂▁▁
-wandb: trainer/global_step ▁▁▁▂▂▂▂▃▃▃▄▄▄▄▅▅▅▆▆▆▆▇▇▇███
-wandb:           valid/acc ▅▅▇██▄▇▄▄▆▁▅▅▆▅
-wandb:            valid/f1 ▁▁▆▇█▄▆▅▁▇▂▄▅▇▅
+wandb:               epoch ▁▃▃▅▅▆▆██
+wandb:          train/loss █▅▁▇
+wandb: trainer/global_step ▁▁▃▃▅▅▆▇█
+wandb:           valid/acc ▁▅▅█▁
+wandb:            valid/f1 ▁█▄▇█
 wandb: 
 wandb: Run summary:
-wandb:               epoch 15
-wandb:            test/acc 0.78462
-wandb:             test/f1 0.43732
-wandb:          train/loss 0.01362
-wandb: trainer/global_step 570
-wandb:           valid/acc 0.78764
-wandb:            valid/f1 0.48507
+wandb:               epoch 4
+wandb:          train/loss 0.45241
+wandb: trainer/global_step 219
+wandb:           valid/acc 0.84104
+wandb:            valid/f1 0.50809
 wandb: 
-wandb: 🚀 View run hirogen-phaser-1 at: https://wandb.ai/balthazar-martin123/camembert_arg/runs/7ao50vwj
-wandb: ️⚡ View job at https://wandb.ai/balthazar-martin123/camembert_arg/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjE1Njg2MTU3OQ==/version_details/v0
+wandb: 🚀 View run electric-snowball-56 at: https://wandb.ai/balthazar-martin123/camembert_arg/runs/rofelpqz
+wandb: ️⚡ View job at https://wandb.ai/balthazar-martin123/camembert_arg/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjE1Njg2MTU3OQ==/version_details/v8
 wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20240405_100347-7ao50vwj/logs
+wandb: Find logs at: ./wandb/run-20240412_153937-rofelpqz/logs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=3` in the `DataLoader` to improve performance.
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/utilities/data.py:104: Total length of `DataLoader` across ranks is zero. Please make sure this was your intention.
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: \ 0.015 MB of 0.020 MB uploadedwandb: | 0.020 MB of 0.020 MB uploadedwandb: 
+wandb: Run history:
+wandb:               epoch ▁▃▃▆▆██
+wandb:          train/loss █▅▁
+wandb: trainer/global_step ▁▁▃▄▆▇█
+wandb:           valid/acc ▁▁▁▁
+wandb:            valid/f1 ▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:               epoch 3
+wandb:          train/loss 0.31724
+wandb: trainer/global_step 175
+wandb:           valid/acc 0.84104
+wandb:            valid/f1 0.31923
+wandb: 
+wandb: 🚀 View run fearless-plant-55 at: https://wandb.ai/balthazar-martin123/camembert_arg/runs/xg6oxsrv
+wandb: ️⚡ View job at https://wandb.ai/balthazar-martin123/camembert_arg/jobs/QXJ0aWZhY3RDb2xsZWN0aW9uOjE1Njg2MTU3OQ==/version_details/v8
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240412_153746-xg6oxsrv/logs

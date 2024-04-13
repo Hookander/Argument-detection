@@ -1,0 +1,247 @@
+,PAROLES,Dimension Dialogique,Domaine
+0,"La confiance peut se développer naturellement avec le temps, favorisant une sphère de confiance sans dépendre entièrement d'un système monétaire",Arg_value,confiance
+1,"Prêter des objets avec un système de suivi clarifie qui les détient, facilitant leur gestion",Arg_value,confiance
+2,Un système basé sur la confiance élimine le besoin de suivi,Arg_value,confiance
+3,"Avec la confiance comme base, le suivi devient inutile",Arg_value,confiance
+4,La fréquentation régulière ne garantit pas la confiance pour des engagements majeurs,Arg_value,confiance
+5,"Le quartier agit comme une famille élargie, où partager vaut plus que le coût matériel",Arg_value,économique
+6,On peut choisir de prêter gratuitement ou de louer selon la valeur personnelle et le contexte,Arg_value,éthique
+7,"Entre amis, on prête sans frais, mais avec des étrangers, on peut opter pour la location",Arg_value,économique
+8,"Le concept de quartier met en avant le partage sur la location, mais cela ne convient pas à tous",Arg_value,éthique
+9,L'achat coûteux d'un appareil ménager peut rendre réticent à son utilisation libre par autrui,Arg_value,économique
+10,"Pour une collaboration efficace, il est préférable que le quartier investisse dans les équipements",Arg_value,éthique
+11,Les achats groupés ne sont pas nécessaires pour les petits objets du quotidien,Arg_fact,économique
+12,"Certains équipements, coûteux et peu utilisés, sont plus adaptés au prêt ou à la location",Arg_fact,économique
+13,"Le concept de quartier offre diverses manières de collaboration, monétaire ou non",Arg_fact,économique
+14,Les technologies actuelles permettent de suivre l'utilisation des services communaux,Arg_value,relations sociales
+15,"Les contributions sont ajustées selon l'utilisation, favorisant une répartition équitable des coûts",Arg_fact,faisabilité
+16,La mutualisation des équipements comme les laveries permet d'économiser de l'espace,Arg_value,équité
+17,La technologie actuelle facilite le suivi des activités et contributions communautaires,Arg_value,équité
+18,"Les contributions sont basées sur l'utilisation réelle, rendant les coûts plus équitables",Arg_fact,utilité
+19,Les cotisations ajustées selon l'usage tendent vers un coût nul pour la communauté,Arg_fact,économique
+20,"Bien que coûteuses au départ, les installations communes deviennent rentables à long terme",Arg_fact,économique
+21,La diversité des emplois rend difficile l'uniformisation des contributions communautaires,Arg_fact,économique
+22,"Initialement onéreuses, les installations devraient être amorties sur le long terme",Arg_fact,économique
+23,Les premiers investissements ne sont pas immédiatement rentables mais le seront avec le temps,Arg_fact,économique
+24,Faire face aux dépenses initiales peut être difficile sans une planification adéquate,Arg_fact,économique
+25,La diversité professionnelle complique la mise en place d'un système de contributions uniforme,Arg_fact,faisabilité
+26,Un espace de bureau général pour le quartier pourrait inclure des résidents externes,Arg_fact,faisabilité
+27,Une étude montre que la séparation des zones résidentielles et de loisirs crée des villes déséquilibrées,Arg_value,agréabilité
+28,"Ce phénomène crée des zones résidentielles isolées, contrastant avec des espaces de vie plus intégrés",Arg_value,agréabilité
+29,"Cela résulte en des quartiers désertés en journée, à l'inverse de villes plus homogènes comme Paris",Arg_value,agréabilité
+30,"Des quartiers bien habités créent un dynamisme constant, contrairement à ceux désertés en journée",Arg_value,agréabilité
+31,"Des quartiers intégrant travail, logement et loisirs favorisent plus d'interactions",Arg_value,relations sociales
+32,Les écoles peuvent craindre le bruit,Arg_fact,nuisance
+33,Il est important d'éviter les longs trajets pour les enfants entre l'école et la crèche,Arg_fact,utilité
+34,Le bruit excessif peut être problématique dans les quartiers résidentiels,Arg_fact,nuisance
+35,"Une connaissance vit loin de Paris, entre un aéroport et des éoliennes",Arg_fact,nuisance
+36,Le bruit des avions et éoliennes combiné est extrêmement perturbant,Arg_fact,nuisance
+37,"Cette combinaison de bruits est insupportable, surtout pour les aînés et les enfants",Arg_fact,nuisance
+38,Installer de tels équipements nécessite beaucoup d'espace,Arg_fact,taille
+39,Ces installations ne sont généralement pas situées à proximité immédiate des communautés,Arg_fact,taille
+40,Cela permet d'économiser sur les coûts de chauffage,Arg_fact,économique
+41,Pas tous les quartiers adoptent des pratiques durables malgré les avantages,Arg_fact,praticité
+42,L'autosuffisance incite à mener des projets locaux bénéfiques,Arg_value,engagement
+43,Cela encourage activement les résidents à participer à des projets communautaires,Arg_value,engagement
+44,Participer ensemble aux projets communautaires a un impact positif,Arg_value,engagement
+45,Beaucoup aspirent à contribuer positivement à leur environnement et économie,Arg_value,engagement
+46,Cela concerne l'engagement envers l'environnement et l'économie durable,Arg_value,engagement
+47,"En recyclant, on évite les déchets inutiles et on minimise l'impact environnemental",Arg_fact,praticité
+48,Le recyclage et la réduction des déchets évitent l'usage d'emballages superflus,Arg_fact,praticité
+49,Réduire à la source est plus efficace que de recycler des emballages inutiles,Arg_fact,économique
+50,"Les éoliennes décoratives, comme celles en forme d'arbre, combinent esthétique et énergie",Arg_fact,esthétique
+51,Ces éoliennes esthétiques produisent de l'énergie tout en embellissant le paysage,Arg_fact,esthétique
+52,"Face à l'absence de soleil ou de vent, il faut trouver des alternatives",Arg_fact,écologique
+53,L'énergie hydraulique pourrait être une solution viable,Arg_fact,écologique
+54,"L'énergie hydraulique utilise les courants d'eau, similaire au principe des éoliennes",Arg_fact,écologique
+55,Les turbines hydrauliques fonctionnent comme des éoliennes sous l'eau,Arg_fact,écologique
+56,Cela implique l'utilisation de turbines sous-marines pour générer de l'énergie,Arg_fact,écologique
+57,Cette méthode diffère du nucléaire bien qu'elle partage certains principes,Arg_fact,écologique
+58,"Bien que différent du nucléaire, le principe de base reste similaire",Arg_fact,écologique
+59,"Je vérifie, mais certaines voitures utilisent déjà des technologies similaires",Arg_fact,faisabilité
+60,La chaleur produite peut être réutilisée dans d'autres processus,Arg_fact,praticité
+61,"Le traitement de l'eau autonome dépend de la taille du quartier, ce qui peut rendre le projet non réalisable",Arg_fact,taille
+62,Nous explorons des idées théoriques sans nous concentrer sur leur faisabilité immédiate,Arg_fact,faisabilité
+63,Cela semble irréalisable,Arg_fact,faisabilité
+64,"Cependant, c'est possible",Arg_fact,faisabilité
+65,L'usage continu pourrait diminuer l'humidité de l'air,Arg_fact,faisabilité
+66,Cela risque de transformer la zone en désert,Arg_value,écologique
+67,Pas besoin de technologie complexe; un simple capteur peut surveiller l'humidité et la santé des plantes,Arg_fact,utilité
+68,Ces capteurs indiquent quand et combien arroser les plantes,Arg_fact,utilité
+69,J'ai vu des appareils capables de soutenir les besoins d'une famille de cinq,Arg_fact,praticité
+70,Si chacun possède un tel appareil..,Arg_fact,praticité
+71,Il faudrait l'utiliser judicieusement pour ne pas assécher l'air,Arg_value,écologique
+72,"Dans un environnement à 100% d'humidité c'est gérable, mais pas à 32%",Arg_fact,praticité
+73,"Avec des réserves d'eau adéquates, il n'y a pas de souci",Arg_fact,organisation
+74,"Partager certaines ressources, comme la douche, est possible",Arg_value,partage
+75,Cela pourrait être compliqué avec trop de personnes,Arg_value,partage
+76,C'est assez inhabituel,Arg_value,partage
+77,Cela semble être une limite,Arg_value,partage
+78,Ce partage n'est pas pour tous,Arg_value,partage
+79,On peut emprunter des vêtements à des amis,Arg_value,partage
+80,"Prêter du matériel de ski semble logique, mais peut-être pas des vêtements personnels",Arg_value,partage
+81,"Sauf peut-être pour des occasions spéciales, comme un entretien",Arg_value,partage
+82,Certains espaces fonctionnent sur un modèle de paiement à l'heure pour l'utilisation de leurs ressources,Arg_fact,utilité
+83,Ce concept existe déjà,Arg_fact,utilité
+84,Ces idées ne sont pas mutuellement exclusives,Arg_fact,utilité
+85,Elles sont effectivement compatibles,Arg_fact,utilité
+86,Cela pourrait réduire la nécessité d'une monnaie physique comme le bitcoin,Arg_fact,praticité
+87,"Cela encouragerait le troc, comme entre un agriculteur et un menuisier",Arg_fact,utilité
+88,"En économisant ou en produisant plus d'énergie, la communauté pourrait en tirer un revenu",Arg_fact,économique
+89,"L'idée n'est pas de créer une hiérarchie, mais une collaboration",Arg_value,relations sociales
+90,Cela permettrait de réaliser des projets collectifs ou des événements comme des festivals,Arg_value,relations sociales
+91,L'idée d'une constitution peut sembler trop ambitieuse,Arg_value,acceptabilité
+92,Cela peut déjà être partagé,Arg_fact,utilité
+93,Les crèches de quartier impliquent déjà la communauté locale,Arg_fact,utilité
+94,"Une consommation excessive pourrait nuire à tous, d'où l'importance d'une utilisation responsable",Arg_value,écologique
+95,L'idée des panneaux solaires est de prévenir les inégalités en ajustant la consommation d'énergie,Arg_value,équité
+96,"Pour un appartement et un studio, le calcul des panneaux nécessaires diffère",Arg_value,équité
+97,"En cas de pénurie d'électricité, les éoliennes pourraient compenser",Arg_fact,faisabilité
+98,"Même pour un studio moins gourmand en énergie, on installerait autant de panneaux solaires",Arg_value,équité
+99,Les éoliennes serviraient de complément en cas de besoin,Arg_fact,faisabilité
+100,Les éoliennes pourraient équilibrer les variations de production solaire,Arg_fact,faisabilité
+101,"Dans les maisons individuelles, il y a plus d'espace pour les panneaux solaires que dans un immeuble",Arg_fact,taille
+102,Les maisons individuelles présentent cependant plus de pertes énergétiques,Arg_value,écologique
+103,Les propriétés orientées plein sud sont plus prisées et donc plus coûteuses,Arg_fact,économique
+104,L'orientation sud influence le prix en raison de l'ensoleillement optimal,Arg_fact,économique
+105,Je fais référence aux tendances actuelles du marché,Arg_fact,économique
+106,"Avec un quota de ""coins"" quotidien, il faut choisir judicieusement ses activités pour ne pas dépasser",Arg_fact,faisabilité
+107,Ce système assure un partage équitable des ressources et évite l'accaparement,Arg_value,équité
+108,Il vise à prévenir la formation de monopoles,Arg_value,équité
+109,L'objectif est l'équité dans l'utilisation des ressources,Arg_value,équité
+110,Cela empêche la formation de coalitions contre une personne,Arg_value,relations sociales
+111,L'idée est de réduire les conflits,Arg_value,relations sociales
+112,Il est préférable de ne pas reporter les tâches,Arg_value,engagement
+113,Le quartier doit explorer diverses idées pour progresser,Arg_value,engagement
+114,L'individualisme peut mener à des sentiments de jalousie,Arg_value,relations sociales
+115,Une prise de conscience globale est nécessaire pour mettre en œuvre des changements,Arg_value,acceptabilité
+116,Une conscience collective sur l'impact de nos actions est cruciale,Arg_value,acceptabilité
+117,Le changement de comportement résulte de la compréhension et de l'acceptation,Arg_value,acceptabilité
+118,Cela ne nécessite pas un vote mais un consensus général,Arg_value,acceptabilité
+119,L'établissement d'une culture commune autour de l'économie change notre relation avec nos propres valeurs,Arg_value,engagement
+120,L'idée est que chacun devrait pouvoir participer à cette culture commune,Arg_value,engagement
+121,"L'objectif est de consommer avec modération, sans excès",Arg_value,engagement
+122,"L'idée est de ne pas justifier une surconsommation par celle des autres, mais de limiter l'individualisme",Arg_value,engagement
+123,Il s'agit d'améliorer son comportement en espérant que les autres en fassent autant,Arg_value,engagement
+124,"Personnellement, je ne suis pas attiré par une culture commune imposée",Arg_value,acceptabilité
+125,"Certains concepts, bien que populaires ailleurs, peuvent ne pas me convenir, comme les ateliers de menuiserie",Arg_value,acceptabilité
+126,C'est une question de choix personnel,Arg_value,liberté
+127,Chacun est libre de participer ou non,Arg_value,liberté
+128,Choisir implique de considérer l'impact social de ses décisions,Arg_value,relations sociales
+129,Vous avez toujours la liberté de choisir,Arg_value,liberté
+130,"Dans une culture partagée, il y aura toujours des divergences",Arg_value,acceptabilité
+131,Trouver un terrain d'entente peut être complexe,Arg_value,relations sociales
+132,L'objectif est d'assurer un cadre de vie agréable pour tous,Arg_value,agréabilité
+133,Une culture commune ne signifie pas forcément une participation active,Arg_value,engagement
+134,Il s'agit davantage de trouver un consensus général,Arg_value,liberté
+135,"Même sans intégration totale, il est possible de contribuer",Arg_value,liberté
+136,"Si l'engagement communautaire ne vous attire pas, n'y participez pas",Arg_value,liberté
+137,Cela ressemble à la philosophie des moines bouddhistes avec leurs biens partagés,Arg_value,partage
+138,"Si la culture change, on peut voir les biens personnels comme partagés sans obligation de participation active",Arg_value,liberté
+139,Je perçois cela comme une question de gestion et d'optimisation plutôt que de relations sociales,Arg_value,relations sociales
+140,Il s'agit de créer un système adapté tant aux individus qu'aux groupes,Arg_value,relations sociales
+141,Mon point de vue est centré sur l'impact environnemental de nos actions,Arg_value,écologique
+142,L'essentiel est de ne prendre que ce dont on a réellement besoin,Arg_value,écologique
+143,L'accès à des ressources partagées peut aider ceux ayant moins de moyens,Arg_fact,économique
+144,"Je souligne l'importance d'un cadre de vie agréable, au-delà de la fonctionnalité des immeubles",Arg_value,agréabilité
+145,"Les panneaux solaires, malgré leur utilité, demandent des ressources rares",Arg_value,écologique
+146,Et ils sont onéreux,Arg_fact,économique
+147,Imaginons un futur où les panneaux seraient fabriqués en plastique,Arg_fact,faisabilité
+148,J'ai entendu dire que cette technologie est très efficace,Arg_fact,praticité
+149,Ces énergies renouvelables sont une alternative au nucléaire,Arg_value,écologique
+150,La production de panneaux solaires reste cependant polluante,Arg_value,écologique
+151,Leur durabilité est limitée et ils ne sont pas toujours recyclables,Arg_value,écologique
+152,Espérons que la technologie évoluera pour améliorer ces aspects,Arg_fact,faisabilité
+153,La longévité des panneaux est également un facteur clé,Arg_fact,faisabilité
+154,Les éoliennes sont une option viable en périphérie des villes,Arg_fact,faisabilité
+155,Elles permettent de combiner production d'énergie et agriculture au même endroit,Arg_value,écologique
+156,"Cependant, leur rendement énergétique est souvent remis en question",Arg_fact,praticité
+157,Leur efficacité peut être limitée,Arg_fact,praticité
+158,Elles peuvent être adaptées à l'échelle d'un quartier,Arg_fact,praticité
+159,Leur esthétique ne fait pas l'unanimité,Arg_value,esthétique
+160,L'aspect est secondaire si elles contribuent à la production d'énergie,Arg_value,écologique
+161,"Cependant, si cela ne génère pas d'énergie, c'est problématique",Arg_fact,praticité
+162,"En fin de compte, cela change notre rapport à la consommation, en planifiant nos besoins",Arg_value,engagement
+163,"Si tu consommes trop d'eau, tout le monde te remarque",Arg_value,relations sociales
+164,"Personnellement, je prends l'eau dont j'ai besoin sans restrictions",Arg_value,liberté
+165,Cela crée une certaine responsabilité de surveiller sa propre consommation,Arg_value,engagement
+166,"Le but n'est pas de limiter pour limiter, mais d'encourager une consommation réfléchie",Arg_value,engagement
+167,Cela implique néanmoins un jugement des autres si tu abuses du système,Arg_value,relations sociales
+168,"Si tu épuises ta réserve d'énergie, tu dois te mobiliser pour la recharger",Arg_value,engagement
+169,"L'objectif est d'éviter tout jugement, chacun ayant accès aux ressources",Arg_value,relations sociales
+170,Il s'agit plutôt de sensibiliser chacun à sa consommation d'énergie,Arg_value,engagement
+171,"Cela incite les fournisseurs à maintenir les infrastructures, notamment en cas de fuites",Arg_value,engagement
+172,"Si quelqu'un veut de l'eau, il doit se mobiliser, comme avec un puits",Arg_value,engagement
+173,"Il ne s'agit pas littéralement d'utiliser un puits, mais de changer notre rapport à l'eau",Arg_value,engagement
+174,"Ainsi, tu feras des économies",Arg_fact,économique
+175,Adopter cette approche modifie notre interaction avec les ressources,Arg_value,engagement
+176,Je refuse de partager ma cuisine pour éviter qu'elle soit mal entretenue,Arg_value,nuisance
+177,La cuisine peut être à la fois personnelle et collective,Arg_value,liberté
+178,Une cuisine collective est optionnelle pour ceux intéressés,Arg_value,liberté
+179,"Étant insomniaque, je tiens à cuisiner quand je le souhaite, sans contraintes horaires",Arg_value,liberté
+180,Rentrer tard et manquer de café peut être frustrant,Arg_fact,utilité
+181,Il s'agit plus de partager les biens inutilisés que de rationner,Arg_value,partage
+182,"Partager pourrait offrir des avantages, comme moins dépenser",Arg_value,engagement
+183,Recevoir une facture rend les gens plus responsables de leur consommation,Arg_value,engagement
+184,"Si quelqu'un consomme plus, ça ne devrait pas impacter ta facture",Arg_value,équité
+185,Tu paies moins en consommant moins,Arg_value,équité
+186,Payer ensemble au restaurant quand l'un consomme plus n'est pas équitable,Arg_value,équité
+187,Je peux utiliser ta cafetière chaque jour si je n'en ai pas,Arg_fact,utilité
+188,"Si le voisin achète une console, tu pourrais l'utiliser",Arg_value,éthique
+189,C'est pourquoi une cuisine commune est utile,Arg_value,partage
+190,Chaque groupe décide de ce qu'il partage,Arg_value,liberté
+191,Avoir une machine à laver par appartement est moins pratique qu'une buanderie commune,Arg_value,écologique
+192,"Les Mayas utilisaient le cacao comme monnaie échangeable, ce qui limitait l'accumulation",Arg_value,économique
+193,Mais cela empêche d'économiser,Arg_value,économique
+194,"L'épargne, cependant, n'est pas toujours positive",Arg_value,économique
+195,L'épargne peut être cruciale pour l'héritage,Arg_value,économique
+196,Cela crée une égalité entre tous,Arg_value,équité
+197,Un héritage culturel enrichissant peut être plus précieux que l'argent,Arg_value,économique
+198,"Même avec une monnaie éphémère, il vaut mieux en avoir plus que moins",Arg_value,économique
+199,"Dans un idéal collaboratif, l'accumulation personnelle a moins de valeur",Arg_value,économique
+200,Même ton espace privé peut être offert à la communauté si tu es assez fortuné,Arg_value,liberté
+201,La consommation énergétique risque d'augmenter considérablement,Arg_value,écologique
+202,"Soyons optimistes, nous trouverons des solutions pour éviter la construction d'immeubles inesthétiques et exploiter des espaces sous-marins",Arg_value,écologique
+203,Les activités sous-marines ont déjà un impact significatif,Arg_value,écologique
+204,Il ne faut pas se limiter à ce qui semble réalisable,Arg_fact,faisabilité
+205,C'est aussi une question d'impact environnemental,Arg_value,écologique
+206,"Comme les tournesols, on pourrait orienter les panneaux solaires vers le soleil pour maximiser leur efficacité",Arg_fact,praticité
+207,"En s'inspirant des tournesols, les panneaux photovoltaïques pourraient optimiser leur capture d'énergie solaire",Arg_fact,praticité
+208,Nous n'avons pas à calculer chaque détail énergétique sans être spécialistes,Arg_fact,praticité
+209,"Si c'est clairement inefficace, cela ne vaut pas la peine",Arg_value,écologique
+210,Un léger mouvement n'a pas beaucoup d'impact,Arg_value,écologique
+211,L'idée est que les propositions doivent être avantageuses énergétiquement,Arg_fact,praticité
+212,"C'est techniquement faisable et probablement rentable, malgré de nombreux facteurs à considérer",Arg_fact,praticité
+213,Il faut aussi penser à l'imperméabilisation des sols et à la consommation énergétique des structures verticales,Arg_value,écologique
+214,"Dans un immeuble, la proximité facilite l'organisation",Arg_value,écologique
+215,L'objectif est d'assurer l'égalité sans hiérarchie basée sur la distance entre les logements et les espaces publics,Arg_value,équité
+216,Rendre le vote comme ultime recours semble simpliste et peut décourager les efforts de consensus,Arg_value,engagement
+217,L'usage systématique du droit de veto par des opposants permanents peut être problématique,Arg_value,engagement
+218,Il s'agit plus de convaincre que de forcer une décision sans vote,Arg_value,engagement
+219,Cela devient plus un outil qu'une approche globale de résolution,Arg_fact,utilité
+220,Les opinions sur ce qui est positif ou négatif peuvent varier,Arg_fact,praticité
+221,Lister les avantages et les inconvénients peut être une méthode efficace de résolution,Arg_fact,praticité
+222,Se focaliser sur un détail peut sembler limité dans le contexte d'une solution globale,Arg_fact,utilité
+223,"Sans méthode définie pour gérer les oppositions, comment procéder ",Arg_fact,utilité
+224,Cela force les opposants à contribuer à trouver une solution,Arg_value,engagement
+225,Mais leurs propositions pourraient ne pas convenir à tous,Arg_fact,praticité
+226,L'idée est de rester aligné avec les propositions initiales autant que possible,Arg_fact,praticité
+227,Une personne contre peut trouver de nombreux arguments si elle est plus perspicace,Arg_fact,praticité
+228,"Le plus souvent, l'opposant peut sembler difficile sans proposer de solution viable",Arg_fact,praticité
+229,"Si tu es contre une proposition, ta solution alternative doit être satisfaisante",Arg_fact,praticité
+230,"Les désaccords ne seront pas fréquents, mais ils sont possibles",Arg_fact,praticité
+231,Cela peut ouvrir de nouvelles pistes de réflexion,Arg_fact,praticité
+232,"L'essentiel est de contribuer à trouver une solution, même partiellement",Arg_value,engagement
+233,Il faut justifier son opposition et ensuite participer à la recherche de solutions,Arg_value,engagement
+234,Être actif dans la recherche de solutions est crucial en cas d'opposition,Arg_value,engagement
+235,Rester systématiquement opposé sans proposer d'alternatives n'est pas constructif,Arg_value,engagement
+236,Être constamment en désaccord est facile sans chercher de solutions,Arg_value,engagement
+237,"J'ai des doutes sur l'efficacité, car l'opposant peut ne pas trouver de consensus",Arg_fact,praticité
+238,Des alternatives comme le bus pourraient être envisagées pour éviter un achat inutile,Arg_fact,praticité
+239,Lister les pour et les contre est aussi utile,Arg_fact,praticité
+240,"Si un consensus n'est pas atteint sur un achat, chercher une meilleure option est possible",Arg_fact,praticité
+241,Il est important de concrétiser les idées pour avancer,Arg_fact,praticité
+242,Signaler un problème communautaire permet une intervention rapide par les membres les plus aptes,Arg_fact,utilité
+243,Créer une culture communautaire aide à dépasser l'individualisme pour le bien de la communauté,Arg_value,engagement
+244,Une majorité claire tend à favoriser l'avis du groupe dominant,Arg_value,équité
+245,Cela donne tout de mê,Arg_value,équité

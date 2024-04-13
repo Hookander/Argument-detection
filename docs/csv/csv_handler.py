@@ -68,6 +68,33 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
 
     return sentences, labels, domains
 
+def get_data_aug(path = "./docs/csv/arg_aug.csv"):
+    """
+        Get the data from the augmented csv
+        (already simplified labels so we can't use get_data_with_simp_labels)
+    """
+    df = pd.read_csv(path)
+    sentences = df['PAROLES'].to_list()
+    labels = df['Dimension Dialogique'].to_list()
+    domains = df['Domaine'].to_list()
+
+    for i, l in enumerate(labels):
+        if l == 'Arg_fact':
+            labels[i] = 1
+        elif l == 'Arg_value':
+            labels[i] = 2
+        else:
+            labels[i] = 0
+    for i, l in enumerate(domains):
+        if l in domain_dico:
+            domains[i] = domain_dico[l]
+        else:
+            try :
+                if math.isnan(l):
+                    domains[i] = 0
+            except: f"get_data_aug : Domain {l} not recognized at line {i}"
+    return sentences, labels, domains
+
 def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
     """
         Only cares about if a sentence if an argument or not,
@@ -120,7 +147,11 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
             
             
     if shuffle:
-        perm = np.random.permutation(len(sentences))
+        seed = 42
+
+        # We shuffle the data with a seed to keep the same order across all trainings
+        perm = np.random.default_rng(seed = seed).permutation(len(sentences))
+        
         sentences = [sentences[i] for i in perm]
         ret = [ret[i] for i in perm]
         dom = [dom[i] for i in perm]
@@ -147,23 +178,47 @@ def plot_data_distribution(typ, remove_nothing = True):
 #plot_data_distribution('dom')
 #get_data_with_simp_labels()[2]
 
-def get_arg_only_csv(output_path = './docs/csv/arg_only_csv.csv'):
+def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):
     """
         Get the csv with only the arguments to do the data augmentation
     """
     sentences, labels, domains = get_data_with_simp_labels()
+    inv_arg_dico = {v: k for k, v in arg_dico.items()}
+    inv_domain_dico = {v: k for k, v in domain_dico.items()}
     arg_sentences = []
     arg_labels = []
     arg_domains = []
     for i,l in enumerate(labels):
         if l != 0: # Not nothing -> an argument
             arg_sentences.append(sentences[i])
-            arg_labels.append(labels[i])
-            arg_domains.append(domains[i])
+            arg_labels.append(inv_arg_dico[l])
+            arg_domains.append(inv_domain_dico[domains[i]])
     arg_df = pd.DataFrame({'PAROLES': arg_sentences, 'Dimension Dialogique': arg_labels, 'Domaine': arg_domains})
     arg_df.to_csv(output_path)
+    with open('./docs/arg_only.txt', 'w') as f:
+        for i, s in enumerate(arg_sentences):
+            f.write(str(i)+'-' + s + '\n')
+        f.close()
 
-#get_arg_only_csv()
+def create_arg_augmented_csv(in_txt_file, arg_only_path = './docs/csv/arg_only_csv.csv', output_path = './docs/csv/arg_aug.csv'):
+    """
+        The csv contains just the arguments modified, in the same order as in the 
+        arg_only_csv file.
+        So we need to get the labels from there
+    """
+    with open(in_txt_file, 'r') as f:
+        lines = f.readlines()
+        lines = [line[7:-3] for line in lines]
+        f.close()
+    arg_df = pd.read_csv(arg_only_path)
+    df_augmented = pd.DataFrame(columns=['PAROLES', 'Dimension Dialogique', 'Domaine'])
+    for i, line in enumerate(lines):
+        arg_type = arg_df.loc[i]['Dimension Dialogique']
+        domain = arg_df.loc[i]['Domaine']
+        df_augmented = df_augmented._append({'PAROLES': line, 'Dimension Dialogique': arg_type, 'Domaine': domain}, ignore_index=True)
+    df_augmented.to_csv(output_path)
+#create_arg_augmented_csv('./docs/csv/arg_augmented.txt')
+#create_arg_only_file()
 
 
 
