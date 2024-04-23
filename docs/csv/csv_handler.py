@@ -4,10 +4,15 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
+domain_dico_old = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
                     'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 10,
                     'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 14, 'écologique': 11,
                     'praticité': 1, 'économique': 17, 'agréabilité': 18, 'taille': 19, 'relations sociales': 20}
+
+domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 1, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
+                    'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 3,
+                    'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 4, 'écologique': 11,
+                    'praticité': 1, 'économique': 17, 'agréabilité': 1, 'taille': 4, 'relations sociales': 20}
 
 arg_dico = {'Nothing/nan' : 0, 'Arg_fact': 1, 'Arg_value': 2}
 
@@ -66,6 +71,33 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
                 print(f"Label {l} not recognized at line {i}")
             
 
+    return sentences, labels, domains
+
+def get_data_aug(path = "./docs/csv/arg_aug.csv"):
+    """
+        Get the data from the augmented csv
+        (already simplified labels so we can't use get_data_with_simp_labels)
+    """
+    df = pd.read_csv(path)
+    sentences = df['PAROLES'].to_list()
+    labels = df['Dimension Dialogique'].to_list()
+    domains = df['Domaine'].to_list()
+
+    for i, l in enumerate(labels):
+        if l == 'Arg_fact':
+            labels[i] = 1
+        elif l == 'Arg_value':
+            labels[i] = 2
+        else:
+            labels[i] = 0
+    for i, l in enumerate(domains):
+        if l in domain_dico:
+            domains[i] = domain_dico[l]
+        else:
+            try :
+                if math.isnan(l):
+                    domains[i] = 0
+            except: f"get_data_aug : Domain {l} not recognized at line {i}"
     return sentences, labels, domains
 
 def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
@@ -130,17 +162,22 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
         dom = [dom[i] for i in perm]
     return sentences, ret, dom
 
-def plot_data_distribution(typ, remove_nothing = True):
+def plot_data_distribution(typ, remove_nothing = False, data_aug = True):
     """
         typ = 'arg' or 'dom'
     """
     if typ == 'arg':
+        i = 1
         data = get_data_with_simp_labels()[1]
     elif typ == 'dom':
+        i = 2
         data = get_data_with_simp_labels()[2]
     else:
         print("Invalid type")
         return
+    
+    if data_aug:
+        data += get_data_aug()[i]
     
     if remove_nothing:
         data = [d for d in data if d != 0]
@@ -148,7 +185,7 @@ def plot_data_distribution(typ, remove_nothing = True):
     plt.hist(data, bins=range(0, 22), alpha=0.7, rwidth=0.85)
     plt.show()
 
-#plot_data_distribution('dom')
+#plot_data_distribution('arg')
 #get_data_with_simp_labels()[2]
 
 def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):
@@ -181,9 +218,16 @@ def create_arg_augmented_csv(in_txt_file, arg_only_path = './docs/csv/arg_only_c
     """
     with open(in_txt_file, 'r') as f:
         lines = f.readlines()
-        print(lines[:10])
+        lines = [line[7:-3] for line in lines]
         f.close()
-create_arg_augmented_csv('./docs/csv/arg_augmented.txt')
+    arg_df = pd.read_csv(arg_only_path)
+    df_augmented = pd.DataFrame(columns=['PAROLES', 'Dimension Dialogique', 'Domaine'])
+    for i, line in enumerate(lines):
+        arg_type = arg_df.loc[i]['Dimension Dialogique']
+        domain = arg_df.loc[i]['Domaine']
+        df_augmented = df_augmented._append({'PAROLES': line, 'Dimension Dialogique': arg_type, 'Domaine': domain}, ignore_index=True)
+    df_augmented.to_csv(output_path)
+#create_arg_augmented_csv('./docs/csv/arg_augmented.txt')
 #create_arg_only_file()
 
 

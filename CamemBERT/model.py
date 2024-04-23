@@ -1,10 +1,8 @@
-from pprint import pprint
-import functools
 import torch
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
 import pytorch_lightning as pl
-from transformers import AutoModelForSequenceClassification, CamembertForMaskedLM, AutoTokenizer, AutoConfig
+from transformers import AutoModelForSequenceClassification, FlaubertModel, AutoTokenizer, AutoConfig
 from datasets import load_dataset
 from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.manifold import TSNE
@@ -12,16 +10,16 @@ import plotly.express as px
 from pytorch_lightning.loggers import WandbLogger
 
 import sys
-
 from results import *
 from data_handler import *
 sys.path.append('./docs/csv') # not clean but ok for now
 from csv_handler import *
+from abc import ABC, abstractmethod
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-class Model(pl.LightningModule):
+class Model(pl.LightningModule, ABC):
     def __init__(self, model_name, num_labels, lr, weight_decay, typ, from_scratch=False):
         """
             typ = 'arg' or 'dom' for the different types of classifiction
@@ -67,14 +65,12 @@ class Model(pl.LightningModule):
 
         return loss
 
+    @abstractmethod
     def get_dico(self, typ):
-        if typ == 'arg':
-            return arg_dico
-        elif typ == 'dom':
-            return domain_dico
-        else:
-            print("get_dico : Invalid type")
-            return
+        """
+        Returns the dictionnary matching the labels with their indices
+        """
+        pass
 
     def validation_step(self, batch, batch_index):
         labels = batch["labels"]
@@ -116,26 +112,32 @@ class Model(pl.LightningModule):
         self.log("test/f1", f1)
 
     def get_trainer(self, save, max_epochs, patience, wandb = True):
+        if self.typ == 'arg':
+            monitor = "valid/f1"
+        elif self.typ == 'dom':
+            monitor = "valid/acc"
         if save:
-            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/f1", mode="max")
+            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor=monitor, mode="max")
             if wandb:
                 wb_logger = WandbLogger(project="camembert_"+self.typ)
                 wb_logger.experiment.config['model_name'] = self.model_name
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                         model_checkpoint,
                     ],
-                    logger = wb_logger
+                    logger = wb_logger,
+                    enable_progress_bar = False
                 )
             else:
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                         model_checkpoint,
-                    ]
+                    ],
+                    enable_progress_bar = False
                 )
         else:
             if wandb:
@@ -144,48 +146,40 @@ class Model(pl.LightningModule):
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                     ],
-                    logger = wb_logger
+                    logger = wb_logger,
+                    enable_progress_bar = False
                 )
             else:
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
-                    ]
+                        pl.callbacks.EarlyStopping(monitor="monitor", patience=patience, mode="max"),
+                    ],
+                    enable_progress_bar = False
                 )
         return trainer
     
-    def train_model(self, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False):
+    def train_model(self, typ, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False, data_aug = True):
 
+        trainer = self.get_trainer(save, max_epochs, patience, wandb)
 
-        camembert_trainer = self.get_trainer(save, max_epochs, patience, wandb)
-        sentences, args_labels, domains = get_data_with_simp_labels(shuffle = False)
-        tokenized_sentences = tokenize_sentences(sentences)
-        if self.typ == 'arg':
-            cleaned_labels = args_labels
-        elif self.typ == 'dom':
-            cleaned_labels = domains
-        else:
-            print("Invalid type")
-            return
-        train_dl, val_dl, test_dl = get_dataloaders(tokenized_sentences, cleaned_labels, ratio=ratio, batch_size=batch_size)
-        print('ok')
-        camembert_trainer.fit(self, train_dataloaders=train_dl, val_dataloaders=val_dl)
+        train_dl, val_dl, test_dl = get_dataloaders(typ, data_aug, ratio=ratio, batch_size=batch_size)
+
+        trainer.fit(self, train_dataloaders=train_dl, val_dataloaders=val_dl)
 
         if test:
-            ret = camembert_trainer.test(model = self, dataloaders=test_dl)
-            print(ret)
-            see_results(self, test_dl, self.get_dico(self.typ))
+            ret = trainer.test(model = self, dataloaders=test_dl)
+            #see_results(self, test_dl, self.get_dico(self.typ))
             return ret
 
-
+        return None
 
 #num_labels = 3
 #model_name = "camembert-base" # "camembert-base" or "camembert/camembert-large"
-#lightning_model = Model(model_name, num_labels, lr=5e-4, weight_decay=0, typ = 'arg')
-#lightning_model.train_model(batch_size=32, patience=30, max_epochs=150, test=False, wandb = True, ratio=[0.8, 0.2], save = False)
+#lightning_model = Model(model_name, num_labels, lr=5e-5, weight_decay=0, typ = 'arg')
+#lightning_model.train_model(batch_size=32, patience=3, max_epochs=5, test=True, wandb = True, ratio=[0.8, 0.2], save = False)
 
 
 

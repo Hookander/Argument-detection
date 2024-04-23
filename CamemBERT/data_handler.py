@@ -3,6 +3,9 @@ from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 from datasets import Dataset
 import numpy as np
+import sys
+sys.path.append('./docs/csv') # not clean but ok for now
+from csv_handler import *
 
 
 tokenizer = AutoTokenizer.from_pretrained('camembert-base')
@@ -61,11 +64,11 @@ def get_equal_distribution(sentences, labels, ratio = [0.8, 0.1]):
 
     test_dict = {key: [sentences[key][i] for i in test_indices] for key in sentences}
     test_dict['labels'] = [labels[i] for i in range(len(labels)) if i in test_indices]
-    print(val_dict['labels'])
+
     return train_dict, val_dict, test_dict
 
 
-def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
+def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1]):
     """_summary_
 
     Args:
@@ -76,11 +79,32 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
                     The rest is for the test set.
 
     """
+    sentences, arg_types, domains = get_data_with_simp_labels(shuffle = True)
+    if use_data_aug:
+        sentences_aug, arg_types_aug, domains_aug = get_data_aug()
+
+        sentences = sentences + sentences_aug
+        arg_types = arg_types + arg_types_aug
+        domains = domains + domains_aug
+    
+    sentences = tokenize_sentences(sentences)
+    if typ == 'arg':
+        labels = arg_types
+    elif typ == 'dom':
+        # We remove indices of sentences that are not arguments (i.e. the ones with arg_type = 0)
+        indices = [i for i, domain in enumerate(domains) if domain != 0]
+
+        sentences = {key: [sentences[key][i] for i in indices] for key in sentences}
+        labels = [domain for i, domain in enumerate(domains) if i in indices]
+    else:
+        print("Invalid type")
+        return
+
     size = len(sentences['input_ids'])
     
     train_size = int(ratio[0] * size)
     val_size = int(ratio[1] * size)
-    
+    '''
     train_dict = {key: sentences[key][:train_size] for key in sentences}
     train_dict['labels'] = labels[:train_size]
     
@@ -89,7 +113,7 @@ def get_dataloaders(sentences, labels, batch_size = 16, ratio = [0.8, 0.1]):
     
     test_dict = {key: sentences[key][train_size+val_size:] for key in sentences}
     test_dict['labels'] = labels[train_size+val_size:]
-    
+    '''
 
     train_dict, val_dict, test_dict = get_equal_distribution(sentences, labels, ratio)
     
