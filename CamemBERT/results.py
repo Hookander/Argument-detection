@@ -29,3 +29,4 @@ def see_results(model, dataloader, dico, out_path = './CamemBERT/results.csv'):
 
     df = pd.DataFrame({'Sentences': s, 'Predictions': p, 'Targets': t})
     df.to_csv(out_path)
+

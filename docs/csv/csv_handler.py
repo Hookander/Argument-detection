@@ -162,17 +162,22 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
         dom = [dom[i] for i in perm]
     return sentences, ret, dom
 
-def plot_data_distribution(typ, remove_nothing = True):
+def plot_data_distribution(typ, remove_nothing = False, data_aug = True):
     """
         typ = 'arg' or 'dom'
     """
     if typ == 'arg':
+        i = 1
         data = get_data_with_simp_labels()[1]
     elif typ == 'dom':
+        i = 2
         data = get_data_with_simp_labels()[2]
     else:
         print("Invalid type")
         return
+    
+    if data_aug:
+        data += get_data_aug()[i]
     
     if remove_nothing:
         data = [d for d in data if d != 0]
@@ -180,7 +185,7 @@ def plot_data_distribution(typ, remove_nothing = True):
     plt.hist(data, bins=range(0, 22), alpha=0.7, rwidth=0.85)
     plt.show()
 
-#plot_data_distribution('dom')
+#plot_data_distribution('arg')
 #get_data_with_simp_labels()[2]
 
 def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):
