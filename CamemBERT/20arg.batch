@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#SBATCH --job-name=job
+#SBATCH --job-name=arg
 #SBATCH --output=/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/logs/20out.out
 #SBATCH --error=/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/logs/20err.err
 #SBATCH --mail-type=ALL
@@ -21,4 +21,4 @@
 source /raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/bin/activate
 cd /raid/home/automatants/martin_bal/PoleProj/Argument-detection/
 ## Perform run
-python './CamemBERT/sweepper.py'
+python './CamemBERT/arg_model.py'

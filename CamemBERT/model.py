@@ -112,26 +112,32 @@ class Model(pl.LightningModule, ABC):
         self.log("test/f1", f1)
 
     def get_trainer(self, save, max_epochs, patience, wandb = True):
+        if self.typ == 'arg':
+            monitor = "valid/f1"
+        elif self.typ == 'dom':
+            monitor = "valid/acc"
         if save:
-            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor="valid/f1", mode="max")
+            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor=monitor, mode="max")
             if wandb:
                 wb_logger = WandbLogger(project="camembert_"+self.typ)
                 wb_logger.experiment.config['model_name'] = self.model_name
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                         model_checkpoint,
                     ],
-                    logger = wb_logger
+                    logger = wb_logger,
+                    enable_progress_bar = False
                 )
             else:
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                         model_checkpoint,
-                    ]
+                    ],
+                    enable_progress_bar = False
                 )
         else:
             if wandb:
@@ -140,30 +146,32 @@ class Model(pl.LightningModule, ABC):
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
+                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                     ],
-                    logger = wb_logger
+                    logger = wb_logger,
+                    enable_progress_bar = False
                 )
             else:
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="valid/f1", patience=patience, mode="max"),
-                    ]
+                        pl.callbacks.EarlyStopping(monitor="monitor", patience=patience, mode="max"),
+                    ],
+                    enable_progress_bar = False
                 )
         return trainer
     
-    def train_model(self, typ, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False):
+    def train_model(self, typ, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False, data_aug = True):
 
         trainer = self.get_trainer(save, max_epochs, patience, wandb)
 
-        train_dl, val_dl, test_dl = get_dataloaders(typ, False, ratio=ratio, batch_size=batch_size)
+        train_dl, val_dl, test_dl = get_dataloaders(typ, data_aug, ratio=ratio, batch_size=batch_size)
 
         trainer.fit(self, train_dataloaders=train_dl, val_dataloaders=val_dl)
 
         if test:
             ret = trainer.test(model = self, dataloaders=test_dl)
-            see_results(self, test_dl, self.get_dico(self.typ))
+            #see_results(self, test_dl, self.get_dico(self.typ))
             return ret
 
         return None
