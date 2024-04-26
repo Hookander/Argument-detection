@@ -4,12 +4,12 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-domain_dico_old = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
+domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
                     'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 10,
-                    'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 14, 'écologique': 11,
-                    'praticité': 1, 'économique': 17, 'agréabilité': 18, 'taille': 19, 'relations sociales': 20}
+                    'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 14, 'écologique': 15,
+                    'praticité': 16, 'économique': 17, 'agréabilité': 18, 'taille': 19, 'relations sociales': 20}
 
-domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 1, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
+domain_dico_new = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 1, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
                     'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 3,
                     'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 4, 'écologique': 11,
                     'praticité': 1, 'économique': 17, 'agréabilité': 1, 'taille': 4, 'relations sociales': 20}
@@ -162,7 +162,7 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
         dom = [dom[i] for i in perm]
     return sentences, ret, dom
 
-def plot_data_distribution(typ, remove_nothing = False, data_aug = True):
+def plot_data_distribution(typ, remove_nothing = True, data_aug = True):
     """
         typ = 'arg' or 'dom'
     """
@@ -185,7 +185,7 @@ def plot_data_distribution(typ, remove_nothing = False, data_aug = True):
     plt.hist(data, bins=range(0, 22), alpha=0.7, rwidth=0.85)
     plt.show()
 
-#plot_data_distribution('arg')
+plot_data_distribution('arg',remove_nothing = False, data_aug = False)
 #get_data_with_simp_labels()[2]
 
 def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):
