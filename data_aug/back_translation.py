@@ -4,6 +4,7 @@ import sys
 import pandas as pd
 sys.path.append('./docs/csv') # not clean but ok for now
 from csv_handler import *
+
 sentences, labels, domains = get_data_with_simp_labels(shuffle = False)
 
 cleaned_sentences = [sentences[i] for i in range(len(sentences)) if labels[i] != 0]
@@ -129,9 +130,15 @@ languages = {
 columns = ['PAROLES', 'Dimension Dialogique','Domaine', 'Langue']
 arg_aug_trad_csv = pd.DataFrame(columns=columns)
 
+print("starting")
 for i in range(len(cleaned_sentences)):
     for language in languages.keys():
-        translated = translate(cleaned_sentences[i], language)
+        while True:
+            try:
+                translated = translate(cleaned_sentences[i], language)
+                break
+            except Exception as e:
+                print(e)
         if translated:
             arg_aug_trad_csv = arg_aug_trad_csv._append({'PAROLES': translated, 'Dimension Dialogique': cleaned_labels[i], 'Domaine': cleaned_domains[i], 'Langue': language}, ignore_index=True)
     print(i/len(cleaned_sentences)*100)  

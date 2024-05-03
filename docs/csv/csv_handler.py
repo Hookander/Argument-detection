@@ -185,7 +185,7 @@ def plot_data_distribution(typ, remove_nothing = True, data_aug = True):
     plt.hist(data, bins=range(0, 22), alpha=0.7, rwidth=0.85)
     plt.show()
 
-plot_data_distribution('arg',remove_nothing = False, data_aug = False)
+#plot_data_distribution('arg',remove_nothing = False, data_aug = False)
 #get_data_with_simp_labels()[2]
 
 def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):
