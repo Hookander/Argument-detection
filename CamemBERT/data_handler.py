@@ -67,6 +67,20 @@ def get_equal_distribution(sentences, labels, ratio = [0.8, 0.1]):
 
     return train_dict, val_dict, test_dict
 
+def get_labels(typ, sentences, arg_types, domains):
+    if typ == 'arg':
+        labels = arg_types
+    elif typ == 'dom':
+        indices = [i for i, domain in enumerate(domains) if domain != 0]
+
+        sentences = {key: [sentences[key][i] for i in indices] for key in sentences}
+        labels = [domain for i, domain in enumerate(domains) if i in indices]
+
+    else:
+        print("Invalid type")
+        return
+
+    return labels
 
 def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1]):
     """_summary_
@@ -81,42 +95,30 @@ def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1
     """
     sentences, arg_types, domains = get_data_with_simp_labels(shuffle = True)
     if use_data_aug:
+        # We only use the augmented data for the training datasets
         sentences_aug, arg_types_aug, domains_aug = get_data_aug()
-
-        sentences = sentences + sentences_aug
-        arg_types = arg_types + arg_types_aug
-        domains = domains + domains_aug
+        sentences_aug = tokenize_sentences(sentences_aug)
+        labels_aug = get_labels(typ, sentences_aug, arg_types_aug, domains_aug)
+        
     
     sentences = tokenize_sentences(sentences)
-    if typ == 'arg':
-        labels = arg_types
-    elif typ == 'dom':
-        # We remove indices of sentences that are not arguments (i.e. the ones with arg_type = 0)
-        indices = [i for i, domain in enumerate(domains) if domain != 0]
-
-        sentences = {key: [sentences[key][i] for i in indices] for key in sentences}
-        labels = [domain for i, domain in enumerate(domains) if i in indices]
-    else:
-        print("Invalid type")
-        return
+    
+    labels = get_labels(typ, sentences, arg_types, domains)
 
     size = len(sentences['input_ids'])
     
     train_size = int(ratio[0] * size)
     val_size = int(ratio[1] * size)
-    '''
-    train_dict = {key: sentences[key][:train_size] for key in sentences}
-    train_dict['labels'] = labels[:train_size]
-    
-    val_dict = {key: sentences[key][train_size:train_size+val_size] for key in sentences}
-    val_dict['labels'] = labels[train_size:train_size+val_size]
-    
-    test_dict = {key: sentences[key][train_size+val_size:] for key in sentences}
-    test_dict['labels'] = labels[train_size+val_size:]
-    '''
+
 
     train_dict, val_dict, test_dict = get_equal_distribution(sentences, labels, ratio)
-    
+    if use_data_aug:
+        
+        train_dict_aug, _, _ = get_equal_distribution(sentences_aug, labels_aug, [1., 0])
+
+        # add the augmented data
+        train_dict = {key: train_dict[key] + train_dict_aug[key] for key in train_dict}
+    print(len(train_dict['labels']), len(val_dict['labels']), len(test_dict['labels']))
     train_ds = Dataset.from_dict(train_dict)
     train_ds = train_ds.with_format("torch")
     
@@ -133,3 +135,5 @@ def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1
     return train_dl, val_dl, test_dl
 
 
+#get_dataloaders('dom', True, 16, ratio = [0.7,0.1])
+#get_dataloaders('dom', False, 16, ratio = [0.7,0.1])

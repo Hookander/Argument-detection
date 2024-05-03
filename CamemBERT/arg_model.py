@@ -30,6 +30,7 @@ sweep_config = {
         "patience": {"values": [5, 10, 15, 30, 40]},
         "lr": {"max": 5e-4, "min": 3e-6},
         "weight_decay": {"max": 0.2, "min": 0.},
+        
         "model_name": {"values": ["camembert-base"]},
         "data_aug": {"values": [True, False]}
     },
@@ -60,4 +61,4 @@ def sweep(count):
 #model = ArgModel('flaubert/flaubert_base_cased', 5e-5, 0, False)
 #model.train_model(16, 10, 50, True, [0.75, 0.1], True, False)
 
-sweep(60)
+#sweep(60)
