@@ -118,7 +118,8 @@ def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1
 
         # add the augmented data
         train_dict = {key: train_dict[key] + train_dict_aug[key] for key in train_dict}
-    print(len(train_dict['labels']), len(val_dict['labels']), len(test_dict['labels']))
+    #print(len(train_dict['labels']), len(val_dict['labels']), len(test_dict['labels']))
+
     train_ds = Dataset.from_dict(train_dict)
     train_ds = train_ds.with_format("torch")
     
