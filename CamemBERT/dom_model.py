@@ -58,8 +58,8 @@ def sweep(count):
         wandb.agent(sweep_id, function=get_test_f1, count=count)
     main()
 
-#m = DomModel("camembert/camembert-large", 5e-6, 0)
-#m.train_model(32, 50, 200, False, [0.8, 0.2], True, False, True)
+m = DomModel("camembert/camembert-large", 5e-6, 0)
+m.train_model(32, 30, 200, True, [0.7, 0.2], True, False, True)
 
 
 #sweep(60)

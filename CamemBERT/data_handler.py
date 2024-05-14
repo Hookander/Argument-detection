@@ -97,6 +97,10 @@ def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1
     if use_data_aug:
         # We only use the augmented data for the training datasets
         sentences_aug, arg_types_aug, domains_aug = get_data_aug()
+        #s2, a2, d2 = get_data_aug(path = "./docs/csv/arg_aug_trad_named.csv")
+        #sentences_aug += s2
+        #arg_types_aug += a2
+        #domains_aug += d2
         sentences_aug = tokenize_sentences(sentences_aug)
         labels_aug = get_labels(typ, sentences_aug, arg_types_aug, domains_aug)
         

@@ -74,32 +74,47 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
 
     return sentences, labels, domains
 
-def get_data_aug(path = "./docs/csv/arg_aug.csv"):
+def create_train_test_csv(path, ratio):
+    """
+     Creates 2 separated csv files (train/test) to allow us to do some data_augmentation on the train ONLY
+     (doing it on the test creates overfitting)
+    """
+
+
+def get_data_aug(paths = []):
     """
         Get the data from the augmented csv
         (already simplified labels so we can't use get_data_with_simp_labels)
     """
-    df = pd.read_csv(path)
-    sentences = df['PAROLES'].to_list()
-    labels = df['Dimension Dialogique'].to_list()
-    domains = df['Domaine'].to_list()
-
-    for i, l in enumerate(labels):
-        if l == 'Arg_fact':
-            labels[i] = 1
-        elif l == 'Arg_value':
-            labels[i] = 2
-        else:
-            labels[i] = 0
-    for i, l in enumerate(domains):
-        if l in domain_dico:
-            domains[i] = domain_dico[l]
-        else:
-            try :
-                if math.isnan(l):
-                    domains[i] = 0
-            except: f"get_data_aug : Domain {l} not recognized at line {i}"
-    return sentences, labels, domains
+    full_s = []
+    full_l = []
+    full_d = []
+    if paths == []:
+        paths = ["./docs/csv/arg_aug.csv", "./docs/csv/arg_aug_trad_named.csv"]
+    for path in paths:
+        df = pd.read_csv(path)
+        sentences = df['PAROLES'].to_list()
+        labels = df['Dimension Dialogique'].to_list()
+        domains = df['Domaine'].to_list()
+        for i, l in enumerate(labels):
+            if l == 'Arg_fact':
+                label = 1
+            elif l == 'Arg_value':
+                label = 2
+            else:
+                label = 0
+            full_s.append(sentences[i])
+            full_l.append(label)
+        for i, l in enumerate(domains):
+            if l in domain_dico:
+                domain = domain_dico[l]
+            else:
+                try :
+                    if math.isnan(l):
+                        domain = 0
+                except: f"get_data_aug : Domain {l} not recognized at line {i}"
+            full_d.append(domain)
+    return full_s, full_l, full_d
 
 def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
     """
