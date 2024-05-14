@@ -3,6 +3,7 @@ import torch
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split # Import train_test_split function
 
 #! DO NOT CHANGE
 domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
@@ -73,12 +74,6 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
             
 
     return sentences, labels, domains
-
-def create_train_test_csv(path, ratio):
-    """
-     Creates 2 separated csv files (train/test) to allow us to do some data_augmentation on the train ONLY
-     (doing it on the test creates overfitting)
-    """
 
 
 def get_data_aug(paths = []):
@@ -178,6 +173,79 @@ def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
         dom = [dom[i] for i in perm]
     return sentences, ret, dom
 
+def create_train_test_csv(path, typ, ratio = 0.7):
+    """
+     Creates 2 separated csv files (train/test) to allow us to do some data_augmentation on the train ONLY
+     (doing it on the test creates overfitting)
+
+    """
+
+    sentences, labels, domains = get_data_with_simp_labels(path)
+    if typ == 'arg':
+        sent_train, sent_test, lab_train, lab_test = train_test_split(sentences, labels, test_size=1-ratio, random_state=42, stratify=labels)
+
+        df_train = pd.DataFrame(columns = ['PAROLES', 'Dimension Dialogique'])
+        df_test = pd.DataFrame(columns = ['PAROLES', 'Dimension Dialogique'])
+
+        # We'll only do the data_aug on the arguments
+        df_train_arg_only = pd.DataFrame(columns = ['PAROLES', 'Dimension Dialogique'])
+
+        for i in range(len(sent_train)):
+            df_train = df_train._append({'PAROLES': sent_train[i], 'Dimension Dialogique': lab_train[i]}, ignore_index=True)
+            if lab_train[i] != 0:
+                df_train_arg_only = df_train_arg_only._append({'PAROLES': sent_train[i], 'Dimension Dialogique': lab_train[i]}, ignore_index=True)
+        for i in range(len(sent_test)):
+            df_test = df_test._append({'PAROLES': sent_test[i], 'Dimension Dialogique': lab_test[i]}, ignore_index=True)
+        df_train.to_csv('./docs/csv/arg/train_arg.csv')
+        df_test.to_csv('./docs/csv/arg/test_arg.csv')
+        df_train_arg_only.to_csv('./docs/csv/arg/train_arg_only.csv')
+
+    elif typ == 'dom':
+        sentences = [sentences[i] for i in range(len(labels)) if labels[i] != 0]
+        domains = [domains[i] for i in range(len(labels)) if labels[i] != 0]
+        sent_train, sent_test, dom_train, dom_test = train_test_split(sentences, domains, test_size=1-ratio, random_state=42, stratify=domains)
+
+        df_train = pd.DataFrame(columns = ['PAROLES', 'Domaine'])
+        df_test = pd.DataFrame(columns = ['PAROLES', 'Domaine'])
+        for i in range(len(sent_train)):
+            df_train = df_train._append({'PAROLES': sent_train[i], 'Domaine': dom_train[i]}, ignore_index=True)
+        for i in range(len(sent_test)):
+            df_test = df_test._append({'PAROLES': sent_test[i], 'Domaine': dom_test[i]}, ignore_index=True)
+        df_train.to_csv('./docs/csv/dom/train_dom.csv')
+        df_test.to_csv('./docs/csv/dom/test_dom.csv')
+
+#create_train_test_csv('./docs/csv/csvsum.csv', 'arg')
+
+def get_train_test(typ, use_data_aug = True):
+    if typ == 'arg':
+        train = pd.read_csv('./docs/csv/arg/train_arg.csv')
+        test = pd.read_csv('./docs/csv/arg/test_arg.csv')
+
+        sentences_train = train['PAROLES'].to_list()
+        labels_train = train['Dimension Dialogique'].to_list()
+        sentences_test = test['PAROLES'].to_list()
+        labels_test = test['Dimension Dialogique'].to_list()
+
+    elif typ == 'dom':
+        train = pd.read_csv('./docs/csv/dom/train_dom.csv')
+        test = pd.read_csv('./docs/csv/dom/test_dom.csv')
+
+        sentences_train = train['PAROLES'].to_list()
+        labels_train = train['Domaine'].to_list()
+        sentences_test = test['PAROLES'].to_list()
+        labels_test = test['Domaine'].to_list()
+    else:
+        print("Invalid type")
+        return
+
+    if use_data_aug:
+        sentences_aug, labels_aug, domains_aug = get_data_aug(typ)
+        sentences_train += sentences_aug
+        labels_train += labels_aug
+    
+    return sentences_train, labels_train, sentences_test, labels_test
+
+
 def plot_data_distribution(typ, remove_nothing = True, data_aug = True):
     """
         typ = 'arg' or 'dom'
@@ -199,9 +267,10 @@ def plot_data_distribution(typ, remove_nothing = True, data_aug = True):
         data = [d for d in data if d != 0]
 
     plt.hist(data, bins=range(0, 22), alpha=0.7, rwidth=0.85)
+    plt.savefig(f'./docs/{typ}_distribution.png')
     plt.show()
 
-#plot_data_distribution('arg',remove_nothing = False, data_aug = False)
+#plot_data_distribution('dom',remove_nothing = True, data_aug = False)
 #get_data_with_simp_labels()[2]
 
 def create_arg_only_file(output_path = './docs/csv/arg_only_csv.csv'):

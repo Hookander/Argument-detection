@@ -82,7 +82,7 @@ def get_labels(typ, sentences, arg_types, domains):
 
     return labels
 
-def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1]):
+def get_dataloaders(typ, use_data_aug = True, batch_size = 16):
     """_summary_
 
     Args:
@@ -93,52 +93,29 @@ def get_dataloaders(typ, use_data_aug = True, batch_size = 16, ratio = [0.8, 0.1
                     The rest is for the test set.
 
     """
-    sentences, arg_types, domains = get_data_with_simp_labels(shuffle = True)
-    if use_data_aug:
-        # We only use the augmented data for the training datasets
-        sentences_aug, arg_types_aug, domains_aug = get_data_aug()
-        #s2, a2, d2 = get_data_aug(path = "./docs/csv/arg_aug_trad_named.csv")
-        #sentences_aug += s2
-        #arg_types_aug += a2
-        #domains_aug += d2
-        sentences_aug = tokenize_sentences(sentences_aug)
-        labels_aug = get_labels(typ, sentences_aug, arg_types_aug, domains_aug)
-        
+    sentences_train, labels_train, sentences_test, labels_test = get_train_test(typ, use_data_aug = use_data_aug)
     
-    sentences = tokenize_sentences(sentences)
+    sentences_train = tokenize_sentences(sentences_train)
+    sentences_test = tokenize_sentences(sentences_test)
     
-    labels = get_labels(typ, sentences, arg_types, domains)
+    train_dict = {key: sentences_train[key] for key in sentences_train}
+    train_dict['labels'] = labels_train
 
-    size = len(sentences['input_ids'])
+    test_dict = {key: sentences_test[key] for key in sentences_test}
+    test_dict['labels'] = labels_test
+
     
-    train_size = int(ratio[0] * size)
-    val_size = int(ratio[1] * size)
-
-
-    train_dict, val_dict, test_dict = get_equal_distribution(sentences, labels, ratio)
-    if use_data_aug:
-        
-        train_dict_aug, _, _ = get_equal_distribution(sentences_aug, labels_aug, [1., 0])
-
-        # add the augmented data
-        train_dict = {key: train_dict[key] + train_dict_aug[key] for key in train_dict}
-    #print(len(train_dict['labels']), len(val_dict['labels']), len(test_dict['labels']))
-
     train_ds = Dataset.from_dict(train_dict)
     train_ds = train_ds.with_format("torch")
-    
-    val_ds = Dataset.from_dict(val_dict)
-    val_ds = val_ds.with_format("torch")
     
     test_ds = Dataset.from_dict(test_dict)
     test_ds = test_ds.with_format("torch")
     
     train_dl = DataLoader(train_ds, batch_size = batch_size, shuffle = True)
-    val_dl = DataLoader(val_ds, batch_size = batch_size, shuffle = False)
     test_dl = DataLoader(test_ds, batch_size = batch_size, shuffle = False)
     
-    return train_dl, val_dl, test_dl
+    return train_dl, test_dl
 
 
-#get_dataloaders('dom', True, 16, ratio = [0.7,0.1])
+#get_dataloaders('arg', False, 16)
 #get_dataloaders('dom', False, 16, ratio = [0.7,0.1])
