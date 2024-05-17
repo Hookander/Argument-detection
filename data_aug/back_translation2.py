@@ -151,7 +151,7 @@ def do_data_aug(typ):
 
     
     elif typ == 'dom':
-        df = pd.read_csv('./docs/csv/dom/train_dom_only.csv')
+        df = pd.read_csv('./docs/csv/dom/train_dom.csv')
         sentences_train = df['PAROLES'].tolist()
         labels_train = df['Domaine'].tolist()
 
@@ -173,5 +173,5 @@ def do_data_aug(typ):
 
             dom_aug_trad_csv.to_csv('./docs/csv/dom/data_aug/dom_aug.csv')
 
-do_data_aug('arg')
+#do_data_aug('arg')
 do_data_aug('dom')

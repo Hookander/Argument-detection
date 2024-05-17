@@ -67,6 +67,6 @@ def remove_duplicatas(in_path, out_path):
 
         new_df.to_csv(out_path)
 
-#remove_duplicatas('./docs/csv/arg/data_aug/arg_aug.csv', './docs/csv/arg/data_aug/arg_aug_cleaned.csv')
-remove_duplicatas('./docs/csv/dom/data_aug/dom_aug.csv', './docs/csv/dom/data_aug/dom_aug_cleaned.csv')
+remove_duplicatas('./docs/csv/arg/data_aug/arg_aug.csv', './docs/csv/arg/data_aug/arg_aug_cleaned.csv')
+#remove_duplicatas('./docs/csv/dom/data_aug/dom_aug.csv', './docs/csv/dom/data_aug/dom_aug_cleaned.csv')
 #change_labels_named_from_id('./docs/csv/clean_arg_aug_trad.csv')

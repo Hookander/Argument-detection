@@ -124,7 +124,6 @@ class Model(pl.LightningModule, ABC):
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                         model_checkpoint,
                     ],
                     logger = wb_logger,
@@ -134,7 +133,6 @@ class Model(pl.LightningModule, ABC):
                 trainer = pl.Trainer(
                     max_epochs=max_epochs,
                     callbacks=[
-                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
                         model_checkpoint,
                     ],
                     enable_progress_bar = False
@@ -161,18 +159,35 @@ class Model(pl.LightningModule, ABC):
                 )
         return trainer
     
-    def train_model(self, typ, batch_size=16, patience = 10, max_epochs = 50, test = True, ratio = [0.8, 0.1], wandb = True, save = False, data_aug = True):
+    def get_trainer(self, max_epochs, wandb = True):
+        if wandb:
+            wb_logger = WandbLogger(project="camembert_"+self.typ)
+            wb_logger.experiment.config['model_name'] = self.model_name
+            trainer = pl.Trainer(
+                max_epochs=max_epochs,
+                logger = wb_logger,
+                enable_progress_bar = False
+            )
+        else:
+            trainer = pl.Trainer(
+                max_epochs=max_epochs,
+                enable_progress_bar = False
+            )
+    def train_model(self, typ, batch_size=16, max_epochs = 50, test = True, wandb = True, save = False, data_aug = True):
 
-        trainer = self.get_trainer(save, max_epochs, patience, wandb)
+        trainer = self.get_trainer(save, max_epochs, wandb)
 
-        train_dl, val_dl, test_dl = get_dataloaders(typ, data_aug, ratio=ratio, batch_size=batch_size)
+        train_dl, test_dl = get_dataloaders(typ, data_aug, batch_size=batch_size)
 
-        trainer.fit(self, train_dataloaders=train_dl, val_dataloaders=val_dl)
+        trainer.fit(self, train_dataloaders=train_dl)
 
         if test:
             ret = trainer.test(model = self, dataloaders=test_dl)
             #see_results(self, test_dl, self.get_dico(self.typ))
             return ret
+
+        if save:
+            torch.save(self.model.state_dict(), f"./CamemBERT/models/{self.typ}/model.pt")
 
         return None
 
