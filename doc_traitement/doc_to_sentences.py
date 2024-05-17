@@ -43,7 +43,7 @@ def write_tables_to_dataframe(tables_data):
 # Utilisation exemple
 docx_path = 'doc_traitement/Eq4.docx'  # Assurez-vous que ce chemin est correct
 
-def main(docx_path):
+def doc_to_sentences(docx_path):
     # Vérifier si le fichier Word existe
     if not os.path.isfile(docx_path):
         print(f"File not found: {docx_path}")
@@ -52,5 +52,3 @@ def main(docx_path):
         tables_data = extract_tables_from_docx(docx_path)
         df = write_tables_to_dataframe(tables_data)
         return df['PAROLES'].tolist()
-
-print(main(docx_path))
