@@ -76,40 +76,25 @@ def get_data_with_full_labels(path = './docs/csv/csvsum.csv', clear_labels = Tru
     return sentences, labels, domains
 
 
-def get_data_aug(paths = []):
+def get_data_aug(typ):
     """
         Get the data from the augmented csv
         (already simplified labels so we can't use get_data_with_simp_labels)
     """
-    full_s = []
-    full_l = []
-    full_d = []
-    if paths == []:
-        paths = ["./docs/csv/arg_aug.csv", "./docs/csv/arg_aug_trad_named.csv"]
-    for path in paths:
-        df = pd.read_csv(path)
+    if typ == "arg":
+        df = pd.read_csv('./docs/csv/arg/data_aug/arg_aug_cleaned.csv')
         sentences = df['PAROLES'].to_list()
         labels = df['Dimension Dialogique'].to_list()
-        domains = df['Domaine'].to_list()
-        for i, l in enumerate(labels):
-            if l == 'Arg_fact':
-                label = 1
-            elif l == 'Arg_value':
-                label = 2
-            else:
-                label = 0
-            full_s.append(sentences[i])
-            full_l.append(label)
-        for i, l in enumerate(domains):
-            if l in domain_dico:
-                domain = domain_dico[l]
-            else:
-                try :
-                    if math.isnan(l):
-                        domain = 0
-                except: f"get_data_aug : Domain {l} not recognized at line {i}"
-            full_d.append(domain)
-    return full_s, full_l, full_d
+        return sentences, labels
+    elif typ == "dom":
+        df = pd.read_csv('./docs/csv/dom/data_aug/dom_aug_cleaned.csv')
+        sentences = df['PAROLES'].to_list()
+        labels = df['Domaine'].to_list()
+        return sentences, labels
+    else:
+        print("get_data_aug : Invalid type")
+        return
+
 
 def get_data_with_simp_labels(path = './docs/csv/csvsum.csv', shuffle = False):
     """
