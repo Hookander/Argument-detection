@@ -5,7 +5,7 @@ df = pd.read_csv('./docs/csv/arg_aug_trad.csv')
 columns = ['PAROLES', 'Dimension Dialogique','Domaine', 'Langue']
 csv = pd.DataFrame(columns=columns)
 
-sentences = df['PAROLES']
+sentences = df['N']
 labels = df['Dimension Dialogique']
 domains = df['Domaine']
 languages = df['Langue']
