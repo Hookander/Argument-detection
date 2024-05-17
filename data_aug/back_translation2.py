@@ -126,8 +126,11 @@ languages = {
 
 
 def do_data_aug(typ):
-    sentences_train, labels_train, sentences_test, labels_test = get_train_test(typ, use_data_aug = False)
+    #sentences_train, labels_train, sentences_test, labels_test = get_train_test(typ, use_data_aug = False)
     if typ == 'arg':
+        df = pd.read_csv('./docs/csv/arg/train_arg_only.csv')
+        sentences_train = df['PAROLES'].tolist()
+        labels_train = df['Dimension Dialogique'].tolist()
         columns = ['PAROLES', 'Dimension Dialogique', 'Langue']
         print("starting")
         arg_aug_trad_csv = pd.DataFrame(columns=columns)
@@ -144,10 +147,14 @@ def do_data_aug(typ):
                     arg_aug_trad_csv = arg_aug_trad_csv._append({'PAROLES': translated, 'Dimension Dialogique': labels_train[i], 'Langue': language}, ignore_index=True)
             print(i/len(sentences_train)*100)
 
-        arg_aug_trad_csv.to_csv('./docs/csv/arg/data_aug/arg_aug.csv')
+            arg_aug_trad_csv.to_csv('./docs/csv/arg/data_aug/arg_aug.csv')
 
     
     elif typ == 'dom':
+        df = pd.read_csv('./docs/csv/dom/train_dom_only.csv')
+        sentences_train = df['PAROLES'].tolist()
+        labels_train = df['Domaine'].tolist()
+
         columns = ['PAROLES', 'Domaine', 'Langue']
         print("starting")
         dom_aug_trad_csv = pd.DataFrame(columns=columns)
@@ -164,7 +171,7 @@ def do_data_aug(typ):
                     dom_aug_trad_csv = dom_aug_trad_csv._append({'PAROLES': translated, 'Domaine': labels_train[i], 'Langue': language}, ignore_index=True)
             print(i/len(sentences_train)*100)
 
-        dom_aug_trad_csv.to_csv('./docs/csv/dom/data_aug/dom_aug.csv')
-
+            dom_aug_trad_csv.to_csv('./docs/csv/dom/data_aug/dom_aug.csv')
 
 do_data_aug('arg')
+do_data_aug('dom')
