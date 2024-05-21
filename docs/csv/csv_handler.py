@@ -224,7 +224,7 @@ def get_train_test(typ, use_data_aug = True):
         return
 
     if use_data_aug:
-        sentences_aug, labels_aug, domains_aug = get_data_aug(typ)
+        sentences_aug, labels_aug = get_data_aug(typ)
         sentences_train += sentences_aug
         labels_train += labels_aug
     

@@ -18,9 +18,9 @@ class DomModel(Model):
     def get_dico(self):
         return domain_dico
     
-    def train_model(self, batch_size, patience, max_epochs, test = True, ratio = [0.8, 0.1], wandb = True, save = False, data_aug = True):
+    def train_model(self, batch_size, max_epochs, test = True, wandb = True, save = False, data_aug = True):
         
-        return super().train_model('dom', batch_size, patience, max_epochs, test, ratio, wandb, save, data_aug)
+        return super().train_model('dom', batch_size, max_epochs, test, wandb, save, data_aug)
 
 sweep_config = {
     "method": "random",
@@ -45,7 +45,6 @@ def sweep(count):
         lr = config['lr']
         batch_size = config['batch_size']
         weight_decay = config['weight_decay']
-        patience = config['patience']
         model_name = config['model_name']
         data_aug = config['data_aug']
 
@@ -59,7 +58,7 @@ def sweep(count):
     main()
 
 m = DomModel("camembert/camembert-large", 5e-6, 0)
-m.train_model(32, 30, 200, True, [0.7, 0.2], True, False, True)
+m.train_model(32, 1, test=True, wandb=True, save = True, data_aug = True)
 
 
 #sweep(60)

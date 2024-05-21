@@ -159,7 +159,7 @@ class Model(pl.LightningModule, ABC):
                 )
         return trainer
     
-    def get_trainer(self, max_epochs, wandb = True):
+    def get_trainer2(self, max_epochs, wandb = True):
         if wandb:
             wb_logger = WandbLogger(project="camembert_"+self.typ)
             wb_logger.experiment.config['model_name'] = self.model_name
@@ -173,9 +173,10 @@ class Model(pl.LightningModule, ABC):
                 max_epochs=max_epochs,
                 enable_progress_bar = False
             )
+        return trainer
     def train_model(self, typ, batch_size=16, max_epochs = 50, test = True, wandb = True, save = False, data_aug = True):
 
-        trainer = self.get_trainer(save, max_epochs, wandb)
+        trainer = self.get_trainer2(max_epochs, wandb)
 
         train_dl, test_dl = get_dataloaders(typ, data_aug, batch_size=batch_size)
 

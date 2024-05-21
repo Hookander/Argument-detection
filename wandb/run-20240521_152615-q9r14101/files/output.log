@@ -1,0 +1,16 @@
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Traceback (most recent call last):
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/./CamemBERT/arg_model.py", line 60, in <module>
+    model.train_model(16, 50, test = True, wandb = True, save = False)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/./CamemBERT/arg_model.py", line 22, in train_model
+    super().train_model('arg', batch_size, max_epochs, test, wandb, save, data_aug)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/model.py", line 180, in train_model
+    train_dl, test_dl = get_dataloaders(typ, data_aug, batch_size=batch_size)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/data_handler.py", line 96, in get_dataloaders
+    sentences_train, labels_train, sentences_test, labels_test = get_train_test(typ, use_data_aug = use_data_aug)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/./docs/csv/csv_handler.py", line 227, in get_train_test
+    sentences_aug, labels_aug, domains_aug = get_data_aug(typ)
+ValueError: not enough values to unpack (expected 3, got 2)

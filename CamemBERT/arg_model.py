@@ -17,9 +17,9 @@ class ArgModel(Model):
     def get_dico(self):
         return arg_dico
     
-    def train_model(self, batch_size, patience, max_epochs, test = True, wandb = True, save = False, data_aug = True):
+    def train_model(self, batch_size, max_epochs, test = True, wandb = True, save = False, data_aug = True):
         
-        super().train_model('arg', batch_size, patience, max_epochs, test, wandb, save, data_aug)
+        super().train_model('arg', batch_size, max_epochs, test, wandb, save, data_aug)
 
 sweep_config = {
     "method": "random",
@@ -57,6 +57,6 @@ def sweep(count):
     main()
 
 model = ArgModel('camembert-base', 5e-5, 0, False)
-model.train_model(16, 50, test = True, wandb = True, save = False)
+model.train_model(16, 2, test = True, wandb = True, save = False)
 
 #sweep(60)
