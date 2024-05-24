@@ -56,7 +56,7 @@ def sweep(count):
         wandb.agent(sweep_id, function=get_test_f1, count=count)
     main()
 
-model = ArgModel('camembert-base', 5e-5, 0, False)
-model.train_model(16, 2, test = True, wandb = True, save = False)
+model = ArgModel('camembert-base', 5e-6, 0, False)
+model.train_model(16, 50, test = True, wandb = True, save = True)
 
 #sweep(60)

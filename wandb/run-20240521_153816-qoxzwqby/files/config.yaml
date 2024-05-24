@@ -53,6 +53,14 @@ _wandb:
       5: 1
       6:
       - 1
+    - 1: test/acc
+      5: 1
+      6:
+      - 1
+    - 1: test/f1
+      5: 1
+      6:
+      - 1
 model_name:
   desc: null
   value: camembert/camembert-large

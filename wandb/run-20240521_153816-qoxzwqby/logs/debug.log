@@ -28,3 +28,5 @@ config: {}
 2024-05-21 15:38:16,997 INFO    MainThread:2630334 [wandb_config.py:__setitem__():151] config set model_name = camembert/camembert-large - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x7f10ea0719c0>>
 2024-05-21 15:38:16,997 INFO    MainThread:2630334 [wandb_run.py:_config_callback():1343] config_cb model_name camembert/camembert-large None
 2024-05-21 15:38:19,441 INFO    MainThread:2630334 [wandb_run.py:_config_callback():1343] config_cb None None {'model_name': 'camembert/camembert-large', 'num_labels': 21, 'lr': 5e-06, 'weight_decay': 0, 'typ': 'dom', 'from_scratch': False, 'wd': 0}
+2024-05-21 15:54:53,896 INFO    MainThread:2630334 [wandb_run.py:_config_callback():1343] config_cb None None {'model_name': 'camembert/camembert-large', 'num_labels': 21, 'lr': 5e-06, 'weight_decay': 0, 'typ': 'dom', 'from_scratch': False, 'wd': 0}
+2024-05-21 15:55:02,263 WARNING MsgRouterThr:2630334 [router.py:message_loop():77] message_loop has been closed
