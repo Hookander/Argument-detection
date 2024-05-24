@@ -188,7 +188,7 @@ class Model(pl.LightningModule, ABC):
             return ret
 
         if save:
-            torch.save(self.model.state_dict(), f"./CamemBERT/models/{self.typ}/model.pt")
+            self.model.save_pretrained(f"./CamemBERT/models/{self.typ}/{self.typ}_model")
 
         return None
 

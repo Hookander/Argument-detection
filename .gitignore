@@ -1248,3 +1248,5 @@ wandb/run-20240521_153816-qoxzwqby/logs/debug-internal.log
 wandb/run-20240521_153816-qoxzwqby/logs/debug.log
 camembert_arg/1p4boy71/checkpoints/epoch=1-step=1884.ckpt
 camembert_arg/1p4boy71/checkpoints/epoch=2-step=2826.ckpt
+CamemBERT/models/arg/arg_model/config.json
+CamemBERT/models/arg/arg_model/model.safetensors

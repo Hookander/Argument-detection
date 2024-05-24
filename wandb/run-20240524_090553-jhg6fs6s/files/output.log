@@ -1,0 +1,42 @@
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python CamemBERT/inference.py ...
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python CamemBERT/inference.py ...
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:74: You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.
+  | Name  | Type                               | Params
+-------------------------------------------------------------
+0 | model | CamembertForSequenceClassification | 336 M
+-------------------------------------------------------------
+336 M     Trainable params
+0         Non-trainable params
+336 M     Total params
+1,346.732 Total estimated model params size (MB)
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=127` in the `DataLoader` to improve performance.
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/autograd/__init__.py:266: UserWarning: CUDA initialization: CUDA unknown error - this may be due to an incorrectly set up environment, e.g. changing env variable CUDA_VISIBLE_DEVICES after program start. Setting the available devices to be zero. (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:108.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py:54: Detected KeyboardInterrupt, attempting graceful shutdown...
+/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=127` in the `DataLoader` to improve performance.
+Some weights of CamembertForSequenceClassification were not initialized from the model checkpoint at camembert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/inference.py", line 20, in <module>
+    arg_inference('camembert_arg/51dbsetx/checkpoints/epoch=49-step=47100.ckpt', ['Je suis d\'accord avec toi', 'Je suis pas d\'accord avec toi'])
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/inference.py", line 13, in arg_inference
+    model.load_state_dict(torch.load(path))
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/serialization.py", line 1026, in load
+    return _load(opened_zipfile,
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/serialization.py", line 1438, in _load
+    result = unpickler.load()
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/serialization.py", line 1408, in persistent_load
+    typed_storage = load_tensor(dtype, nbytes, key, _maybe_decode_ascii(location))
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/serialization.py", line 1382, in load_tensor
+    wrap_storage=restore_location(storage, location),
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/serialization.py", line 391, in default_restore_location
+    result = fn(storage, location)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/serialization.py", line 266, in _cuda_deserialize
+    device = validate_cuda_device(location)
+  File "/raid/home/automatants/martin_bal/PoleProj/Argument-detection/.venv/lib/python3.10/site-packages/torch/serialization.py", line 250, in validate_cuda_device
+    raise RuntimeError('Attempting to deserialize object on a CUDA '
+RuntimeError: Attempting to deserialize object on a CUDA device but torch.cuda.is_available() is False. If you are running on a CPU-only machine, please use torch.load with map_location=torch.device('cpu') to map your storages to the CPU.
