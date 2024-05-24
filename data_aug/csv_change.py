@@ -24,7 +24,8 @@ def clean_csv():
             if df.loc[j, 'Langue'] == 'zu':
                 break
         if not double:
-            csv = csv._append(row, ignore_index=True)    csv.to_csv('./docs/csv/clean_arg_aug_trad.csv')
+            csv = csv._append(row, ignore_index=True)    
+    csv.to_csv('./docs/csv/clean_arg_aug_trad.csv')
 
 
 def change_labels_named_from_id(path):
@@ -67,6 +68,15 @@ def remove_duplicatas(in_path, out_path):
 
         new_df.to_csv(out_path)
 
-#remove_duplicatas('./docs/csv/arg/data_aug/arg_aug.csv', './docs/csv/arg/data_aug/arg_aug_cleaned.csv')
-#remove_duplicatas('./docs/csv/dom/data_aug/dom_aug.csv', './docs/csv/dom/data_aug/dom_aug_cleaned.csv')
-#change_labels_named_from_id('./docs/csv/clean_arg_aug_trad.csv')
+def reduce_csv(path, n):
+    df = pd.read_csv(path)
+    new_df = pd.DataFrame(columns=['PAROLES', 'Dimension Dialogique', 'Domaine', 'Langue'])
+    li = df['Langue'].tolist()[0:n]
+    print(li)
+    for i,row in df.iterrows():
+        if row['Langue'] in li:
+            new_df = new_df._append(row, ignore_index=True)
+    new_df.to_csv('./docs/csv/arg_aug_trad_reduced.csv')
+
+reduce_csv('./docs/csv/arg_aug_trad_named.csv',10)
+        
