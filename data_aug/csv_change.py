@@ -9,7 +9,7 @@ def clean_csv():
     columns = ['PAROLES', 'Dimension Dialogique','Domaine', 'Langue']
     csv = pd.DataFrame(columns=columns)
 
-    sentences = df['PAROLES']
+    sentences = df['N']
     labels = df['Dimension Dialogique']
     domains = df['Domaine']
     languages = df['Langue']
@@ -24,8 +24,8 @@ def clean_csv():
             if df.loc[j, 'Langue'] == 'zu':
                 break
         if not double:
-            csv = csv._append(row, ignore_index=True)
-    csv.to_csv('./docs/csv/clean_arg_aug_trad.csv')
+            csv = csv._append(row, ignore_index=True)    csv.to_csv('./docs/csv/clean_arg_aug_trad.csv')
+
 
 def change_labels_named_from_id(path):
     df = pd.read_csv(path)
