@@ -2,7 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
 import pytorch_lightning as pl
-from transformers import AutoModelForSequenceClassification, FlaubertModel, AutoTokenizer, AutoConfig
+from transformers import AutoModelForSequenceClassification, AutoTokenizer, AutoConfig
 from datasets import load_dataset
 from sklearn.metrics import confusion_matrix, f1_score
 from sklearn.manifold import TSNE
@@ -187,8 +187,6 @@ class Model(pl.LightningModule, ABC):
             #see_results(self, test_dl, self.get_dico(self.typ))
             return ret
 
-        if save:
-            self.model.save_pretrained(f"./CamemBERT/models/{self.typ}/{self.typ}_model")
 
         return None
 

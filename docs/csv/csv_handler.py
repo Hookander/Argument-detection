@@ -5,16 +5,36 @@ import math
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split # Import train_test_split function
 
-#! DO NOT CHANGE
+#! DO NOT CHANGE THIS
 domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3, 'faisabilité': 4, 'esthétique': 5,
                     'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 10,
                     'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 14, 'écologique': 15,
                     'praticité': 16, 'économique': 17, 'agréabilité': 18, 'taille': 19, 'relations sociales': 20}
 
-domain_dico_new = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 1, 'éthique': 2, 'faisabilité': 3, 'esthétique': 5,
-                    'organisation': 4, 'liberté': 11, 'partage': 12, 'engagement': 11, 'équité': 2,
-                    'climatique': 6, 'confiance': 7, 'nuisance': 8, 'acceptabilité': 3, 'écologique': 6,
-                    'praticité': 1, 'économique': 9, 'agréabilité': 1, 'taille': 4, 'relations sociales': 10}
+# We group the domains into 11 groups to simplify the classification
+groups = {"praticite" : 1, "ethique" : 2, "acceptabilite" : 3, "taille" : 4, "esthetique" : 5, "ecologique" : 6, "confiance":7, "nuisance":8, "economique":9, "relations sociales":10, "engagement":11}
+
+domain_dico_new = {0 : 0, 
+1 : groups["praticite"], 
+2 : groups["praticite"], 
+3: groups["ethique"], 
+4: groups["acceptabilite"], 
+5: groups["esthetique"],
+6: groups["taille"], 
+7: groups["engagement"], 
+8: groups["ethique"], 
+9: groups["engagement"], 
+10: groups["ethique"],
+11: groups["ecologique"],
+12: groups["confiance"],
+13: groups["nuisance"],
+14: groups["acceptabilite"],
+15: groups["ecologique"],
+16: groups["praticite"],
+17: groups["economique"],
+18: groups["esthetique"],
+19: groups["taille"],
+20: groups["relations sociales"]}
 
 arg_dico = {'Nothing/nan' : 0, 'Arg_fact': 1, 'Arg_value': 2}
 
@@ -82,12 +102,12 @@ def get_data_aug(typ):
         (already simplified labels so we can't use get_data_with_simp_labels)
     """
     if typ == "arg":
-        df = pd.read_csv('./docs/csv/arg/data_aug/arg_aug_cleaned.csv')
+        df = pd.read_csv('./docs/csv/arg/data_aug/arg_aug_cleaned_reduced.csv')
         sentences = df['PAROLES'].to_list()
         labels = df['Dimension Dialogique'].to_list()
         return sentences, labels
     elif typ == "dom":
-        df = pd.read_csv('./docs/csv/dom/data_aug/dom_aug_cleaned.csv')
+        df = pd.read_csv('./docs/csv/dom/data_aug/dom_aug_cleaned_reduced.csv')
         sentences = df['PAROLES'].to_list()
         labels = df['Domaine'].to_list()
         return sentences, labels
@@ -227,6 +247,14 @@ def get_train_test(typ, use_data_aug = True):
         sentences_aug, labels_aug = get_data_aug(typ)
         sentences_train += sentences_aug
         labels_train += labels_aug
+
+    if typ == 'dom':
+        # We use the groups made in the beginning to simplify the classification
+        for i,l in enumerate(labels_train):
+            labels_train[i] = domain_dico_new[l]
+        for i,l in enumerate(labels_test):
+            labels_test[i] = domain_dico_new[l]
+
     
     return sentences_train, labels_train, sentences_test, labels_test
 

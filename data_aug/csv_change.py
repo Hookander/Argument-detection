@@ -76,7 +76,7 @@ def reduce_csv(path, n):
     for i,row in df.iterrows():
         if row['Langue'] in li:
             new_df = new_df._append(row, ignore_index=True)
-    new_df.to_csv('./docs/csv/arg_aug_trad_reduced.csv')
+    new_df.to_csv('./docs/csv/dom/data_aug/dom_aug_cleaned_reduced.csv')
 
-reduce_csv('./docs/csv/arg_aug_trad_named.csv',10)
+reduce_csv('./docs/csv/dom/data_aug/dom_aug_cleaned.csv',10)
         

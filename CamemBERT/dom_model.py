@@ -20,7 +20,11 @@ class DomModel(Model):
     
     def train_model(self, batch_size, max_epochs, test = True, wandb = True, save = False, data_aug = True):
         
-        return super().train_model('dom', batch_size, max_epochs, test, wandb, save, data_aug)
+        super().train_model('dom', batch_size, max_epochs, test, wandb, save, data_aug)
+
+        if save:
+            self.model.save_pretrained(f"./CamemBERT/models/dom/dom_model_large")
+        
 
 sweep_config = {
     "method": "random",
@@ -58,7 +62,7 @@ def sweep(count):
     main()
 
 m = DomModel("camembert/camembert-large", 5e-6, 0)
-m.train_model(32, 1, test=True, wandb=True, save = True, data_aug = True)
+m.train_model(8, 80, test=True, wandb=True, save = True, data_aug = True)
 
 
 #sweep(60)

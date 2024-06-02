@@ -2,6 +2,7 @@ from model import *
 from arg_model import ArgModel
 from dom_model import DomModel
 import lightning
+
 """
 
 [s1, s2, ...]
