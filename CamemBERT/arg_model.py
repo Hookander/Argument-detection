@@ -15,7 +15,7 @@ class ArgModel(Model):
 
 
     def get_dico(self):
-        return arg_dico
+        return arg_dico_rev
     
     def train_model(self, batch_size, max_epochs, test = True, wandb = True, save = False, data_aug = True):
         
@@ -58,7 +58,7 @@ def sweep(count):
         wandb.agent(sweep_id, function=get_test_f1, count=count)
     main()
 
-model = ArgModel('camembert/camembert-large', 5e-7, 0, False)
-model.train_model(8, 70, test = True, wandb = True, save = True, data_aug = True)
+#model = ArgModel('camembert/camembert-large', 5e-7, 0, False)
+#model.train_model(8, 70, test = True, wandb = True, save = True, data_aug = True)
 
 #sweep(60)

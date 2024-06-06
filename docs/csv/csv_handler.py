@@ -10,10 +10,16 @@ domain_dico = {'Nothing/nan' : 0, 'efficacité': 1, 'utilité': 2, 'éthique': 3
                     'organisation': 6, 'liberté': 7, 'partage': 8, 'engagement': 9, 'équité': 10,
                     'climatique': 11, 'confiance': 12, 'nuisance': 13, 'acceptabilité': 14, 'écologique': 15,
                     'praticité': 16, 'économique': 17, 'agréabilité': 18, 'taille': 19, 'relations sociales': 20}
+arg_dico = {'Nothing/nan' : 0, 'Arg_fact': 1, 'Arg_value': 2}
+
 
 # We group the domains into 11 groups to simplify the classification
-groups = {"praticite" : 1, "ethique" : 2, "acceptabilite" : 3, "taille" : 4, "esthetique" : 5, "ecologique" : 6, "confiance":7, "nuisance":8, "economique":9, "relations sociales":10, "engagement":11}
+groups = {"Nothing" : 0, "praticite" : 1, "ethique" : 2, "acceptabilite" : 3, "taille" : 4, "esthetique" : 5, "ecologique" : 6, "confiance":7, "nuisance":8, "economique":9, "relations sociales":10, "engagement":11}
 
+arg_dico_rev = {0 : 'Nothing', 1 : 'FAIT', 2 : 'VALEUR'} # Reverse the dictionnary for the inference
+groups_dom_rev = {v: k for k, v in groups.items()} # Reverse the dictionnary for the inference
+
+# We create a new dictionnary with the new groups, to simplify the classification
 domain_dico_new = {0 : 0, 
 1 : groups["praticite"], 
 2 : groups["praticite"], 
@@ -36,7 +42,8 @@ domain_dico_new = {0 : 0,
 19: groups["taille"],
 20: groups["relations sociales"]}
 
-arg_dico = {'Nothing/nan' : 0, 'Arg_fact': 1, 'Arg_value': 2}
+
+
 
 def concat_all_csv(path = './docs/csv/csvsum.csv'):
     """

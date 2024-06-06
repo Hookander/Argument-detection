@@ -3,20 +3,13 @@ from arg_model import ArgModel
 from dom_model import DomModel
 import lightning
 
-"""
-
-[s1, s2, ...]
-
---> [(0, 0), (1, 2), ...]
-
-"""
 def arg_inference(sentences, path = "./CamemBERT/models/arg/arg_model"):
 
     sentences = tokenize_sentences(sentences)
     dataset = Dataset.from_dict(sentences).with_format("torch")
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
 
-    print("done dl")
+    print("arg - one dataloader")
     device = torch.device("cpu")
     model = ArgModel(path, 5e-6, 0, True)
     
@@ -24,16 +17,18 @@ def arg_inference(sentences, path = "./CamemBERT/models/arg/arg_model"):
     
     with torch.no_grad():
         predictions = trainer.predict(model, dataloaders=dataloader)
-    print(predictions)
+    
+
     preds = torch.concatenate(predictions).tolist()
     print(preds)
+    return preds, model.get_dico()
 
-def dom_inference(sentences, path = "./CamemBERT/models/dom/dom_model"):
+def dom_inference(sentences, path = "./CamemBERT/models/dom/dom_model_base2"):
     sentences = tokenize_sentences(sentences)
     dataset = Dataset.from_dict(sentences).with_format("torch")
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
 
-    print("done dl")
+    print("dom - done dataloader")
     device = torch.device("cpu")
     model = DomModel(path, 5e-6, 0, True)
     
@@ -41,12 +36,14 @@ def dom_inference(sentences, path = "./CamemBERT/models/dom/dom_model"):
     
     with torch.no_grad():
         predictions = trainer.predict(model, dataloaders=dataloader)
-    print(predictions)
+
     preds = torch.concatenate(predictions).tolist()
     print(preds)
+    return preds, model.get_dico()
 
 def inference(sentences):
-    arg = arg_inference(sentences)
+
+    arg, arg_dico = arg_inference(sentences)
 
     # We only check the domains if the argument is not 0
     # So we need to filter the sentences and store the indexes
@@ -56,16 +53,16 @@ def inference(sentences):
         if arg[i] != 0:
             filtered_sentences.append(sentences[i])
             indexes.append(i)
-    dom = dom_inference(filtered_sentences)
+    dom, groups_dom_rev = dom_inference(filtered_sentences)
     dom_preds = [0 for i in range(len(sentences))]
     for i in range(len(indexes)):
         dom_preds[indexes[i]] = dom[i]
     
     output = [(arg[i], dom_preds[i]) for i in range(len(arg))]
-
-    #! need to convert to strings 
+    output = [(arg_dico[arg], dom) for arg, dom in output]
+    output = [(arg, groups_dom_rev[dom]) for arg, dom in output]
 
     return output
     
 
-arg_inference(['Je pense que oui car il rendrait le projet plus acceptable', 'Je suis pas d\'accord avec toi'])
+print(inference(['Oui car il rendrait le projet plus acceptable écologiquement', 'Je suis pas d\'accord avec toi']))

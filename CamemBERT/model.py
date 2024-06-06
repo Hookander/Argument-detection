@@ -184,7 +184,7 @@ class Model(pl.LightningModule, ABC):
 
         if test:
             ret = trainer.test(model = self, dataloaders=test_dl)
-            #see_results(self, test_dl, self.get_dico(self.typ))
+            
             return ret
 
 

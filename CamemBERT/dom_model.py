@@ -16,14 +16,14 @@ class DomModel(Model):
 
 
     def get_dico(self):
-        return domain_dico
+        return groups_dom_rev
     
     def train_model(self, batch_size, max_epochs, test = True, wandb = True, save = False, data_aug = True):
         
         super().train_model('dom', batch_size, max_epochs, test, wandb, save, data_aug)
 
         if save:
-            self.model.save_pretrained(f"./CamemBERT/models/dom/dom_model_large")
+            self.model.save_pretrained(f"./CamemBERT/models/dom/dom_model_large4")
         
 
 sweep_config = {
@@ -61,8 +61,8 @@ def sweep(count):
         wandb.agent(sweep_id, function=get_test_f1, count=count)
     main()
 
-m = DomModel("camembert/camembert-large", 5e-6, 0)
-m.train_model(8, 80, test=True, wandb=True, save = True, data_aug = True)
+#m = DomModel("camembert/camembert-large", 1e-5, 0)
+#m.train_model(8, 70, test=True, wandb=True, save = True, data_aug = True)
 
 
 #sweep(60)

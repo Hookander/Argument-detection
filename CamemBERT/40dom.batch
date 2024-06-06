@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 #SBATCH --job-name=dom
-#SBATCH --output=/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/logs/20out.out
-#SBATCH --error=/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/logs/20err.err
+#SBATCH --output=/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/logs/40out.out
+#SBATCH --error=/raid/home/automatants/martin_bal/PoleProj/Argument-detection/CamemBERT/logs/40err.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=scrapypi@gmail.com
 
