@@ -1,7 +1,8 @@
 from model import *
 from arg_model import ArgModel
 from dom_model import DomModel
-import lightning
+from data_handler import *
+
 
 def arg_inference(sentences, path = "./CamemBERT/models/arg/arg_model"):
 
@@ -13,7 +14,7 @@ def arg_inference(sentences, path = "./CamemBERT/models/arg/arg_model"):
     device = torch.device("cpu")
     model = ArgModel(path, 5e-6, 0, True)
     
-    trainer = model.get_trainer(save=False, max_epochs=1, patience=1, wandb=False)
+    trainer = pl.Trainer(logger = False)
     
     with torch.no_grad():
         predictions = trainer.predict(model, dataloaders=dataloader)
@@ -23,7 +24,7 @@ def arg_inference(sentences, path = "./CamemBERT/models/arg/arg_model"):
     print(preds)
     return preds, model.get_dico()
 
-def dom_inference(sentences, path = "./CamemBERT/models/dom/dom_model_base2"):
+def dom_inference(sentences, path = "./CamemBERT/models/dom/dom_model_base3"):
     sentences = tokenize_sentences(sentences)
     dataset = Dataset.from_dict(sentences).with_format("torch")
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
@@ -32,7 +33,7 @@ def dom_inference(sentences, path = "./CamemBERT/models/dom/dom_model_base2"):
     device = torch.device("cpu")
     model = DomModel(path, 5e-6, 0, True)
     
-    trainer = model.get_trainer(save=False, max_epochs=1, patience=1, wandb=False)
+    trainer = pl.Trainer(logger = False)
     
     with torch.no_grad():
         predictions = trainer.predict(model, dataloaders=dataloader)

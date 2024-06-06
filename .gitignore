@@ -1400,3 +1400,4 @@ wandb/run-20240524_092152-5co0ey7m/logs/debug-internal.log
 wandb/run-20240524_092152-5co0ey7m/logs/debug.log
 CamemBERT/models/dom/dom_model_base3/config.json
 CamemBERT/models/dom/dom_model_base3/model.safetensors
+CamemBERT/models/.DS_Store
