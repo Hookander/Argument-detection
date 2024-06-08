@@ -21,7 +21,7 @@ def arg_inference(sentences, path = "./models/arg/arg_model"):
     
 
     preds = torch.concatenate(predictions).tolist()
-    print(preds)
+    
     return preds, model.get_dico()
 
 def dom_inference(sentences, path = "./models/dom/dom_model_base3"):
@@ -39,7 +39,7 @@ def dom_inference(sentences, path = "./models/dom/dom_model_base3"):
         predictions = trainer.predict(model, dataloaders=dataloader)
 
     preds = torch.concatenate(predictions).tolist()
-    print(preds)
+    
     return preds, model.get_dico()
 
 def inference(sentences):
