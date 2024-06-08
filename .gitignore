@@ -2,6 +2,9 @@ CamemBERT/models/camembert-base/dict.txt
 CamemBERT/models/camembert-base/LICENSE
 CamemBERT/models/camembert-base/model.pt
 CamemBERT/models/camembert-base/sentencepiece.bpe.model
+models/*
+CamemBERT/*
+.venv/*
 lightning_logs/version_0/hparams.yaml
 lightning_logs/version_1/hparams.yaml
 lightning_logs/version_2/hparams.yaml
