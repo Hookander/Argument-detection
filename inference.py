@@ -4,7 +4,7 @@ from dom_model import DomModel
 from data_handler import *
 
 
-def arg_inference(sentences, path = "./CamemBERT/models/arg/arg_model"):
+def arg_inference(sentences, path = "./models/arg/arg_model"):
 
     sentences = tokenize_sentences(sentences)
     dataset = Dataset.from_dict(sentences).with_format("torch")
@@ -24,7 +24,7 @@ def arg_inference(sentences, path = "./CamemBERT/models/arg/arg_model"):
     print(preds)
     return preds, model.get_dico()
 
-def dom_inference(sentences, path = "./CamemBERT/models/dom/dom_model_base3"):
+def dom_inference(sentences, path = "./models/dom/dom_model_base3"):
     sentences = tokenize_sentences(sentences)
     dataset = Dataset.from_dict(sentences).with_format("torch")
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)

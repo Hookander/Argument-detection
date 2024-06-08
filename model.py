@@ -4,15 +4,9 @@ import torch.nn.functional as F
 import pytorch_lightning as pl
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, AutoConfig
 from datasets import load_dataset
-from sklearn.metrics import confusion_matrix, f1_score
-from sklearn.manifold import TSNE
-import plotly.express as px
+from sklearn.metrics import f1_score
 from pytorch_lightning.loggers import WandbLogger
-
-import sys
-from results import *
 from data_handler import *
-sys.path.append('./docs/csv') # not clean but ok for now
 from csv_handler import *
 from abc import ABC, abstractmethod
 
