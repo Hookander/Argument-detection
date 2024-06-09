@@ -1401,3 +1401,8 @@ wandb/run-20240524_092152-5co0ey7m/logs/debug.log
 CamemBERT/models/dom/dom_model_base3/config.json
 CamemBERT/models/dom/dom_model_base3/model.safetensors
 CamemBERT/models/.DS_Store
+models/.DS_Store
+models/arg/arg_model/config.json
+models/arg/arg_model/model.safetensors
+models/dom/dom_model_base3/config.json
+models/dom/dom_model_base3/model.safetensors
