@@ -190,6 +190,8 @@ def create_train_test_csv(path, typ, ratio = 0.7):
      Creates 2 separated csv files (train/test) to allow us to do some data_augmentation on the train ONLY
      (doing it on the test creates overfitting)
 
+     To call only once to create the files, after it becomes useless
+
     """
 
     sentences, labels, domains = get_data_with_simp_labels(path)
@@ -226,7 +228,6 @@ def create_train_test_csv(path, typ, ratio = 0.7):
         df_train.to_csv('./docs/csv/dom/train_dom.csv')
         df_test.to_csv('./docs/csv/dom/test_dom.csv')
 
-#create_train_test_csv('./docs/csv/csvsum.csv', 'arg')
 
 def get_train_test(typ, use_data_aug = True):
     if typ == 'arg':
@@ -269,6 +270,8 @@ def get_train_test(typ, use_data_aug = True):
 def plot_data_distribution(typ, remove_nothing = True, data_aug = True):
     """
         typ = 'arg' or 'dom'
+
+        Plots the distribution to check for inequalities
     """
     if typ == 'arg':
         i = 1
@@ -332,8 +335,7 @@ def create_arg_augmented_csv(in_txt_file, arg_only_path = './docs/csv/arg_only_c
         domain = arg_df.loc[i]['Domaine']
         df_augmented = df_augmented._append({'PAROLES': line, 'Dimension Dialogique': arg_type, 'Domaine': domain}, ignore_index=True)
     df_augmented.to_csv(output_path)
-#create_arg_augmented_csv('./docs/csv/arg_augmented.txt')
-#create_arg_only_file()
+
 
 
 
