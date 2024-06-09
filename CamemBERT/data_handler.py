@@ -20,8 +20,7 @@ def tokenize_sentences(sentences, tokenizer = tokenizer):
 
 def get_labels_from_ratio(labels, ratio = [0.7, 0.15]):
     """
-    #! OUTDATED ?
-
+     -- outdated -- 
     Args:
         labels (np list): the labels
         ratio (list, optional): The repartition between the train/validation/test. Defaults to [0.7, 0.15]. 
@@ -68,6 +67,12 @@ def get_equal_distribution(sentences, labels, ratio = [0.8, 0.1]):
     return train_dict, val_dict, test_dict
 
 def get_labels(typ, sentences, arg_types, domains):
+
+    """
+        -- outdated -- 
+        donne les bons labels en enlevant les phrases non argument si on veut les domaines
+        (car dans ce cas on n'essaie pas de les trouver)
+    """
     if typ == 'arg':
         labels = arg_types
     elif typ == 'dom':
@@ -83,14 +88,10 @@ def get_labels(typ, sentences, arg_types, domains):
     return labels
 
 def get_dataloaders(typ, use_data_aug = True, batch_size = 16):
-    """_summary_
+    """
 
-    Args:
-        sentences (Dict): the tokenized sentences with the padding and the attention mask
-        labels (np list): the labels
-        batch_size (int, optional): _description_. Defaults to 16.
-        ratio (list, optional): The repartition between the train/validation/test. Defaults to [0.7, 0.15]. 
-                    The rest is for the test set.
+    Renvoie les dataloaders d'entrainement et de test en foncion du type, et de si on veut 
+    utiliser la data-augmentation
 
     """
     sentences_train, labels_train, sentences_test, labels_test = get_train_test(typ, use_data_aug = use_data_aug)
@@ -116,6 +117,3 @@ def get_dataloaders(typ, use_data_aug = True, batch_size = 16):
     
     return train_dl, test_dl
 
-
-#get_dataloaders('arg', False, 16)
-#get_dataloaders('dom', False, 16, ratio = [0.7,0.1])

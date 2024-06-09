@@ -4,17 +4,16 @@ import torch.nn.functional as F
 import pytorch_lightning as pl
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, AutoConfig
 from datasets import load_dataset
-from sklearn.metrics import confusion_matrix, f1_score
-from sklearn.manifold import TSNE
-import plotly.express as px
+from sklearn.metrics import f1_score
 from pytorch_lightning.loggers import WandbLogger
 
 import sys
 from results import *
 from data_handler import *
-sys.path.append('./docs/csv') # not clean but ok for now
+sys.path.append('./docs/csv')
 from csv_handler import *
 from abc import ABC, abstractmethod
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -86,7 +85,7 @@ class Model(pl.LightningModule, ABC):
         self.log("valid/f1", f1)
 
     def predict_step(self, batch, batch_idx):
-        """La fonction predict step facilite la prédiction de données. Elle est 
+        """La fonction predict step est pour la prédiction de données. Elle est 
         similaire à `validation_step`, sans le calcul des métriques.
         """
         out = self.forward(batch)
@@ -111,56 +110,9 @@ class Model(pl.LightningModule, ABC):
         f1 = f1_score(test_batch["labels"].cpu().tolist(), preds.cpu().tolist(), average="macro")
         self.log("test/f1", f1)
 
-    def get_trainer(self, save, max_epochs, patience, wandb = True):
-        if self.typ == 'arg':
-            monitor = "valid/f1"
-        elif self.typ == 'dom':
-            monitor = "valid/acc"
-        if save:
-            model_checkpoint = pl.callbacks.ModelCheckpoint(monitor=monitor, mode="max")
-            if wandb:
-                wb_logger = WandbLogger(project="camembert_"+self.typ)
-                wb_logger.experiment.config['model_name'] = self.model_name
-                trainer = pl.Trainer(
-                    max_epochs=max_epochs,
-                    callbacks=[
-                        model_checkpoint,
-                    ],
-                    logger = wb_logger,
-                    enable_progress_bar = False
-                )
-            else:
-                trainer = pl.Trainer(
-                    max_epochs=max_epochs,
-                    callbacks=[
-                        model_checkpoint,
-                    ],
-                    enable_progress_bar = False
-                )
-        else:
-            if wandb:
-                wb_logger = WandbLogger(project="camembert_"+self.typ)
-                wb_logger.experiment.config['model_name'] = self.model_name
-                trainer = pl.Trainer(
-                    max_epochs=max_epochs,
-                    callbacks=[
-                        pl.callbacks.EarlyStopping(monitor=monitor, patience=patience, mode="max"),
-                    ],
-                    logger = wb_logger,
-                    enable_progress_bar = False
-                )
-            else:
-                trainer = pl.Trainer(
-                    max_epochs=max_epochs,
-                    callbacks=[
-                        pl.callbacks.EarlyStopping(monitor="monitor", patience=patience, mode="max"),
-                    ],
-                    enable_progress_bar = False
-                )
-        return trainer
-    
     def get_trainer2(self, max_epochs, wandb = True):
         if wandb:
+            # log en ligne les métriques et la loss
             wb_logger = WandbLogger(project="camembert_"+self.typ)
             wb_logger.experiment.config['model_name'] = self.model_name
             trainer = pl.Trainer(

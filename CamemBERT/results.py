@@ -11,7 +11,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def see_results(model, dataloader, dico, out_path = './CamemBERT/results.csv'):
     """
-        Affiche les résultats du modèle sur le jeu de données de validation
+        Donne un csv avec les résultats du modèle sur le jeu de données 
+
     """
     inv_dico = {dico[key]: key for key in dico}
 

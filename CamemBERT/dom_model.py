@@ -4,6 +4,8 @@ import wandb
 
 class DomModel(Model):
 
+    # Modèle de classification des arguments selon leur domaine
+
     def __init__(self, model_name, lr, wd, from_scratch=False):
 
         self.num_labels = len(self.get_dico())
@@ -41,6 +43,7 @@ sweep_config = {
 }
 
 def sweep(count):
+    # pour faire un swwep sur ce modèle
     wandb.login()
 
     def get_test_f1():

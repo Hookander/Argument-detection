@@ -3,6 +3,8 @@ import wandb
 
 
 class ArgModel(Model):
+    
+    # Modèle de classification des arguments
 
     def __init__(self, model_name, lr, wd, from_scratch=False):
 
@@ -37,6 +39,7 @@ sweep_config = {
 }
 
 def sweep(count):
+    # Pour faire un sweep sur le modèle
     wandb.login()
 
     def get_test_f1():

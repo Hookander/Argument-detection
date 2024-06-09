@@ -1,3 +1,5 @@
+import sys
+sys.path.append('./CamemBERT/')
 from model import *
 from arg_model import ArgModel
 from dom_model import DomModel
@@ -10,7 +12,6 @@ def arg_inference(sentences, path = "./models/arg/arg_model"):
     dataset = Dataset.from_dict(sentences).with_format("torch")
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
 
-    print("arg - one dataloader")
     device = torch.device("cpu")
     model = ArgModel(path, 5e-6, 0, True)
     
@@ -25,11 +26,11 @@ def arg_inference(sentences, path = "./models/arg/arg_model"):
     return preds, model.get_dico()
 
 def dom_inference(sentences, path = "./models/dom/dom_model_base3"):
+    
     sentences = tokenize_sentences(sentences)
     dataset = Dataset.from_dict(sentences).with_format("torch")
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
 
-    print("dom - done dataloader")
     device = torch.device("cpu")
     model = DomModel(path, 5e-6, 0, True)
     
@@ -66,4 +67,4 @@ def inference(sentences):
     return output
     
 
-#print(inference(['Oui car il rendrait le projet plus acceptable écologiquement', 'Je suis pas d\'accord avec toi']))
+print(inference(['Oui car il rendrait le projet plus acceptable écologiquement', 'Je suis pas d\'accord avec toi']))
